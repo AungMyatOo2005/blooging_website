@@ -1,0 +1,26 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+nav a.active{
+    color:#00f6ff;
+    border-bottom: 2px solid #00f6ff;
+}
+nav a{
+    position: relative;
+}
+nav a::after{
+    content: "";
+    position: absolute;
+    width:0;
+    height: 2px;
+    left: 0;
+    bottom: -1.2px;
+    background: #00f6ff;
+    transition: width 0.3s ease-in-out;
+}
+nav a:hover::after{
+    width: 100%;
+}
