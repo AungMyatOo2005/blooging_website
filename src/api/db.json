@@ -1,0 +1,228 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "username": "John",
+      "email": "user1@example.com",
+      "phone": "123-456-7890",
+      "password": "password1",
+      "profileUrl": "https://i.pinimg.com/736x/d6/59/d8/d659d82b69bbb26cde0bc53f4a50852e.jpg"
+    },
+    {
+      "id": 2,
+      "username": "Kelvin",
+      "email": "user2@example.com",
+      "phone": "234-567-8901",
+      "password": "password2",
+      "profileUrl": "https://i.pinimg.com/236x/ef/18/47/ef18473a556c0fad4e9879e57a210665.jpg"
+    },
+    {
+      "id": 3,
+      "username": "Chou",
+      "email": "user3@example.com",
+      "phone": "345-678-9012",
+      "password": "password3",
+      "profileUrl": "https://i.pinimg.com/736x/e3/dd/e3/e3dde36994b13f2433788f79ed76b576.jpg"
+    },
+    {
+      "id": 4,
+      "username": "Gusion",
+      "email": "user4@example.com",
+      "phone": "456-789-0123",
+      "password": "password4",
+      "profileUrl": "https://i.pinimg.com/236x/9b/40/13/9b4013338c33451495c87efa0c89adec.jpg"
+    },
+    {
+      "id": 5,
+      "username": "Layla",
+      "email": "user5@example.com",
+      "phone": "567-890-1234",
+      "password": "password5",
+      "profileUrl": "https://i.pinimg.com/236x/8b/06/12/8b0612054c7637d5065bcd9056d38a13.jpg"
+    },
+    {
+      "id": 6,
+      "username": "Alu",
+      "email": "user6@example.com",
+      "phone": "678-901-2345",
+      "password": "password6",
+      "profileUrl": "https://i.pinimg.com/236x/97/40/d3/9740d3cecd81a952bc45ba1e10d5105b.jpg"
+    },
+    {
+      "id": 7,
+      "username": "William",
+      "email": "user7@example.com",
+      "phone": "789-012-3456",
+      "password": "password7",
+      "profileUrl": "https://i.pinimg.com/236x/cc/62/b1/cc62b137b1abe3b2a91c110d1ff632e4.jpg"
+    },
+    {
+      "id": 8,
+      "username": "Cloud",
+      "email": "user8@example.com",
+      "phone": "890-123-4567",
+      "password": "password8",
+      "profileUrl": "https://i.pinimg.com/236x/64/4b/36/644b368a4a13057739b32e707f63dd9f.jpg"
+    },
+    {
+      "id": 9,
+      "username": "Nana",
+      "email": "user9@example.com",
+      "phone": "901-234-5678",
+      "password": "password9",
+      "profileUrl": "https://i.pinimg.com/564x/09/5b/b9/095bb9fd9105fe75614c55ac50b283be.jpg"
+    },
+    {
+      "id": 10,
+      "username": "Leslay",
+      "email": "user10@example.com",
+      "phone": "012-345-6789",
+      "password": "password10",
+      "profileUrl": "https://i.pinimg.com/236x/98/7a/b4/987ab413f5539d3d9ad0f8a73d83cb28.jpg"
+    }
+  ],
+  "posts": [
+    {
+      "id": 1,
+      "userId": 1,
+      "felling": "happy",
+      "content": "This is the body of post 1.",
+      "post_url": "https://i.pinimg.com/236x/e0/5d/b1/e05db1d0bb852fd886c84e55e0ccd148.jpg",
+      "create_at": "2023-11-22T22:04:14+06:30"
+    },
+    {
+      "id": 2,
+      "userId": 2,
+      "felling": "sad",
+      "content": "This is the body of post 2.",
+      "post_url": "https://i.pinimg.com/236x/94/83/70/94837059e8e40a9ec7d6ff162806317a.jpg",
+      "create_at": "2023-11-18T22:04:14+06:30"
+    },
+    {
+      "id": 3,
+      "userId": 3,
+      "felling": "funny",
+      "content": "This is the body of post 3.",
+      "post_url": "https://i.pinimg.com/236x/76/1e/4e/761e4e53c11d254fbd67b5211c5316ba.jpg",
+      "create_at": "2023-10-22T22:04:14+06:30"
+    },
+    {
+      "id": 4,
+      "userId": 4,
+      "felling": "angry",
+      "content": "This is the body of post 4.",
+      "post_url": "https://i.pinimg.com/236x/b3/29/1e/b3291e2685dbf9b804a4a178c2b4b2df.jpg",
+      "create_at": "2022-11-22T22:04:14+06:30"
+    },
+    {
+      "id": 5,
+      "userId": 5,
+      "felling": "sad",
+      "content": "This is the body of post 5.",
+      "post_url": "https://i.pinimg.com/236x/dc/92/1e/dc921ec2e07f9437dc51f2a10694578d.jpg",
+      "create_at": "2023-11-21T22:04:14+06:30"
+    },
+    {
+      "id": 6,
+      "userId": 6,
+      "felling": "funny",
+      "content": "This is the body of post 6.",
+      "post_url": "https://i.pinimg.com/236x/00/47/f2/0047f257df1e81a6ed3f8521d552eb24.jpg",
+      "create_at": "2023-11-22T21:04:14+06:30"
+    },
+    {
+      "id": 7,
+      "userId": 7,
+      "felling": "happy",
+      "content": "This is the body of post 7.",
+      "post_url": "https://i.pinimg.com/236x/e5/d8/ae/e5d8ae6d0ba1d115ab9664c2a43577cb.jpg",
+      "create_at": "2023-01-22T22:04:14+06:30"
+    },
+    {
+      "id": 8,
+      "userId": 8,
+      "felling": "enjoy",
+      "content": "This is the body of post 8.",
+      "post_url": "https://i.pinimg.com/236x/2a/1a/0d/2a1a0d3033460c8fc90f446ace8deeb2.jpg",
+      "create_at": "2023-09-22T22:04:14+06:30"
+    },
+    {
+      "id": 9,
+      "userId": 9,
+      "felling": "cold",
+      "content": "This is the body of post 9.",
+      "post_url": "https://i.pinimg.com/236x/82/de/5a/82de5a11540dd6858608adbf7bb7c9ca.jpg",
+      "create_at": "2023-09-22T17:04:14+06:30"
+    },
+    {
+      "id": 10,
+      "userId": 10,
+      "felling": "",
+      "content": "This is the body of post 10.",
+      "post_url": "https://i.pinimg.com/236x/ec/e0/24/ece024878788d9672f4887718c67409e.jpg",
+      "create_at": "2023-06-22T22:04:14+06:30"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "postId": 1,
+      "userId": 2,
+      "text": "Comment 2 on post 1."
+    },
+    {
+      "id": 2,
+      "postId": 2,
+      "userId": 3,
+      "text": "Comment 2 on post 2."
+    },
+    {
+      "id": 3,
+      "postId": 3,
+      "userId": 4,
+      "text": "Comment 3 on post 3."
+    },
+    {
+      "id": 4,
+      "postId": 4,
+      "userId": 5,
+      "text": "Comment 4 on post 4."
+    },
+    {
+      "id": 5,
+      "postId": 5,
+      "userId": 6,
+      "text": "Comment 5 on post 5."
+    },
+    {
+      "id": 6,
+      "postId": 6,
+      "userId": 7,
+      "text": "Comment 6 on post 6."
+    },
+    {
+      "id": 7,
+      "postId": 7,
+      "userId": 8,
+      "text": "Comment 7 on post 7."
+    },
+    {
+      "id": 8,
+      "postId": 8,
+      "userId": 9,
+      "text": "Comment 8 on post 8."
+    },
+    {
+      "id": 9,
+      "postId": 9,
+      "userId": 10,
+      "text": "Comment 9 on post 9."
+    },
+    {
+      "id": 10,
+      "postId": 10,
+      "userId": 1,
+      "text": "Comment 10 on post 10."
+    }
+  ]
+}
