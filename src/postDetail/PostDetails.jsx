@@ -13,7 +13,7 @@ const PostDetails = () => {
     const getPost = async () => {
       try {
         const resp = await axios.get(
-          `${import.meta.env.VITE_API_URL}/posts/${id}?_embed=comments` //fetch data what post user click
+          `${import.meta.env.VITE_API_URL}/posts/${id}?_embed=comments&_expand=user` //fetch data what post user click
         );
         setPost(await resp.data);
       } catch (err) {
@@ -25,7 +25,7 @@ const PostDetails = () => {
     getPost();
   }, []);
   return (
-    <div className={` pt-32 ${styles.flexCenter} ${styles.paddingX}`}>
+    <div className={` pt-32 ${styles.flexCenter} ${styles.paddingX} pb-24`}>
       {isLoading && !err && (
         <ContentLoader
           width={450}
@@ -45,9 +45,23 @@ const PostDetails = () => {
         </h2>
       )}
       {!isLoading && !err && (
-        <div className="w-[350px] rounded-t-[5px]">
+        <div className="w-[400px] rounded-t-[5px] bg-gray-800 rounded-[10px]">
+          <div className={`p-4 flex items-center gap-3 justify-start`}>
+            <img
+              src={post.user.profileUrl}
+              className="w-[50px] rounded-full "
+            />
+            <div>
+              <p className="text-white text-[18px] font-Poppins">
+                {post.user.username}
+              </p>
+              <p className="text-gray-400 text-[14px]">
+                {post.create_at}
+              </p>
+            </div>
+          </div>
           <img src={post.post_url} className="w-full h-[350px] object-cover" />
-          <div>
+          <div className=" py-6 px-5">
             <Comments id={post.id} comments={post.comments} />
           </div>
         </div>

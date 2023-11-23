@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Loading from "../loading/Loading";
-const CommentsCreator = ({ userId }) => {
+const CommentsCreator = ({ id }) => {
   const [commentCreator, setCommentsCreator] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [err, setErr] = useState("");
@@ -9,7 +9,7 @@ const CommentsCreator = ({ userId }) => {
     const getCommentsCreator = async () => {
       try {
         const resp = await axios.get(
-          `${import.meta.env.VITE_API_URL}/comments/${userId}?_expand=user` //fetch data what post user click
+          `${import.meta.env.VITE_API_URL}/comments/${id}?_expand=user` //fetch data what post user click
         );
         setCommentsCreator(await resp.data);
       } catch (err) {
@@ -20,17 +20,16 @@ const CommentsCreator = ({ userId }) => {
     };
     getCommentsCreator();
   }, []);
-  console.log(commentCreator);
   return (
     <>
       {isLoading && <Loading style={"flex-col"} />}
       {err && (
-        <h2 className="text-secondary text-[32px] w-full text-center font-semibold font-Poppins">
+        <h2 className="text-secondary text-[14px] w-full text-center font-Poppins">
           {err}
         </h2>
       )}
       {!isLoading && !err && commentCreator && (
-        <div className=" rounded-[10px] p-2 bg-gray-700">
+        <div className=" rounded-[10px] p-5 bg-gray-700">
           <div className="flex items-center gap-5">
             <img
               src={commentCreator.user.profileUrl}
@@ -41,9 +40,10 @@ const CommentsCreator = ({ userId }) => {
             </h4>
           </div>
           <div className="py-2">
-            <p className="text-gray-200 font-Poppins text-[14px]">
+            <p className="text-gray-200 font-Poppins text-[16px]">
               {commentCreator.text}
             </p>
+            <p className="text-[14px] leading-[32px] text-gray-400">{commentCreator.create_at}</p>
           </div>
         </div>
       )}
