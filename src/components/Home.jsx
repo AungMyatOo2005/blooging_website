@@ -2,8 +2,7 @@
 import React, { useEffect, useState } from "react"; //React
 import axios from "axios"; //Axios
 import PostsComponents from "./PostsComponents";
-import RiseLoader from "react-spinners/RiseLoader";
-import styles from "../styles";
+import Loading from "../loading/Loading";
 const Home = () => {
   //Post
   const [posts, setPosts] = useState([]);
@@ -35,11 +34,7 @@ const Home = () => {
   }, []);
   return (
     <div className={`py-16 pt-32`}>
-      {isLoading && !error && (
-        <div className={`${styles.flexCenter} min-h-screen`}>
-          <RiseLoader size={15} color={"#36D7B7"} />
-        </div>
-      )}
+      {isLoading && !error && <Loading style={"flex-row flex-wrap"} />}
       {error && !isLoading && (
         <h1 className="text-[32px] text-secondary font-semibold font-Poppins w-full  text-center">
           Error: {error}

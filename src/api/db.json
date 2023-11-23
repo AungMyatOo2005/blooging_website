@@ -103,7 +103,7 @@
       "userId": 3,
       "felling": "funny",
       "content": "This is the body of post 3.",
-      "post_url": "https://i.pinimg.com/236x/76/1e/4e/761e4e53c11d254fbd67b5211c5316ba.jpg",
+      "post_url": "https://i.pinimg.com/236x/79/1b/3a/791b3a33b2ce3320ca1817310ad9ae58.jpg",
       "create_at": "2023-10-22T22:04:14+06:30"
     },
     {
@@ -223,6 +223,12 @@
       "postId": 10,
       "userId": 1,
       "text": "Comment 10 on post 10."
+    },
+    {
+      "id": 11,
+      "postId": 3,
+      "userId": 5,
+      "text": "Comment 11 on post 3."
     }
   ]
 }
