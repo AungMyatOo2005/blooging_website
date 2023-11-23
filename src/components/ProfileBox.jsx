@@ -3,7 +3,6 @@ import styles from "../styles";
 import { ConditionContext } from "../context/ConditionContext";
 const ProfileBox = ({value}) => {
   const {sideBar, setSideBar } = useContext(ConditionContext);
-  console.log(sideBar)
   return (
     <div
       className={`bg-dimBlue flex ${styles.flexCenter} py-2 px-4 gap-3 rounded-lg hover:opacity-90 ${value} select-none`}

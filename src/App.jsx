@@ -14,6 +14,7 @@ import SideBar from "./sidebar/SideBar";
 import Home from "./components/Home";
 import Feature from "./components/Feature";
 import AllPost from "./components/AllPost";
+import PostDetails from "./components/PostDetails";
 const App = () => {
   const router = createBrowserRouter(
     createRoutesFromElements(
@@ -21,6 +22,7 @@ const App = () => {
         <Route index element={<Home />}></Route>
         <Route path="/feature" element={<Feature />}></Route>
         <Route path="/allPost" element={<AllPost />}></Route>
+        <Route path="/postDetail/:id" element={<PostDetails/>}></Route>
       </Route>
     )
   );
