@@ -37,7 +37,7 @@ const App = () => {
     )
   );
   return (
-    <div className={`${styles.boxWidth} bg-primary min-h-screen`}>
+    <div className={`${styles.boxWidth} bg-primary min-h-screen ${styles.flexCenter}`}>
       {/* use context */}
       <ConditionProvider>
         {/* react-router-dom */}

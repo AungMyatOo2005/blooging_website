@@ -12,7 +12,7 @@ const Nav = () => {
   //using navigate for login and registration
   const navigator = useNavigate();
   return (
-    <div className="fixed w-full z-[5]">
+    <div className="fixed w-full z-[5] top-0">
       <nav
         className={`py-2 px-6 ${styles.flexCenter} justify-between bg-gray-900 w-full relative`}
       >
