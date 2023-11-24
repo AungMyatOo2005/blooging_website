@@ -22,22 +22,28 @@ import Login from "./login/Login";
 //Context provider
 import ConditionProvider from "./context/ConditionContext";
 import Register from "./register/Register";
+import SuccessRegister from "./success/SuccessRegister";
+import NotFoundPage from "./errorpage/NotFoundPage";
 const App = () => {
   // create browser router for router
   const router = createBrowserRouter(
     // create router for element
     createRoutesFromElements(
       <Route path="/" element={<Layout />}>
-        <Route index element={<Home />}></Route>
-        <Route path="/postDetail/:id" element={<PostDetails />}></Route>
-        <Route path="/userProfile" element={<UserProfile />}></Route>
-        <Route path="/login" element={<Login />}></Route>
-        <Route path="/registration" element={<Register />}></Route>
+        <Route index element={<Home />} />
+        <Route path="/postDetail/:id" element={<PostDetails />} />
+        <Route path="/userProfile" element={<UserProfile />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/registration" element={<Register />} />
+        <Route path="/successRegister" element={<SuccessRegister />} />
+        <Route path="*" element={<NotFoundPage />} />
       </Route>
     )
   );
   return (
-    <div className={`${styles.boxWidth} bg-primary min-h-screen ${styles.flexCenter}`}>
+    <div
+      className={`${styles.boxWidth} bg-primary min-h-screen ${styles.flexCenter}`}
+    >
       {/* use context */}
       <ConditionProvider>
         {/* react-router-dom */}

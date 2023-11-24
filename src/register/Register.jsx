@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
 import FormInput from "./FormInput";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 const Register = () => {
+  const navigator = useNavigate();
   const [values, setValues] = useState({
     username: "",
     email: "",
@@ -20,9 +22,18 @@ const Register = () => {
   const userApi = async () => {
     await axios.post(`${import.meta.env.VITE_API_URL}/users`, updateUserData);
   };
-  const onSubmit = (e) => {
+  const onSubmit = async (e) => {
     e.preventDefault();
-    userApi()
+    await userApi();
+    setValues({
+      username: "",
+      email: "",
+      phoneNumber: "",
+      profileUrl: "",
+      password: "",
+      confirmPassword: "",
+    });
+    navigator("/successRegister");
   };
   const inputArrays = [
     {

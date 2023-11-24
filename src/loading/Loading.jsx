@@ -22,7 +22,7 @@ const Loading = ({ style }) => {
 
   return (
     <div
-      className={`${styles.paddingX} gap-20 ${style} flex items-center justify-center`}
+      className={`${styles.paddingX} gap-10 ${style} flex items-center justify-center`}
     >
       {loaderItems}
     </div>

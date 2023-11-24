@@ -9,15 +9,15 @@ body {
   align-items: center;
   justify-content: center;
 }
-nav a.active {
+nav ul > a.active {
   color: #00f6ff;
   border-bottom: 2px solid #00f6ff;
 }
-nav a {
+nav ul > a {
   position: relative;
   padding: 5px 0;
 }
-nav a::after {
+nav ul > a::after {
   content: "";
   position: absolute;
   width: 0;
@@ -29,12 +29,47 @@ nav a::after {
   background: #00f6ff;
   transition: width 0.3s ease-in-out;
 }
-nav a:not(.active):hover:after {
+nav ul > a:not(.active):hover:after {
   width: 100%;
 }
 .navbar {
   animation: slide-top 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
 }
+/* login and registration button  */
+.button-box a button {
+  height: 35px;
+  position: relative;
+}
+.button-box a button::after {
+  content: "";
+  position: absolute;
+  background-color: theme("colors.secondary");
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 3;
+  width: 0;
+  transition: 0.3s ease-in-out;
+}
+.button-box a.active button {
+  border: 2px solid theme("colors.secondary");
+}
+.button-box a button:hover::after {
+  width: 100%;
+}
+.button-box a button span {
+  z-index: 5;
+  top: 5px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  position: absolute;
+  transition: 0.3s ease-in-out;
+}
+.button-box a button:hover span {
+  color: black;
+}
+/* animation  */
 @keyframes slide-top {
   0% {
     -webkit-transform: translateY(100px);
@@ -69,5 +104,8 @@ input:invalid[focus="true"] ~ p {
   display: block;
 }
 input:invalid[focus="true"] {
-  border:1px solid red ;
+  border: 2px solid red;
+}
+input:valid[focus="true"] {
+  border: 2px solid rgb(47, 255, 47);
 }

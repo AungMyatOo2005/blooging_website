@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import styles from "../styles";
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import ProfileBox from "../components/ProfileBox";
 import { Bars3BottomRightIcon, XMarkIcon } from "@heroicons/react/24/solid";
 import { ConditionContext } from "../context/ConditionContext";
@@ -10,7 +10,6 @@ const Nav = () => {
   //is auth user can't see login and register button
   const { isAuthUser } = useContext(ConditionContext);
   //using navigate for login and registration
-  const navigator = useNavigate();
   return (
     <div className="fixed w-full z-[5] top-0">
       <nav
@@ -32,20 +31,19 @@ const Nav = () => {
             <ProfileBox value={"w-fit"} />
           </div>
         ) : (
-          <div className="md:flex hidden gap-2">
+          <div className="md:flex hidden gap-2 button-box">
             {/* login and registration button for unauthorized user  */}
-            <button
-              className=" cursor-pointer hover:bg-gray-700 bg-gray-600 p-2 w-[100px] text-gray-200 font-Poppins rounded-sm active:scale-95"
-              onClick={() => navigator("/login")}
-            >
-              Login
-            </button>
-            <button
-              className=" cursor-pointer hover:bg-gray-700 bg-gray-600 p-2 w-[100px] text-gray-200 font-Poppins rounded-sm active:scale-95"
-              onClick={() => navigator("/registration")}
-            >
-              Register
-            </button>
+            <NavLink to={"/login"}>
+              <button className=" cursor-pointer bg-gray-600 p-2 w-[100px] text-gray-200 font-Poppins rounded-sm active:scale-95">
+                <div></div>
+                <span>Login</span>
+              </button>
+            </NavLink>
+            <NavLink to={"/registration"}>
+              <button className=" cursor-pointer bg-gray-600 p-2 w-[100px] text-gray-200 font-Poppins rounded-sm active:scale-95">
+                <span>Register</span>
+              </button>
+            </NavLink>
           </div>
         )}
         {/* for responsive design  */}
@@ -70,19 +68,17 @@ const Nav = () => {
                 <ProfileBox value={"w-fit"} />
               </div>
             ) : (
-              <div className="flex flex-col items-center gap-2 mt-6">
-                <button
-                  className="cursor-pointer hover:bg-gray-700 bg-gray-600 p-2 w-[100px] text-gray-200 font-Poppins rounded-sm active:scale-95"
-                  onClick={() => navigator("/login")}
-                >
-                  Login
-                </button>
-                <button
-                  className="cursor-pointer hover:bg-gray-700 bg-gray-600 p-2 w-[100px] text-gray-200 font-Poppins rounded-sm active:scale-95"
-                  onClick={() => navigator("/registration")}
-                >
-                  Register
-                </button>
+              <div className="flex flex-col items-center gap-2 mt-6 button-box">
+                <NavLink to={"/login"}>
+                  <button className=" cursor-pointer bg-gray-600 p-2 w-[100px] text-gray-200 font-Poppins rounded-sm active:scale-95">
+                    <span>Login</span>
+                  </button>
+                </NavLink>
+                <NavLink to={"/registration"}>
+                  <button className=" cursor-pointer bg-gray-600 p-2 w-[100px] text-gray-200 font-Poppins rounded-sm active:scale-95">
+                    <span>Register</span>
+                  </button>
+                </NavLink>
               </div>
             )}
           </div>
