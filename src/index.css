@@ -10,6 +10,7 @@ nav a.active {
 }
 nav a {
   position: relative;
+  padding: 5px 0;
 }
 nav a::after {
   content: "";
@@ -17,15 +18,15 @@ nav a::after {
   width: 0;
   height: 2px;
   left: 0;
-  bottom: -2px;
+  bottom: -1px;
   background: #00f6ff;
   transition: width 0.3s ease-in-out;
 }
-nav a:hover::after {
+nav a:not(.active):hover:after {
   width: 100%;
 }
 .navbar {
-    animation: slide-top 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
+  animation: slide-top 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
 }
 @keyframes slide-top {
   0% {
@@ -39,15 +40,25 @@ nav a:hover::after {
 }
 
 .sidebar {
-  animation: slide-right 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
+  animation: slide-right 0.3s ease;
 }
 @keyframes slide-right {
-0% {
-  -webkit-transform: translateX(-100px);
-  transform: translateX(-100px);
+  0% {
+    -webkit-transform: translateX(-100px);
+    transform: translateX(-100px);
+  }
+  100% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
 }
-100% {
-  -webkit-transform: translateX(0);
-  transform: translateX(0);
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
+
+input:invalid ~ p {
+  display: block;
 }

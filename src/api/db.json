@@ -85,7 +85,7 @@
     {
       "id": 1,
       "userId": 1,
-      "felling": "happy",
+      "title": "happy",
       "content": "This is the body of post 1.",
       "post_url": "https://i.pinimg.com/236x/e0/5d/b1/e05db1d0bb852fd886c84e55e0ccd148.jpg",
       "create_at": "2023-11-22T22:04:14+06:30"
@@ -93,7 +93,7 @@
     {
       "id": 2,
       "userId": 2,
-      "felling": "sad",
+      "title": "sad",
       "content": "This is the body of post 2.",
       "post_url": "https://i.pinimg.com/236x/94/83/70/94837059e8e40a9ec7d6ff162806317a.jpg",
       "create_at": "2023-11-18T22:04:14+06:30"
@@ -101,7 +101,7 @@
     {
       "id": 3,
       "userId": 3,
-      "felling": "funny",
+      "title": "funny",
       "content": "This is the body of post 3.",
       "post_url": "https://i.pinimg.com/236x/79/1b/3a/791b3a33b2ce3320ca1817310ad9ae58.jpg",
       "create_at": "2023-10-22T22:04:14+06:30"
@@ -109,7 +109,7 @@
     {
       "id": 4,
       "userId": 4,
-      "felling": "angry",
+      "title": "angry",
       "content": "This is the body of post 4.",
       "post_url": "https://i.pinimg.com/236x/b3/29/1e/b3291e2685dbf9b804a4a178c2b4b2df.jpg",
       "create_at": "2022-11-22T22:04:14+06:30"
@@ -117,7 +117,7 @@
     {
       "id": 5,
       "userId": 5,
-      "felling": "sad",
+      "title": "sad",
       "content": "This is the body of post 5.",
       "post_url": "https://i.pinimg.com/236x/dc/92/1e/dc921ec2e07f9437dc51f2a10694578d.jpg",
       "create_at": "2023-11-21T22:04:14+06:30"
@@ -125,7 +125,7 @@
     {
       "id": 6,
       "userId": 6,
-      "felling": "funny",
+      "title": "funny",
       "content": "This is the body of post 6.",
       "post_url": "https://i.pinimg.com/236x/00/47/f2/0047f257df1e81a6ed3f8521d552eb24.jpg",
       "create_at": "2023-11-22T21:04:14+06:30"
@@ -133,7 +133,7 @@
     {
       "id": 7,
       "userId": 7,
-      "felling": "happy",
+      "title": "happy",
       "content": "This is the body of post 7.",
       "post_url": "https://i.pinimg.com/236x/e5/d8/ae/e5d8ae6d0ba1d115ab9664c2a43577cb.jpg",
       "create_at": "2023-01-22T22:04:14+06:30"
@@ -141,7 +141,7 @@
     {
       "id": 8,
       "userId": 8,
-      "felling": "enjoy",
+      "title": "enjoy",
       "content": "This is the body of post 8.",
       "post_url": "https://i.pinimg.com/236x/2a/1a/0d/2a1a0d3033460c8fc90f446ace8deeb2.jpg",
       "create_at": "2023-09-22T22:04:14+06:30"
@@ -149,7 +149,7 @@
     {
       "id": 9,
       "userId": 9,
-      "felling": "cold",
+      "title": "cold",
       "content": "This is the body of post 9.",
       "post_url": "https://i.pinimg.com/236x/82/de/5a/82de5a11540dd6858608adbf7bb7c9ca.jpg",
       "create_at": "2023-09-22T17:04:14+06:30"
@@ -157,7 +157,7 @@
     {
       "id": 10,
       "userId": 10,
-      "felling": "",
+      "title": "",
       "content": "This is the body of post 10.",
       "post_url": "https://i.pinimg.com/236x/ec/e0/24/ece024878788d9672f4887718c67409e.jpg",
       "create_at": "2023-06-22T22:04:14+06:30"
@@ -169,14 +169,14 @@
       "postId": 1,
       "userId": 2,
       "text": "Comment 2 on post 1.",
-      "create_at":"2023-11-23T19:04:14+06:30"
+      "create_at": "2023-11-23T19:04:14+06:30"
     },
     {
       "id": 2,
       "postId": 2,
       "userId": 3,
       "text": "Comment 2 on post 2.",
-      "create_at":"2023-11-23T18:04:14+06:30"
+      "create_at": "2023-11-23T18:04:14+06:30"
     },
     {
       "id": 3,

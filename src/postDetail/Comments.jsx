@@ -1,5 +1,7 @@
+//to get comment and comment creator
 import CommentsCreator from "./CommentsCreator";
-import {ArrowRightCircleIcon} from "@heroicons/react/20/solid"
+//use hero icon
+import { ArrowRightCircleIcon } from "@heroicons/react/20/solid";
 const Comments = ({ comments }) => {
   return (
     <div className="flex flex-col gap-5">
@@ -13,7 +15,9 @@ const Comments = ({ comments }) => {
           className="outline-none rounded-sm py-1 px-3 bg-gray-300 placeholder:text-gray-600 text-[18px] w-full"
           placeholder="Enter Your Comment..."
         />
-        <button type="submit"><ArrowRightCircleIcon className="w-[50px] text-gray-300 active:scale-[0.97]"/></button>
+        <button type="submit">
+          <ArrowRightCircleIcon className="w-[50px] text-gray-300 active:scale-[0.97]" />
+        </button>
       </form>
     </div>
   );

@@ -1,9 +1,15 @@
+//useEffect and useState
 import React, { useEffect, useState } from "react";
+//use axios to fetch data from json
 import axios from "axios";
+//to show loading state
 import Loading from "../loading/Loading";
+//comment creator array data
 const CommentsCreator = ({ id }) => {
   const [commentCreator, setCommentsCreator] = useState([]);
+  //loading state
   const [isLoading, setIsLoading] = useState(true);
+  //error state
   const [err, setErr] = useState("");
   useEffect(() => {
     const getCommentsCreator = async () => {
@@ -43,7 +49,9 @@ const CommentsCreator = ({ id }) => {
             <p className="text-gray-200 font-Poppins text-[16px]">
               {commentCreator.text}
             </p>
-            <p className="text-[14px] leading-[32px] text-gray-400">{commentCreator.create_at}</p>
+            <p className="text-[14px] leading-[32px] text-gray-400">
+              {commentCreator.create_at}
+            </p>
           </div>
         </div>
       )}

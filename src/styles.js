@@ -1,4 +1,4 @@
- const styles = {
+const styles = {
   boxWidth: "xl:max-w-[1280px] w-fll",
   flexCenter: "flex items-center justify-center",
   flexStart: "flex items-start justify-center",
@@ -11,4 +11,4 @@
   marginX: "sm:mx-16 mx-6",
   marginY: "sm:my-16 my-6",
 };
-export default styles
+export default styles;

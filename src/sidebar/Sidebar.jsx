@@ -1,5 +1,8 @@
+//use context
 import React, { useContext } from "react";
+//context 
 import { ConditionContext } from "../context/ConditionContext";
+//use hero icon
 import { ArrowLeftIcon } from "@heroicons/react/24/solid";
 import styles from "../styles";
 const SideBar = () => {

@@ -1,7 +1,12 @@
-//Home
-import React, { useEffect, useState } from "react"; //React
-import axios from "axios"; //Axios
+//Home page
+
+//React
+import React, { useEffect, useState } from "react";
+//Axios
+import axios from "axios";
+//Post Components
 import PostsComponents from "./PostsComponents";
+//Loading page for use-friendly
 import Loading from "../loading/Loading";
 const Home = () => {
   //Post
@@ -14,16 +19,19 @@ const Home = () => {
   //fetch post from json-server
   useEffect(() => {
     const getPosts = async () => {
+      // try state
       try {
         const resp = await axios.get(
           `${import.meta.env.VITE_API_URL}/posts?_expand=user`
         );
         setPosts(await resp.data);
       } catch (error) {
+        //catch error
         console.error("Error fetching data:", error);
         setError("An error occurred while fetching data.");
         setIsLoading(false);
       } finally {
+        //finally set loading is false
         setIsLoading(false);
       }
     };
