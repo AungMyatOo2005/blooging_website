@@ -48,7 +48,7 @@ const App = () => {
       <ConditionProvider>
         {/* react-router-dom */}
         <RouterProvider router={router} />
-        <div className="fixed top-[48px] ss:top-[45px] sm:top-[55px] md:top-[65px] z-[3]">
+        <div className="fixed top-[48px] ss:top-[45px] sm:top-[55px] md:top-[65px] z-[3] left-0">
           {/* side bar */}
           <Sidebar />
         </div>

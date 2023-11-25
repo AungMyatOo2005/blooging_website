@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import FormInput from "./FormInput";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { ArrowLongRightIcon } from "@heroicons/react/20/solid";
 const Register = () => {
   const navigator = useNavigate();
   const [values, setValues] = useState({
@@ -19,12 +20,12 @@ const Register = () => {
     profileUrl: values.profileUrl,
     password: values.confirmPassword,
   };
-  const userApi = async () => {
+  const handleRegister = async () => {
     await axios.post(`${import.meta.env.VITE_API_URL}/users`, updateUserData);
   };
   const onSubmit = async (e) => {
     e.preventDefault();
-    await userApi();
+    await handleRegister();
     setValues({
       username: "",
       email: "",
@@ -96,7 +97,6 @@ const Register = () => {
       pattern: values.password,
     },
   ];
-
   const onChange = (e) => {
     const { name, value } = e.target;
     setValues({ ...values, [name]: value });
@@ -128,6 +128,13 @@ const Register = () => {
           Register
         </button>
       </form>
+      <button
+        className="flex items-center gap-1 hover:translate-y-[-2px] transition-transform ease-in-out hover:scale-105 absolute right-20 top-32"
+        onClick={() => navigator("/login")}
+      >
+        <span className="text-secondary capitalize">login</span>
+        <ArrowLongRightIcon className="w-[30px] text-secondary" />
+      </button>
     </div>
   );
 };
