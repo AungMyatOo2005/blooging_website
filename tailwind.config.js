@@ -8,6 +8,7 @@ export default {
         secondary: "#00f6ff",
         dimWhite: "rgba(225, 225, 225,0.7)",
         dimBlue: "rgba(9, 151, 124, 0.1)",
+        opacity: "rgba(225,225,225,0.5)",
       },
       fontFamily: {
         Poppins: ["Poppins", "sans-serif"],

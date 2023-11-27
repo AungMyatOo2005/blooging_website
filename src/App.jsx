@@ -10,7 +10,7 @@ import {
 //layout page
 import Layout from "./layout/Layout";
 //home page
-import Home from "./components/Home";
+import Home from "./home/Home";
 //post detail page
 import PostDetails from "./postDetail/PostDetails";
 //side bar for auth user
@@ -24,6 +24,8 @@ import ConditionProvider from "./context/ConditionContext";
 import Register from "./register/Register";
 import SuccessRegister from "./success/SuccessRegister";
 import NotFoundPage from "./errorpage/NotFoundPage";
+import PostUpload from "./profile/PostUpload";
+import ProtectedRoute from "./login/ProtectedRoute";
 const App = () => {
   // create browser router for router
   const router = createBrowserRouter(
@@ -33,7 +35,14 @@ const App = () => {
         <Route index element={<Home />} />
         <Route path="/postDetail/:id" element={<PostDetails />} />
         <Route path="/userProfile" element={<UserProfile />} />
-        <Route path="/login" element={<Login />} />
+        <Route
+          path="/login"
+          element={
+            <ProtectedRoute>
+              <Login />
+            </ProtectedRoute>
+          }
+        />
         <Route path="/registration" element={<Register />} />
         <Route path="/successRegister" element={<SuccessRegister />} />
         <Route path="*" element={<NotFoundPage />} />

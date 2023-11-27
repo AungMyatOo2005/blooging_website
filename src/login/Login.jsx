@@ -1,19 +1,16 @@
-import { useState, useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { ArrowLongRightIcon } from "@heroicons/react/20/solid";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { ConditionContext } from "../context/ConditionContext";
 const Login = () => {
-  const { isAuthUser } = useContext(ConditionContext);
+  const { setIsAuthUser } = useContext(ConditionContext);
   const navigator = useNavigate();
- 
-    {
-      isAuthUser && navigator("/");
-    }
   const [data, setData] = useState({
     emailOrPhone: "",
     password: "",
   });
+
   const [invalid, setInvalid] = useState(false);
   const [error, setError] = useState("");
   const handleChange = (e) => {
@@ -46,6 +43,8 @@ const Login = () => {
   };
   const login = (user) => {
     localStorage.setItem("REACT-FRONTEND-FINAL-PROJECT", JSON.stringify(user));
+    setIsAuthUser(true);
+    navigator("/");
   };
 
   return (
@@ -70,6 +69,7 @@ const Login = () => {
                 name="emailOrPhone"
                 value={data.emailOrPhone}
                 onChange={handleChange}
+                type="text"
               />
             </div>
             <div className="text-gray-300 font-Poppins text-[16px] flex flex-col items-start gap-2">
@@ -80,6 +80,7 @@ const Login = () => {
                 name="password"
                 value={data.password}
                 onChange={handleChange}
+                type="password"
               />
             </div>
             {invalid && (

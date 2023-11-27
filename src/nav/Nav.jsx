@@ -1,15 +1,20 @@
 import React, { useContext, useState } from "react";
 import styles from "../styles";
 import { NavLink } from "react-router-dom";
-import ProfileBox from "../components/ProfileBox";
+import ProfileBox from "../home/ProfileBox";
 import { Bars3BottomRightIcon, XMarkIcon } from "@heroicons/react/24/solid";
 import { ConditionContext } from "../context/ConditionContext";
 const Nav = () => {
   //for responsive side bar
   const [toggle, setToggle] = useState(false);
   //is auth user can't see login and register button
-  const { isAuthUser } = useContext(ConditionContext);
+  const { isAuthUser, setSideBar } = useContext(ConditionContext);
   //using navigate for login and registration
+  const handleClick = () => {
+    setToggle(false);
+    setSideBar(false);
+  };
+
   return (
     <div className="fixed w-full z-[5] top-0">
       <nav
@@ -22,8 +27,12 @@ const Nav = () => {
         </h1>
         {/* page nav link  */}
         <ul className="text-white items-center gap-6 text-[16px] md:flex hidden font-Poppins">
-          <NavLink to={"/"}>Home</NavLink>
-          <NavLink to={"/userProfile"}>user profile</NavLink>
+          <NavLink to={"/"} onClick={handleClick}>
+            Home
+          </NavLink>
+          <NavLink to={"/userProfile"} onClick={handleClick}>
+            user profile
+          </NavLink>
         </ul>
         {isAuthUser ? (
           <div className="md:flex hidden">
@@ -49,7 +58,10 @@ const Nav = () => {
         {/* for responsive design  */}
         <button
           className="md:hidden flex"
-          onClick={() => setToggle((prev) => !prev)}
+          onClick={() => {
+            setToggle((prev) => !prev);
+            setSideBar(false);
+          }}
         >
           {toggle ? (
             <XMarkIcon className="w-[34px] text-white hover:text-secondary cursor-pointer" />
@@ -58,10 +70,14 @@ const Nav = () => {
           )}
         </button>
         {toggle && (
-          <div className=" absolute right-3 top-20 bg-gray-900 py-10 px-6 rounded-lg navbar md:hidden block min-w-[250px]">
+          <div className=" flex-col items-center absolute right-3 top-20 bg-gray-900 py-10 px-6 rounded-lg navbar md:hidden flex min-w-[250px]">
             <ul className="text-white items-center gap-6 md:text-[16px] font-Poppins flex flex-col">
-              <NavLink to={"/"}>Home</NavLink>
-              <NavLink to={"/userProfile"}>user profile</NavLink>
+              <NavLink to={"/"} onClick={handleClick}>
+                Home
+              </NavLink>
+              <NavLink to={"/userProfile"} onClick={handleClick}>
+                user profile
+              </NavLink>
             </ul>
             {isAuthUser ? (
               <div className="cursor-pointer mt-5">
@@ -69,12 +85,12 @@ const Nav = () => {
               </div>
             ) : (
               <div className="flex flex-col items-center gap-2 mt-6 button-box">
-                <NavLink to={"/login"}>
+                <NavLink to={"/login"} onClick={handleClick}>
                   <button className=" cursor-pointer bg-gray-600 p-2 w-[100px] text-gray-200 font-Poppins rounded-sm active:scale-95">
                     <span>Login</span>
                   </button>
                 </NavLink>
-                <NavLink to={"/registration"}>
+                <NavLink to={"/registration"} onClick={handleClick}>
                   <button className=" cursor-pointer bg-gray-600 p-2 w-[100px] text-gray-200 font-Poppins rounded-sm active:scale-95">
                     <span>Register</span>
                   </button>

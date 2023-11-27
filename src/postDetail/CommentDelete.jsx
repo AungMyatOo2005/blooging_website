@@ -1,20 +1,17 @@
 import axios from "axios";
 import React from "react";
-import { useNavigate } from "react-router-dom";
 
-const Delete = ({ setPostDelete, postId }) => {
-  const navigator = useNavigate();
-  const handleDelete = () => {
-    axios.delete(`${import.meta.env.VITE_API_URL}/posts/${postId}`);
-    navigator("/");
+const CommentDelete = ({ setCommentDelete, commentId }) => {
+  const handleDelete = async () => {
+    await axios.delete(`${import.meta.env.VITE_API_URL}/comments/${commentId}`);
     window.location.reload();
   };
   return (
-    <div className="min-h-screen fixed flex items-center justify-center z-[5] bg-opacity w-full top-0">
+    <div className="min-h-screen fixed flex items-center justify-center z-[5] w-full bg-opacity top-0 left-0">
       <div className="flex gap-5 bg-gray-900 py-16 px-10 rounded-md">
         <button
           className="text-white w-[130px] bg-green-500 rounded-sm py-1"
-          onClick={() => setPostDelete((prev) => !prev)}
+          onClick={() => setCommentDelete((prev) => !prev)}
         >
           Cancel
         </button>
@@ -22,11 +19,11 @@ const Delete = ({ setPostDelete, postId }) => {
           className="text-white w-[130px] bg-red-500 rounded-sm py-1"
           onClick={handleDelete}
         >
-          Delete Post
+          Delete Comment
         </button>
       </div>
     </div>
   );
 };
 
-export default Delete;
+export default CommentDelete;

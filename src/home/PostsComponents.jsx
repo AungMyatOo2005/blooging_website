@@ -14,9 +14,9 @@ const PostsComponents = ({ posts }) => {
   const last5posts = sortingPost().slice(0, 10);
   return (
     <div
-      className={`flex flex-wrap justify-evenly gap-[30px] ${styles.paddingX}`}
+      className={`flex flex-wrap justify-evenly gap-[30px] ${styles.paddingX} items-end`}
     >
-      {posts.map((post) => (
+      {last5posts.map((post) => (
         <PostList post={post} key={post.id} />
       ))}
     </div>

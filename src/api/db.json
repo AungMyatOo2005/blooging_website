@@ -86,7 +86,8 @@
       "phone": "959942029462",
       "profileUrl": "https://i.pinimg.com/736x/54/73/1e/54731e74a0752206c1df5e6ccf21531d.jpg",
       "password": "wint!%15",
-      "id": 11
+      "id": 11,
+      "bio": "trying my best"
     }
   ],
   "posts": [
@@ -169,6 +170,30 @@
       "content": "This is the body of post 10.",
       "post_url": "https://i.pinimg.com/236x/ec/e0/24/ece024878788d9672f4887718c67409e.jpg",
       "create_at": "2023-06-22T22:04:14+06:30"
+    },
+    {
+      "id": 11,
+      "userId": 11,
+      "title": "crying cat",
+      "content": "I'm so sad in those day",
+      "post_url": "https://i.pinimg.com/236x/44/87/7e/44877ebddf7774875f567d9455ded676.jpg",
+      "create_at": "2023-06-22T22:04:14+06:30"
+    },
+    {
+      "id": 12,
+      "userId": 11,
+      "title": "Beauty girl",
+      "content": "Happy birthday my girl",
+      "post_url": "https://i.pinimg.com/564x/cb/69/9b/cb699be9bcb9d4136241e33e271e29f5.jpg",
+      "create_at": "2023-06-25T22:04:14+06:30"
+    },
+    {
+      "userId": 11,
+      "title": "I'm beauty",
+      "content": "I'm white Ghost",
+      "post_url": "https://i.pinimg.com/564x/c4/de/16/c4de16db396a503be16ab7f07e29bd9f.jpg",
+      "create_at": "2023-11-25T22:32:25+06:30",
+      "id": 14
     }
   ],
   "comments": [
@@ -248,6 +273,69 @@
       "userId": 5,
       "text": "Comment 11 on post 3.",
       "create_at": "2023-11-23T18:04:14+06:30"
+    },
+    {
+      "userId": 11,
+      "postId": 6,
+      "text": "yello cat",
+      "create_at": "2023-11-26T17:23:16+06:30",
+      "id": 16
+    },
+    {
+      "userId": 11,
+      "postId": 6,
+      "text": "big cat",
+      "create_at": "2023-11-26T17:24:26+06:30",
+      "id": 17
+    },
+    {
+      "userId": 11,
+      "postId": 6,
+      "text": "hi",
+      "create_at": "2023-11-26T17:27:17+06:30",
+      "id": 18
+    },
+    {
+      "userId": 11,
+      "postId": 9,
+      "text": "cold cat",
+      "create_at": "2023-11-26T20:34:15+06:30",
+      "id": 19
+    },
+    {
+      "userId": 11,
+      "postId": 8,
+      "text": "I believe he will bite soon LOL",
+      "create_at": "2023-11-26T20:55:29+06:30",
+      "id": 20
+    },
+    {
+      "userId": 11,
+      "postId": 14,
+      "text": "Hello",
+      "create_at": "2023-11-27T13:42:04+06:30",
+      "id": 21
+    },
+    {
+      "userId": 11,
+      "postId": 14,
+      "text": "hrr",
+      "create_at": "2023-11-27T13:55:31+06:30",
+      "id": 22
+    },
+    {
+      "userId": 11,
+      "postId": 14,
+      "text": "aww aww",
+      "create_at": "2023-11-27T13:55:59+06:30",
+      "id": 23
+    },
+    {
+      "userId": 11,
+      "postId": 12,
+      "text": "her lip look like my wife's lip :#",
+      "create_at": "2023-11-27T15:54:58+06:30",
+      "id": 24
     }
   ]
 }
