@@ -14,7 +14,6 @@ import Home from "./home/Home";
 //post detail page
 import PostDetails from "./postDetail/PostDetails";
 //side bar for auth user
-import Sidebar from "./sidebar/Sidebar";
 //user profile page
 import UserProfile from "./profile/UserProfile";
 //login page
@@ -26,6 +25,9 @@ import SuccessRegister from "./success/SuccessRegister";
 import NotFoundPage from "./errorpage/NotFoundPage";
 import PostUpload from "./profile/PostUpload";
 import ProtectedRoute from "./login/ProtectedRoute";
+import Personal from "./personalDetailEdit/Personal";
+import PersonalDetail from "./personalDetailEdit/PersonalDetail";
+import Password from "./personalDetailEdit/Password";
 const App = () => {
   // create browser router for router
   const router = createBrowserRouter(
@@ -45,6 +47,11 @@ const App = () => {
         />
         <Route path="/registration" element={<Register />} />
         <Route path="/successRegister" element={<SuccessRegister />} />
+        <Route path="/personal" element={<Personal />}>
+          <Route index element={<PersonalDetail />} />
+          <Route path="details" element={<PersonalDetail />} />
+          <Route path="passwordChange" element={<Password />} />
+        </Route>
         <Route path="*" element={<NotFoundPage />} />
       </Route>
     )
@@ -57,10 +64,6 @@ const App = () => {
       <ConditionProvider>
         {/* react-router-dom */}
         <RouterProvider router={router} />
-        <div className="fixed top-[48px] ss:top-[45px] sm:top-[55px] md:top-[65px] z-[3] left-0">
-          {/* side bar */}
-          <Sidebar />
-        </div>
       </ConditionProvider>
     </div>
   );

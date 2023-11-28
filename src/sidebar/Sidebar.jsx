@@ -1,12 +1,21 @@
 //use context
-import React, { useContext } from "react";
-//context 
+import React, { useContext, useState } from "react";
+//context
 import { ConditionContext } from "../context/ConditionContext";
 //use hero icon
 import { ArrowLeftIcon } from "@heroicons/react/24/solid";
 import styles from "../styles";
+import ProfileBox from "../home/ProfileBox";
+import { useNavigate } from "react-router-dom";
+import {
+  PencilIcon,
+  ArrowRightOnRectangleIcon,
+} from "@heroicons/react/20/solid";
+import Logout from "../logout/Logout";
 const SideBar = () => {
   const { sideBar, setSideBar } = useContext(ConditionContext);
+  const navigator = useNavigate();
+  const [logoutBox, setLogoutBox] = useState(false);
   return (
     <>
       {sideBar && (
@@ -18,20 +27,38 @@ const SideBar = () => {
             >
               <ArrowLeftIcon className="w-[30px]" />
             </li>
-            <li className="border-b-2 border-gray-900 cursor-pointer hover:bg-gray-600">
-              <div
-                className={` flex ${styles.flexCenter} py-2 px-4 gap-3 rounded-lg hover:opacity-90 w-full`}
-              >
-                <img
-                  src="https://i.pinimg.com/236x/d9/d8/8e/d9d88e3d1f74e2b8ced3df051cecb81d.jpg"
-                  className="w-[35px] rounded-full"
-                />
-                <h1 className={`${styles.profileName}`}>John</h1>
-              </div>
+            <li className="border-b border-gray-900 cursor-pointer hover:bg-gray-900">
+              <ProfileBox
+                onClick={() => {
+                  navigator("/userProfile");
+                  setSideBar((prev) => !prev);
+                }}
+              />
+            </li>
+            <li
+              className="flex items-center justify-start px-3 border-b border-gray-900 cursor-pointer hover:bg-gray-900 py-3 gap-2 hover:text-white transition-colors"
+              onClick={() => {
+                navigator("/personal");
+                setSideBar((prev) => !prev);
+              }}
+            >
+              Edit Personal Detail
+              <PencilIcon className="w-[20px]" />
+            </li>
+            <li
+              className="flex items-center justify-start px-3 border-b border-gray-900 cursor-pointer hover:bg-gray-900 py-3 gap-2 hover:text-white transition-colors"
+              onClick={() => {
+                setLogoutBox((prev) => !prev);
+                setSideBar((prev) => !prev);
+              }}
+            >
+              Logout
+              <ArrowRightOnRectangleIcon className="w-[20px]" />
             </li>
           </ul>
         </div>
       )}
+      {logoutBox && <Logout setLogoutBox={setLogoutBox} />}
     </>
   );
 };

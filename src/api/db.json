@@ -88,6 +88,14 @@
       "password": "wint!%15",
       "id": 11,
       "bio": "trying my best"
+    },
+    {
+      "username": "Htoo Wint",
+      "email": "htoowint@example.com",
+      "phone": "959942029462",
+      "profileUrl": "https://i.pinimg.com/236x/a4/f4/79/a4f4793ca387e7fe2b74cec830a84499.jpg",
+      "password": "aung!%15",
+      "id": 12
     }
   ],
   "posts": [
@@ -194,6 +202,30 @@
       "post_url": "https://i.pinimg.com/564x/c4/de/16/c4de16db396a503be16ab7f07e29bd9f.jpg",
       "create_at": "2023-11-25T22:32:25+06:30",
       "id": 14
+    },
+    {
+      "userId": 1,
+      "title": "mine",
+      "content": "My girl is so look good in these day",
+      "post_url": "https://i.pinimg.com/236x/cf/a5/56/cfa5566c540325f7219151bbee55bd40.jpg",
+      "create_at": "2023-11-27T21:09:57+06:30",
+      "id": 15
+    },
+    {
+      "userId": 11,
+      "title": "hello",
+      "content": "",
+      "post_url": "https://i.pinimg.com/736x/41/58/fb/4158fb8639a9fd5c782a6a066a92bfab.jpg",
+      "create_at": "2023-11-27T21:44:14+06:30",
+      "id": 16
+    },
+    {
+      "userId": 11,
+      "title": "attack on titan",
+      "content": "the bird forward of eren face lol",
+      "post_url": "https://i.pinimg.com/236x/57/52/df/5752dfbf2d8857b276685010a1e22f58.jpg",
+      "create_at": "2023-11-27T21:46:43+06:30",
+      "id": 17
     }
   ],
   "comments": [
@@ -268,74 +300,25 @@
       "create_at": "2023-11-23T10:04:14+06:30"
     },
     {
-      "id": 11,
-      "postId": 3,
-      "userId": 5,
-      "text": "Comment 11 on post 3.",
-      "create_at": "2023-11-23T18:04:14+06:30"
-    },
-    {
-      "userId": 11,
-      "postId": 6,
-      "text": "yello cat",
-      "create_at": "2023-11-26T17:23:16+06:30",
-      "id": 16
-    },
-    {
-      "userId": 11,
-      "postId": 6,
-      "text": "big cat",
-      "create_at": "2023-11-26T17:24:26+06:30",
-      "id": 17
-    },
-    {
-      "userId": 11,
-      "postId": 6,
-      "text": "hi",
-      "create_at": "2023-11-26T17:27:17+06:30",
-      "id": 18
-    },
-    {
-      "userId": 11,
-      "postId": 9,
-      "text": "cold cat",
-      "create_at": "2023-11-26T20:34:15+06:30",
-      "id": 19
-    },
-    {
-      "userId": 11,
-      "postId": 8,
-      "text": "I believe he will bite soon LOL",
-      "create_at": "2023-11-26T20:55:29+06:30",
-      "id": 20
-    },
-    {
       "userId": 11,
       "postId": 14,
-      "text": "Hello",
-      "create_at": "2023-11-27T13:42:04+06:30",
-      "id": 21
+      "text": "ghost",
+      "create_at": "2023-11-27T21:45:41+06:30",
+      "id": 11
     },
     {
       "userId": 11,
-      "postId": 14,
-      "text": "hrr",
-      "create_at": "2023-11-27T13:55:31+06:30",
-      "id": 22
+      "postId": 17,
+      "text": "is look like eren",
+      "create_at": "2023-11-27T21:46:54+06:30",
+      "id": 12
     },
     {
       "userId": 11,
-      "postId": 14,
-      "text": "aww aww",
-      "create_at": "2023-11-27T13:55:59+06:30",
-      "id": 23
-    },
-    {
-      "userId": 11,
-      "postId": 12,
-      "text": "her lip look like my wife's lip :#",
-      "create_at": "2023-11-27T15:54:58+06:30",
-      "id": 24
+      "postId": 17,
+      "text": "haww",
+      "create_at": "2023-11-28T11:36:16+06:30",
+      "id": 13
     }
   ]
 }

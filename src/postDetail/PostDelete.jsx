@@ -2,10 +2,20 @@ import axios from "axios";
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-const Delete = ({ setPostDelete, postId }) => {
+const PostDelete = ({ setPostDelete, postId }) => {
   const navigator = useNavigate();
-  const handleDelete = () => {
-    axios.delete(`${import.meta.env.VITE_API_URL}/posts/${postId}`);
+  const handleDelete = async () => {
+    await axios.delete(`${import.meta.env.VITE_API_URL}/posts/${postId}`);
+
+    const response = await axios.get(
+      `${import.meta.env.VITE_API_URL}/posts/${postId}/comments`
+    );
+    const commentIds = response.data.map((comment) => comment.id);
+    await Promise.all(
+      commentIds.map((commentId) =>
+        axios.delete(`${import.meta.env.VITE_API_URL}/comments/${commentId}`)
+      )
+    );
     navigator("/");
     window.location.reload();
   };
@@ -29,4 +39,4 @@ const Delete = ({ setPostDelete, postId }) => {
   );
 };
 
-export default Delete;
+export default PostDelete;

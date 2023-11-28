@@ -5,30 +5,40 @@ import CommentsList from "./CommentsList";
 import { ArrowRightCircleIcon } from "@heroicons/react/20/solid";
 import axios from "axios";
 import moment from "moment/moment";
-const Comments = ({ comments, postId }) => {
+import LoginAlert from "./LoginAlert";
+const Comments = ({ comments, post }) => {
   const [comment, setComment] = useState("");
   const [userId, setUserId] = useState(null);
+  const [loginAlert, setLoginAlert] = useState(false);
   useEffect(() => {
     const authUserData = JSON.parse(
       localStorage.getItem("REACT-FRONTEND-FINAL-PROJECT")
     );
-    setUserId(authUserData.id);
+    if (authUserData) {
+      setUserId(authUserData.id);
+    }
   }, []);
 
   const commentData = {
     userId: userId,
-    postId: postId,
+    postId: post.id,
     text: comment,
     create_at: moment().format(),
   };
   const handleComment = async () => {
     await axios.post(`${import.meta.env.VITE_API_URL}/comments`, commentData);
+    window.location.reload();
   };
   const onChange = (e) => {
     setComment(e.target.value);
   };
-  const handleSubmit = async () => {
-    comment.trim() !== "" && (await handleComment());
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    userId
+      ? comment.trim() !== ""
+        ? await handleComment()
+        : alert("please fill something")
+      : setLoginAlert(true);
   };
   const sortingComment = () => {
     if (comments && comments.length > 0) {
@@ -42,9 +52,10 @@ const Comments = ({ comments, postId }) => {
   const sortCommentValue = sortingComment();
   return (
     <div className="flex flex-col gap-5">
+      {loginAlert && <LoginAlert setLoginAlert={setLoginAlert} />}
       {sortCommentValue.map((comment) => (
         <div className="" key={comment.id}>
-          <CommentsList id={comment.id} userId={userId} />
+          <CommentsList id={comment.id} userId={userId} post={post} />
         </div>
       ))}
       <form className="flex items-center gap-5" onSubmit={handleSubmit}>

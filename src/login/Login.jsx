@@ -92,7 +92,7 @@ const Login = () => {
               type="submit"
               className="bg-blue-500 py-1 rounded-sm text-white font-Poppins cursor-pointer active:scale-[0.97] mt-4 w-full"
             >
-              Register
+              Login
             </button>
           </form>
           <div className="flex items-center gap-3">

@@ -16,7 +16,7 @@ import { XMarkIcon, EllipsisHorizontalIcon } from "@heroicons/react/20/solid";
 import { ConditionContext } from "../context/ConditionContext";
 //edit and delete alert box
 //delete sure box
-import Delete from "./Delete";
+import PostDelete from "./PostDelete";
 import PostEdit from "./PostEdit";
 const PostDetails = () => {
   const navigator = useNavigate();
@@ -46,7 +46,7 @@ const PostDetails = () => {
     getPost();
   }, []);
   const user = JSON.parse(localStorage.getItem("REACT-FRONTEND-FINAL-PROJECT"));
-  const idOfUser = user.id;
+  const idOfUser = user && user.id;
   return (
     <div className={` pt-32 ${styles.flexCenter} ${styles.paddingX} pb-24`}>
       {isLoading && !err && (
@@ -70,7 +70,7 @@ const PostDetails = () => {
       {!isLoading && !err && (
         <>
           {isAuthUser && post.user.id === idOfUser && postDelete && (
-            <Delete setPostDelete={setPostDelete} postId={post.id} />
+            <PostDelete setPostDelete={setPostDelete} postId={post.id} />
           )}
           {isAuthUser && post.user.id === idOfUser && postEdit && (
             <PostEdit setPostEdit={setPostEdit} post={post} />
@@ -79,7 +79,7 @@ const PostDetails = () => {
             <div>
               <button
                 className="absolute top-1 cursor-pointer right-1 active:scale-95"
-                onClick={() => navigator("/userProfile")}
+                onClick={() => navigator(-1)}
               >
                 <XMarkIcon className=" w-[30px] text-gray-300 bg-gray-900 rounded-full hover:opacity-80" />
               </button>
@@ -138,7 +138,7 @@ const PostDetails = () => {
               />
             )}
             <div className=" py-6 px-5">
-              <Comments comments={post.comments} postId={post.id} />
+              <Comments comments={post.comments} post={post} />
             </div>
           </div>
         </>

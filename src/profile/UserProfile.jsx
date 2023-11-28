@@ -46,7 +46,6 @@ const UserProfile = () => {
       return [];
     }
   };
-
   const posts = sortingPost();
   return (
     <>
@@ -85,22 +84,18 @@ const UserProfile = () => {
                   <h1 className="text-white text-[32px] font-Poppins font-semibold">
                     {userData.username}
                   </h1>
-                  {userData.bio ? (
-                    <>
-                      <p className="text-gray-300 mt-5 text-[20px]">
-                        bio: {userData.bio}
-                      </p>
-                      <button className="bg-secondary mt-5 text-black font-Poppins font-semibold cursor-pointer rounded-sm active:scale-95 py-2 px-4 flex items-center gap-2">
-                        <PencilIcon className="w-[25px]" />
-                        <span>Edit Personal Detail</span>
-                      </button>
-                    </>
-                  ) : (
-                    <button className="bg-secondary mt-5 text-black font-Poppins font-semibold cursor-pointer rounded-sm active:scale-95 py-2 px-4 flex items-center gap-2">
-                      <PencilIcon className="w-[25px]" />
-                      <span>Edit Personal Detail</span>
-                    </button>
+                  {userData.bio && (
+                    <p className="text-gray-300 mt-5 text-[20px]">
+                      bio: {userData.bio}
+                    </p>
                   )}
+                  <button
+                    className="bg-secondary mt-5 text-black font-Poppins font-semibold cursor-pointer rounded-sm active:scale-95 py-2 px-4 flex items-center gap-2"
+                    onClick={() => navigator("/personal")}
+                  >
+                    <PencilIcon className="w-[25px]" />
+                    <span>Edit Personal Detail</span>
+                  </button>
                 </div>
               </div>
               {uploadBox && <PostUpload id={userData.id} />}
@@ -116,7 +111,7 @@ const UserProfile = () => {
                 </h2>
               </div>
               <div className="mt-5 flex flex-col gap-10">
-                {posts ? (
+                {posts.length > 0 ? (
                   posts.map((post, index) => (
                     <AuthUserPost
                       post={post}

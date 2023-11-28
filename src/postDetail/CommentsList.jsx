@@ -8,7 +8,7 @@ import { EllipsisHorizontalIcon } from "@heroicons/react/24/solid";
 import CommentDelete from "./CommentDelete";
 import CommentEdit from "./CommentEdit";
 //comment creator array data
-const CommentsList = ({ id, userId }) => {
+const CommentsList = ({ id, userId, post }) => {
   const [commentList, setCommentsList] = useState([]);
   //loading state
   const [isLoading, setIsLoading] = useState(true);
@@ -43,19 +43,24 @@ const CommentsList = ({ id, userId }) => {
       )}
       {!isLoading && !err && commentList && (
         <>
-          {commentDelete && userId === commentList.userId && (
-            <CommentDelete setCommentDelete={setCommentDelete} commentId={id} />
-          )}
+          {(userId === commentList.userId || userId === post.userId) &&
+            commentDelete && (
+              <CommentDelete
+                setCommentDelete={setCommentDelete}
+                commentId={id}
+              />
+            )}
           {commentEdit && userId === commentList.userId && (
             <CommentEdit commentId={id} setCommentEditBox={setCommentEdit} />
           )}
+
           <div
             className=" rounded-[10px] p-5 bg-gray-700 relative"
             onMouseEnter={() => setIsHover(true)}
             onMouseLeave={() => setIsHover(false)}
           >
-            {userId === commentList.userId && isHover && (
-              <>
+            {(userId === commentList.userId || userId === post.userId) &&
+              isHover && (
                 <button
                   className="absolute  top-0 right-2"
                   onClick={() => {
@@ -64,8 +69,7 @@ const CommentsList = ({ id, userId }) => {
                 >
                   <EllipsisHorizontalIcon className="w-[40px] text-gray-300" />
                 </button>
-              </>
-            )}
+              )}
             {isActiveCmt && (
               <div className=" absolute flex flex-col items-center gap-3 bg-gray-500 py-2 px-5 rounded-md right-[-9rem] top-[3rem]">
                 {/* if click delete alert box will display and aks confirm delete and cancel (auth user only can make this ) */}
