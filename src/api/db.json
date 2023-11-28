@@ -85,7 +85,7 @@
       "email": "aungmyatoo2025@gmail.com",
       "phone": "959942029462",
       "profileUrl": "https://i.pinimg.com/736x/54/73/1e/54731e74a0752206c1df5e6ccf21531d.jpg",
-      "password": "wint!%15",
+      "password": "gggggg%5",
       "id": 11,
       "bio": "trying my best"
     },
@@ -96,6 +96,14 @@
       "profileUrl": "https://i.pinimg.com/236x/a4/f4/79/a4f4793ca387e7fe2b74cec830a84499.jpg",
       "password": "aung!%15",
       "id": 12
+    },
+    {
+      "username": "Kyaw Kyaw",
+      "email": "kyaw@example.com",
+      "phone": "09934934934",
+      "profileUrl": "https://i.pinimg.com/564x/2e/e6/ca/2ee6caf73ab432a369f95144235b17b8.jpg",
+      "password": "33##ffff",
+      "id": 13
     }
   ],
   "posts": [

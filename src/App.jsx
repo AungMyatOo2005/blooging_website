@@ -23,11 +23,13 @@ import ConditionProvider from "./context/ConditionContext";
 import Register from "./register/Register";
 import SuccessRegister from "./success/SuccessRegister";
 import NotFoundPage from "./errorpage/NotFoundPage";
-import PostUpload from "./profile/PostUpload";
 import ProtectedRoute from "./login/ProtectedRoute";
 import Personal from "./personalDetailEdit/Personal";
-import PersonalDetail from "./personalDetailEdit/PersonalDetail";
-import Password from "./personalDetailEdit/Password";
+import PasswordChange from "./personalDetailEdit/PasswordChange";
+import NameChange from "./personalDetailEdit/NameChange";
+import EmailChange from "./personalDetailEdit/EmailChange";
+import PhoneChange from "./personalDetailEdit/PhoneChange";
+import ProfileChange from "./personalDetailEdit/ProfileChange";
 const App = () => {
   // create browser router for router
   const router = createBrowserRouter(
@@ -48,9 +50,12 @@ const App = () => {
         <Route path="/registration" element={<Register />} />
         <Route path="/successRegister" element={<SuccessRegister />} />
         <Route path="/personal" element={<Personal />}>
-          <Route index element={<PersonalDetail />} />
-          <Route path="details" element={<PersonalDetail />} />
-          <Route path="passwordChange" element={<Password />} />
+          <Route index element={<NameChange />} />
+          <Route path="nameChange" element={<NameChange />} />
+          <Route path="emailChange" element={<EmailChange />} />
+          <Route path="phoneNumberChange" element={<PhoneChange />} />
+          <Route path="profileChange" element={<ProfileChange />} />
+          <Route path="passwordChange" element={<PasswordChange />} />
         </Route>
         <Route path="*" element={<NotFoundPage />} />
       </Route>

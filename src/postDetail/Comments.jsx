@@ -67,7 +67,7 @@ const Comments = ({ comments, post }) => {
           onChange={onChange}
         />
         <button type="submit">
-          <ArrowRightCircleIcon className="w-[50px] text-gray-300 active:scale-[0.97]" />
+          <ArrowRightCircleIcon className="w-[50px] text-gray-300 active:scale-[0.97] hover:text-gray-400" />
         </button>
       </form>
     </div>

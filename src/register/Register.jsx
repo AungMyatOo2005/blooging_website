@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { ArrowLongRightIcon } from "@heroicons/react/20/solid";
 const Register = () => {
   const navigator = useNavigate();
+  const [error, setError] = useState(null);
   const [values, setValues] = useState({
     username: "",
     email: "",
@@ -21,7 +22,12 @@ const Register = () => {
     password: values.confirmPassword,
   };
   const handleRegister = async () => {
-    await axios.post(`${import.meta.env.VITE_API_URL}/users`, updateUserData);
+    try {
+      await axios.post(`${import.meta.env.VITE_API_URL}/users`, updateUserData);
+      setError(null); // Reset error state if registration is successful
+    } catch (error) {
+      setError("Registration failed. Please check your input and try again.");
+    }
   };
   const onSubmit = async (e) => {
     e.preventDefault();
@@ -46,7 +52,7 @@ const Register = () => {
       required: true,
       errorMessage:
         "username should be 3-16 characters and should't be any special character",
-      pattern: `^[A-Za-z0-9\\s+]{3,16}$`,
+      pattern: `^[A-Za-z0-9\\s+]{3,30}$`,
     },
     {
       id: 2,
@@ -60,12 +66,12 @@ const Register = () => {
     {
       id: 3,
       name: "phoneNumber",
-      type: "text",
+      type: "number",
       placeholder: "Enter your phoneNumber",
       label: "Phone Number",
       required: true,
       errorMessage: "Phone number is required",
-      pattern: `^[0-9]{8,12}$`,
+      pattern: `^[0-9]{8,13}$`,
     },
     {
       id: 4,
@@ -84,7 +90,7 @@ const Register = () => {
         "Password should be 8-20 character and include 1 letter,1 number and 1 special character!",
       required: true,
       pattern:
-        "^(?=.*[0-9])(?=.*[a-zA-Z])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*\\s+]{8,20}$",
+        "^(?=.*[0-9])(?=.*[a-zA-Z])(?=.*[!@#$%&*])[a-zA-Z0-9!@#$%^&*\\s+]{8,20}$",
     },
     {
       id: 6,
@@ -121,6 +127,7 @@ const Register = () => {
             onChange={onChange}
           />
         ))}
+        {error && <p className="text-red-500 text-center w-full mt-2 mb-4">{error}</p>}
         <button
           type="submit"
           className="bg-blue-500 py-1 rounded-sm text-white font-Poppins cursor-pointer active:scale-[0.97] mt-3"
