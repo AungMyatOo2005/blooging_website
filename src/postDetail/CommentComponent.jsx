@@ -8,8 +8,8 @@ import { EllipsisHorizontalIcon } from "@heroicons/react/24/solid";
 import CommentDelete from "./CommentDelete";
 import CommentEdit from "./CommentEdit";
 //comment creator array data
-const CommentsList = ({ id, userId, post }) => {
-  const [commentList, setCommentsList] = useState([]);
+const CommentsComponent = ({ id, userId, post }) => {
+  const [comment, setComment] = useState([]);
   //loading state
   const [isLoading, setIsLoading] = useState(true);
   //error state
@@ -24,7 +24,7 @@ const CommentsList = ({ id, userId, post }) => {
         const resp = await axios.get(
           `${import.meta.env.VITE_API_URL}/comments/${id}?_expand=user` //fetch data what post user click
         );
-        setCommentsList(await resp.data);
+        setComment(await resp.data);
       } catch (err) {
         setErr(`Error Fetching Data:${err.message}`); //error state
       } finally {
@@ -41,16 +41,16 @@ const CommentsList = ({ id, userId, post }) => {
           {err}
         </h2>
       )}
-      {!isLoading && !err && commentList && (
+      {!isLoading && !err && comment && (
         <>
-          {(userId === commentList.userId || userId === post.userId) &&
+          {(userId === comment.userId || userId === post.userId) &&
             commentDelete && (
               <CommentDelete
                 setCommentDelete={setCommentDelete}
                 commentId={id}
               />
             )}
-          {commentEdit && userId === commentList.userId && (
+          {commentEdit && userId === comment.userId && (
             <CommentEdit commentId={id} setCommentEditBox={setCommentEdit} />
           )}
 
@@ -59,7 +59,7 @@ const CommentsList = ({ id, userId, post }) => {
             onMouseEnter={() => setIsHover(true)}
             onMouseLeave={() => setIsHover(false)}
           >
-            {(userId === commentList.userId || userId === post.userId) &&
+            {(userId === comment.userId || userId === post.userId) &&
               isHover && (
                 <button
                   className="absolute  top-0 right-2"
@@ -79,7 +79,7 @@ const CommentsList = ({ id, userId, post }) => {
                 >
                   Delete
                 </button>
-                {userId === commentList.userId && (
+                {userId === comment.userId && (
                   <button
                     className="bg-gray-900 text-gray-200 w-[100px] rounded-sm py-1 active:scale-95 font-Poppins"
                     onClick={() => setCommentEdit((prev) => !prev)}
@@ -91,19 +91,19 @@ const CommentsList = ({ id, userId, post }) => {
             )}
             <div className="flex items-center gap-5">
               <img
-                src={commentList.user.profileUrl}
+                src={comment.user.profileUrl}
                 className="w-[50px] rounded-full"
               />
               <h4 className="text-gray-300 font-semibold font-Poppins">
-                {commentList.user.username}
+                {comment.user.username}
               </h4>
             </div>
             <div className="py-2">
               <p className="text-gray-200 font-Poppins text-[16px]">
-                {commentList.text}
+                {comment.text}
               </p>
               <p className="text-[14px] leading-[32px] text-gray-400">
-                {commentList.create_at}
+                {comment.create_at}
               </p>
             </div>
           </div>
@@ -113,4 +113,4 @@ const CommentsList = ({ id, userId, post }) => {
   );
 };
 
-export default CommentsList;
+export default CommentsComponent;

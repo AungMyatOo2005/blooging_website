@@ -1,6 +1,6 @@
 //to get comment and comment creator
 import { useEffect, useState } from "react";
-import CommentsList from "./CommentsList";
+import CommentComponent from "./CommentComponent";
 //use hero icon
 import { ArrowRightCircleIcon } from "@heroicons/react/20/solid";
 import axios from "axios";
@@ -55,7 +55,7 @@ const Comments = ({ comments, post }) => {
       {loginAlert && <LoginAlert setLoginAlert={setLoginAlert} />}
       {sortCommentValue.map((comment) => (
         <div className="" key={comment.id}>
-          <CommentsList id={comment.id} userId={userId} post={post} />
+          <CommentComponent id={comment.id} userId={userId} post={post} />
         </div>
       ))}
       <form className="flex items-center gap-5" onSubmit={handleSubmit}>
