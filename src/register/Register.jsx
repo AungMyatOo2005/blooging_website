@@ -86,11 +86,9 @@ const Register = () => {
       type: "password",
       placeholder: "Create Password",
       label: "password",
-      errorMessage:
-        "Password should be 8-20 character and include 1 letter,1 number and 1 special character!",
+      errorMessage: "Password should be 8-20 character!",
       required: true,
-      pattern:
-        "^(?=.*[0-9])(?=.*[a-zA-Z])(?=.*[!@#$%&*])[a-zA-Z0-9!@#$%^&*\\s+]{8,20}$",
+      pattern: "^[A-Za-z0-9!@#$%&*]{8,20}$",
     },
     {
       id: 6,
@@ -127,7 +125,9 @@ const Register = () => {
             onChange={onChange}
           />
         ))}
-        {error && <p className="text-red-500 text-center w-full mt-2 mb-4">{error}</p>}
+        {error && (
+          <p className="text-red-500 text-center w-full mt-2 mb-4">{error}</p>
+        )}
         <button
           type="submit"
           className="bg-blue-500 py-1 rounded-sm text-white font-Poppins cursor-pointer active:scale-[0.97] mt-3"

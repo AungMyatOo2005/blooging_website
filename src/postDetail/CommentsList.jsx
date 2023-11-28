@@ -79,12 +79,14 @@ const CommentsList = ({ id, userId, post }) => {
                 >
                   Delete
                 </button>
-                <button
-                  className="bg-gray-900 text-gray-200 w-[100px] rounded-sm py-1 active:scale-95 font-Poppins"
-                  onClick={() => setCommentEdit((prev) => !prev)}
-                >
-                  Edit
-                </button>
+                {userId === commentList.userId && (
+                  <button
+                    className="bg-gray-900 text-gray-200 w-[100px] rounded-sm py-1 active:scale-95 font-Poppins"
+                    onClick={() => setCommentEdit((prev) => !prev)}
+                  >
+                    Edit
+                  </button>
+                )}
               </div>
             )}
             <div className="flex items-center gap-5">

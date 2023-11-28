@@ -1,5 +1,7 @@
-import React, { useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import FormInput from "../register/FormInput";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
 const PhoneChange = () => {
   const [userDataLs, setUserDataLs] = useState({});
   useEffect(() => {
@@ -14,32 +16,48 @@ const PhoneChange = () => {
   const onChange = (e) => {
     setPhone(e.target.value);
   };
-  const onSubmit = (e) => {
-    e.preventDefault();
-    console.log(phone);
-  };
   const input = {
     id: 1,
     name: "phone",
     type: "text",
-    placeholder:userDataLs.phone,
+    placeholder: userDataLs.phone,
     label: "Change Phone Number",
     required: true,
     errorMessage: "Phone number is required",
     pattern: `^[0-9]{8,13}$`,
   };
+  const navigator = useNavigate();
+  const handlePhoneChange = async () => {
+    try {
+      await axios.patch(
+        `${import.meta.env.VITE_API_URL}/users/${userDataLs.id}`,
+        { phone: phone }
+      );
+      const updateUserDataLs = {
+        ...userDataLs,
+        phone: phone,
+      };
+      localStorage.setItem(
+        "REACT-FRONTEND-FINAL-PROJECT",
+        JSON.stringify(updateUserDataLs)
+      );
+      setUserDataLs(updateUserDataLs);
+      navigator("/successDetailsEdit");
+    } catch (error) {
+      console.error("Password change failed:", error);
+    }
+  };
+  const onSubmit = (e) => {
+    e.preventDefault();
+    handlePhoneChange();
+  };
   return (
-    <form className=" min-w-[450px]" onSubmit={onSubmit}>
+    <form className=" w-fit" onSubmit={onSubmit}>
       <h1 className="text-secondary text-[26px] font-semibold font-Poppins mb-8">
         Phone Number Change
       </h1>
 
-      <FormInput
-        key={input.id}
-        {...input}
-        value={phone}
-        onChange={onChange}
-      />
+      <FormInput key={input.id} {...input} value={phone} onChange={onChange} />
       <button
         className="bg-secondary w-[400px] cursor-pointer rounded-sm active:scale-95 py-1 font-Poppins font-semibold"
         type="submit"

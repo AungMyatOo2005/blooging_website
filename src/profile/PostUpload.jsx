@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import axios from "axios";
 import moment from "moment/moment";
-const PostUpload = ({ id }) => {
+import { XMarkIcon } from "@heroicons/react/24/solid";
+const PostUpload = ({ id, setUploadBox }) => {
   const [postValue, setPostValue] = useState({
     content: "",
     title: "",
@@ -42,11 +43,17 @@ const PostUpload = ({ id }) => {
   };
 
   return (
-    <div className="bg-[rgba(140,140,140,0.7)] h-screen w-screen fixed top-0 z-[10] flex items-center justify-center">
+    <div className="bg-opacity h-screen w-screen fixed top-0 z-[10] flex items-center justify-center">
       <form
-        className="bg-gray-900 py-24 px-16 rounded-lg"
+        className="bg-gray-900 py-24 px-16 rounded-lg relative"
         onSubmit={handleSubmit}
       >
+        <button
+          className="absolute top-1 cursor-pointer right-1 active:scale-95"
+          onClick={() => setUploadBox((prev) => !prev)}
+        >
+          <XMarkIcon className=" w-[30px] text-gray-900 bg-gray-300 rounded-full hover:opacity-80" />
+        </button>
         <h1 className="text-secondary font-semibold font-Poppins text-[28px]">
           Upload Post
         </h1>

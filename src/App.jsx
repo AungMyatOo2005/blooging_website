@@ -30,6 +30,7 @@ import NameChange from "./personalDetailEdit/NameChange";
 import EmailChange from "./personalDetailEdit/EmailChange";
 import PhoneChange from "./personalDetailEdit/PhoneChange";
 import ProfileChange from "./personalDetailEdit/ProfileChange";
+import SuccessPersonalDetailEdit from "./success/SuccessPersonalDetailEdit";
 const App = () => {
   // create browser router for router
   const router = createBrowserRouter(
@@ -49,6 +50,10 @@ const App = () => {
         />
         <Route path="/registration" element={<Register />} />
         <Route path="/successRegister" element={<SuccessRegister />} />
+        <Route
+          path="/successDetailsEdit"
+          element={<SuccessPersonalDetailEdit />}
+        />
         <Route path="/personal" element={<Personal />}>
           <Route index element={<NameChange />} />
           <Route path="nameChange" element={<NameChange />} />

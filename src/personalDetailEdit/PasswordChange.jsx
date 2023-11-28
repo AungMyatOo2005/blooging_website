@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from "react";
 import FormInput from "../register/FormInput";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 // ... (your import statements)
 
 const PasswordChange = () => {
+  const navigator = useNavigate();
   const [userDataLs, setUserDataLs] = useState({});
+  const [passwordErr, setPasswordErr] = useState(false);
   useEffect(() => {
     const user = JSON.parse(
       localStorage.getItem("REACT-FRONTEND-FINAL-PROJECT")
@@ -46,10 +49,8 @@ const PasswordChange = () => {
       placeholder: "New Password",
       label: "New Password",
       required: true,
-      errorMessage:
-        "Password should be 8-20 characters and include 1 letter, 1 number, and 1 special character!",
-      pattern:
-        "^(?=.*[0-9])(?=.*[a-zA-Z])(?=.*[!@#$%&*])[a-zA-Z0-9!@#$%^&*\\s+]{8,20}$",
+      errorMessage: "Password should be 8-20 characters!",
+      pattern: "^[A-Za-z0-9!@#$%&*\\s+]{8,20}$",
     },
     {
       id: 3,
@@ -67,27 +68,37 @@ const PasswordChange = () => {
     password: values.confirmPassword,
   };
 
-  const handlePasswordChange = async (e) => {
+  const onSubmit = (e) => {
+    e.preventDefault();
+    if (userDataLs.password === values.oldPassword) {
+      handlePasswordChange();
+      setPasswordErr(false);
+    } else {
+      setPasswordErr("your password is invalid");
+    }
+  };
+  const handlePasswordChange = async () => {
     try {
       await axios.patch(
         `${import.meta.env.VITE_API_URL}/users/${userDataLs.id}`,
         passwordData
       );
+      const updateUserDataLs = {
+        ...userDataLs,
+        password: values.confirmPassword,
+      };
       localStorage.setItem(
         "REACT-FRONTEND-FINAL-PROJECT",
-        JSON.stringify({ ...userDataLs, password: values.confirmPassword })
+        JSON.stringify(updateUserDataLs)
       );
+      setUserDataLs(updateUserDataLs);
+      navigator("/successDetailsEdit");
     } catch (error) {
       console.error("Password change failed:", error);
     }
   };
-  const onSubmit = () => {
-    {
-      userDataLs.password === values.oldPassword && handlePasswordChange();
-    }
-  };
   return (
-    <form className="min-w-[450px]" onSubmit={onSubmit}>
+    <form className="min-w-fit" onSubmit={onSubmit}>
       <h1 className="text-secondary text-[26px] font-semibold font-Poppins mb-8">
         Change New Password
       </h1>
@@ -99,6 +110,9 @@ const PasswordChange = () => {
           onChange={onChange}
         />
       ))}
+      <p className="text-red-500 text-[16px] mb-5">
+        {passwordErr && passwordErr}
+      </p>
       <button
         className="bg-secondary w-[400px] cursor-pointer rounded-sm active:scale-95 py-1 font-Poppins font-semibold"
         type="submit"

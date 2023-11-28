@@ -2,11 +2,11 @@
   "users": [
     {
       "id": 1,
-      "username": "John",
-      "email": "user1@example.com",
-      "phone": "123-456-7890",
-      "password": "password1",
-      "profileUrl": "https://i.pinimg.com/736x/d6/59/d8/d659d82b69bbb26cde0bc53f4a50852e.jpg"
+      "username": "Lily",
+      "email": "lily23@gmail.com",
+      "phone": "09942029462",
+      "password": "lisaismine",
+      "profileUrl": "https://i.pinimg.com/236x/22/88/d7/2288d7f0f89e3c140db194b81bf49317.jpg"
     },
     {
       "id": 2,
@@ -104,6 +104,14 @@
       "profileUrl": "https://i.pinimg.com/564x/2e/e6/ca/2ee6caf73ab432a369f95144235b17b8.jpg",
       "password": "33##ffff",
       "id": 13
+    },
+    {
+      "username": "Lalisa",
+      "email": "lisa123@gmail.com",
+      "phone": "0939489384938",
+      "profileUrl": "https://i.pinimg.com/564x/1d/39/49/1d3949590bd5f7f40cfa0ea30ad6eebc.jpg",
+      "password": "lisaismine",
+      "id": 14
     }
   ],
   "posts": [
@@ -234,6 +242,14 @@
       "post_url": "https://i.pinimg.com/236x/57/52/df/5752dfbf2d8857b276685010a1e22f58.jpg",
       "create_at": "2023-11-27T21:46:43+06:30",
       "id": 17
+    },
+    {
+      "userId": 14,
+      "title": "cat cat",
+      "content": "this is my beauty cat",
+      "post_url": "https://www.wfla.com/wp-content/uploads/sites/71/2023/05/GettyImages-1389862392.jpg?w=876&h=493&crop=1",
+      "create_at": "2023-11-28T18:56:29+06:30",
+      "id": 18
     }
   ],
   "comments": [
@@ -327,6 +343,20 @@
       "text": "haww",
       "create_at": "2023-11-28T11:36:16+06:30",
       "id": 13
+    },
+    {
+      "userId": 14,
+      "postId": 18,
+      "text": "lovely ",
+      "create_at": "2023-11-28T18:56:37+06:30",
+      "id": 14
+    },
+    {
+      "userId": 14,
+      "postId": 17,
+      "text": "lol",
+      "create_at": "2023-11-28T19:03:49+06:30",
+      "id": 15
     }
   ]
 }

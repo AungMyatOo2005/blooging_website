@@ -84,6 +84,9 @@ const UserProfile = () => {
                   <h1 className="text-white text-[32px] font-Poppins font-semibold">
                     {userData.username}
                   </h1>
+                  <p className="text-gray-300 font-Poppins py-2">
+                    {userData.email}
+                  </p>
                   {userData.bio && (
                     <p className="text-gray-300 mt-5 text-[20px]">
                       bio: {userData.bio}
@@ -98,7 +101,9 @@ const UserProfile = () => {
                   </button>
                 </div>
               </div>
-              {uploadBox && <PostUpload id={userData.id} />}
+              {uploadBox && (
+                <PostUpload id={userData.id} setUploadBox={setUploadBox} />
+              )}
               <div
                 className="flex items-center bg-gray-900 mt-5 rounded-r-lg select-none cursor-pointer"
                 onClick={() => setUploadBox(true)}
