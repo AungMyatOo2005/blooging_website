@@ -88,7 +88,7 @@ const Register = () => {
       label: "password",
       errorMessage: "Password should be 8-20 character!",
       required: true,
-      pattern: "^[A-Za-z0-9!@#$%&*]{8,20}$",
+      pattern: "^[A-Za-z0-9!@#$%&*\\s+]{8,20}$",
     },
     {
       id: 6,
@@ -110,7 +110,7 @@ const Register = () => {
       className={`flex items-center justify-center min-h-screen pt-20 pb-10`}
     >
       <form
-        className="bg-gray-900 py-10 px-16 rounded-lg shadow-[2px_2px_20px_0px_rgba(158,157,153,0.3)] flex flex-col gap-5"
+        className="bg-gray-900 py-10 px-6 ss:px-10 sm:px-16 rounded-lg shadow-[2px_2px_20px_0px_rgba(158,157,153,0.3)] flex flex-col gap-5"
         onSubmit={onSubmit}
       >
         <h1 className={`text-[26px] font-semibold font-Poppins text-blue-500`}>
@@ -134,14 +134,17 @@ const Register = () => {
         >
           Register
         </button>
+        <div className="flex items-center gap-3">
+          <span className="text-gray-200">you have already account</span>
+          <button
+            className="flex items-center gap-1 hover:translate-y-[-2px] transition-transform ease-in-out hover:scale-105"
+            onClick={() => navigator("/login")}
+          >
+            <span className="text-secondary capitalize">login </span>
+            <ArrowLongRightIcon className="w-[30px] text-secondary" />
+          </button>
+        </div>
       </form>
-      <button
-        className="flex items-center gap-1 hover:translate-y-[-2px] transition-transform ease-in-out hover:scale-105 absolute right-20 top-32"
-        onClick={() => navigator("/login")}
-      >
-        <span className="text-secondary capitalize">login</span>
-        <ArrowLongRightIcon className="w-[30px] text-secondary" />
-      </button>
     </div>
   );
 };

@@ -64,7 +64,7 @@ const NameChange = ({}) => {
         className="bg-secondary w-[400px] cursor-pointer rounded-sm active:scale-95 py-1 font-Poppins font-semibold"
         type="submit"
       >
-        Change Details
+        Change Username
       </button>
     </form>
   );

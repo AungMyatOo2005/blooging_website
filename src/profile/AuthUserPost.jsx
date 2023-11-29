@@ -4,10 +4,10 @@ const AuthUserPost = ({ userData, post }) => {
   const navigator = useNavigate();
   return (
     <div
-      className="bg-gray-700 max-w-[500px] rounded-lg"
+      className="bg-gray-700 w-[300px] xs:w-[350px] ss:w-[380px] sm:w-[400px] md:w-[450px] rounded-lg"
       onClick={() => navigator(`/postDetail/${post.id}`)}
     >
-      <div className="flex items-center gap-3 pt-6 pb-2 px-5">
+      <div className="flex items-center gap-3 pt-6 pb-2 px-2 sm:px-5">
         <img src={userData.profileUrl} className="w-[70px] rounded-full" />
         <div className="flex flex-col items-start gap-1">
           <h2 className="text-gray-200 font-semibold font-Poppins">
@@ -22,7 +22,7 @@ const AuthUserPost = ({ userData, post }) => {
         <h4 className="text-[22px] font-semibold font-Poppins text-gray-400">
           {post.title}
         </h4>
-        <p className=" text-gray-200 text-[18px] font-Poppins mt-2">
+        <p className=" text-gray-200 text-[16px] sm:text-[18px] font-Poppins mt-2">
           {post.content}
         </p>
       </div>

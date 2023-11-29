@@ -74,21 +74,21 @@ const UserProfile = () => {
           {!isLoading && !error && (
             <div className="flex flex-col items-center justify-center">
               <div
-                className={` py-10 px-16 bg-gray-900 rounded-lg ${styles.flexCenter} gap-16`}
+                className={`py-5 ss:py-10 px-4 ss:px-8 sm:px-10 md:px-16 bg-gray-900 rounded-lg ${styles.flexCenter} gap-8 sm:gap-10 md:gap-16 w-[340px] xs:w-[400px] ss:w-[480px] sm:w-[550px] md:w-[650px]`}
               >
                 <img
                   src={userData.profileUrl}
-                  className="w-[200px] rounded-full"
+                  className="w-[70px] ss:w-[120px] sm:w-[150px] md:w-[200px] rounded-full"
                 />
                 <div>
-                  <h1 className="text-white text-[32px] font-Poppins font-semibold">
+                  <h1 className="text-white text-[18px] sm:text-[26px] md:text-[32px] font-Poppins font-semibold">
                     {userData.username}
                   </h1>
-                  <p className="text-gray-300 font-Poppins py-2">
+                  <p className="text-gray-300 font-Poppins py-2 text-[14px] xs:text-[18px]">
                     {userData.email}
                   </p>
                   {userData.bio && (
-                    <p className="text-gray-300 mt-5 text-[20px]">
+                    <p className="text-gray-300 mt-5 text-[16px] ss:text-[18px] sm:text-[20px]">
                       bio: {userData.bio}
                     </p>
                   )}
@@ -96,8 +96,10 @@ const UserProfile = () => {
                     className="bg-secondary mt-5 text-black font-Poppins font-semibold cursor-pointer rounded-sm active:scale-95 py-2 px-4 flex items-center gap-2"
                     onClick={() => navigator("/personal")}
                   >
-                    <PencilIcon className="w-[25px]" />
-                    <span>Edit Personal Detail</span>
+                    <PencilIcon className=" w-[18px] sm:w-[20px] md:w-[25px]" />
+                    <span className="text-[12px] sm:text-[18px]">
+                      Edit Personal Detail
+                    </span>
                   </button>
                 </div>
               </div>
@@ -109,9 +111,9 @@ const UserProfile = () => {
                 onClick={() => setUploadBox(true)}
               >
                 <div className=" bg-gray-700 rounded-l-lg px-5">
-                  <PlusIcon className="w-[100px] " />
+                  <PlusIcon className="w-[60px] ss:w-[80px] sm:w-[100px] " />
                 </div>
-                <h2 className="text-[22px] text-white font-semibold font-Poppins px-10">
+                <h2 className="text-[18px] sm:text-[22px] text-white font-semibold font-Poppins px-6 sm:px-10">
                   Add Post
                 </h2>
               </div>

@@ -22,12 +22,12 @@ const CommentEdit = ({ setCommentEditBox, commentId }) => {
   return (
     <div className="min-h-screen fixed flex items-center justify-center z-[5] w-full bg-opacity top-0 left-0">
       <form
-        className="bg-gray-900 py-16 px-16 rounded-md pt-10 flex flex-col relative"
+        className="bg-gray-900 py-16 px-10 ss:px-16 rounded-md pt-10 flex flex-col relative"
         onSubmit={onSubmit}
       >
         <button className="absolute right-1 top-1" type="button">
           <XMarkIcon
-            className="bg-gray-400 w-[30px] rounded-full hover:bg-gray-500"
+            className="bg-gray-400 w-[25px] ss:w-[30px] rounded-full hover:bg-gray-500"
             onClick={() => setCommentEditBox(false)}
           />
         </button>

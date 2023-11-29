@@ -41,7 +41,7 @@ const PostEdit = ({ setPostEdit, post }) => {
   return (
     <div className="min-h-screen fixed flex items-center justify-center z-[5] w-full bg-opacity top-0 left-0">
       <form
-        className="bg-gray-900 py-16 px-16 rounded-md pt-10 flex flex-col relative"
+        className="bg-gray-900 py-16 px-10 ss:px-16 rounded-md pt-10 flex flex-col relative w-fit"
         onSubmit={handleSubmit}
       >
         <button
@@ -49,7 +49,7 @@ const PostEdit = ({ setPostEdit, post }) => {
           type="button"
           onClick={() => setPostEdit(false)}
         >
-          <XMarkIcon className="bg-gray-400 w-[30px] rounded-full hover:bg-gray-500" />
+          <XMarkIcon className="bg-gray-400 w-[25px] ss:w-[30px] rounded-full hover:bg-gray-500" />
         </button>
         <h2 className="text-secondary text-[24px] font-semibold font-Poppins mb-5">
           Edit Post

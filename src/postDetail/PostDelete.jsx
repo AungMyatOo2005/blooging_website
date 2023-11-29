@@ -21,15 +21,15 @@ const PostDelete = ({ setPostDelete, postId }) => {
   };
   return (
     <div className="min-h-screen fixed flex items-center justify-center z-[5] bg-opacity w-full top-0">
-      <div className="flex gap-5 bg-gray-900 py-16 px-10 rounded-md">
+      <div className="flex gap-5 bg-gray-900 py-10 ss:py-16 px-6 ss:px-10 rounded-md w-fit">
         <button
-          className="text-white w-[130px] bg-green-500 rounded-sm py-1"
+          className="text-white w-[100px] ss:w-[130px] bg-green-500 rounded-sm py-1"
           onClick={() => setPostDelete((prev) => !prev)}
         >
           Cancel
         </button>
         <button
-          className="text-white w-[130px] bg-red-500 rounded-sm py-1"
+          className="text-white w-[100px] ss:w-[130px] bg-red-500 rounded-sm py-1"
           onClick={handleDelete}
         >
           Delete Post

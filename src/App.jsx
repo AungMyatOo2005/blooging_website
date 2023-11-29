@@ -24,7 +24,7 @@ import Register from "./register/Register";
 import SuccessRegister from "./success/SuccessRegister";
 import NotFoundPage from "./errorpage/NotFoundPage";
 import ProtectedRoute from "./login/ProtectedRoute";
-import Personal from "./personalDetailEdit/Personal";
+import PersonalDetails from "./personalDetailEdit/PersonalDetails";
 import PasswordChange from "./personalDetailEdit/PasswordChange";
 import NameChange from "./personalDetailEdit/NameChange";
 import EmailChange from "./personalDetailEdit/EmailChange";
@@ -54,7 +54,7 @@ const App = () => {
           path="/successDetailsEdit"
           element={<SuccessPersonalDetailEdit />}
         />
-        <Route path="/personal" element={<Personal />}>
+        <Route path="/personal" element={<PersonalDetails />}>
           <Route index element={<NameChange />} />
           <Route path="nameChange" element={<NameChange />} />
           <Route path="emailChange" element={<EmailChange />} />

@@ -48,7 +48,9 @@ const PostDetails = () => {
   const user = JSON.parse(localStorage.getItem("REACT-FRONTEND-FINAL-PROJECT"));
   const idOfUser = user && user.id;
   return (
-    <div className={` pt-32 ${styles.flexCenter} ${styles.paddingX} pb-24`}>
+    <div
+      className={` pt-32 ${styles.flexCenter} px-5 sm:${styles.paddingX} pb-24`}
+    >
       {isLoading && !err && (
         <ContentLoader
           width={450}
@@ -63,7 +65,7 @@ const PostDetails = () => {
         </ContentLoader>
       )}
       {err && (
-        <h2 className="text-secondary text-[32px] w-full text-center font-semibold font-Poppins">
+        <h2 className="text-secondary text-[20px] sm:text-[28px] md:text-[32px] w-full text-center font-semibold font-Poppins">
           {err}
         </h2>
       )}
@@ -75,7 +77,7 @@ const PostDetails = () => {
           {isAuthUser && post.user.id === idOfUser && postEdit && (
             <PostEdit setPostEdit={setPostEdit} post={post} />
           )}
-          <div className="w-[400px] rounded-t-[5px] bg-gray-800 rounded-[10px] relative">
+          <div className="w-[320px] ss:w-[370px] md:w-[400px] rounded-t-[5px] bg-gray-800 rounded-[10px] relative">
             <div>
               <button
                 className="absolute top-1 cursor-pointer right-1 active:scale-95"
@@ -96,7 +98,7 @@ const PostDetails = () => {
                 </>
               )}
               {isActive && (
-                <div className=" absolute flex flex-col items-center gap-3 bg-gray-500 py-2 px-5 rounded-md right-[-9rem] top-[3rem]">
+                <div className=" absolute flex flex-col items-center gap-3 bg-gray-500 py-2 px-5 rounded-md sm:right-[-9rem] sm:top-[3rem] right-0 top-20">
                   {/* if click delete alert box will display and aks confirm delete and cancel (auth user only can make this ) */}
                   <button
                     className="bg-gray-900 text-gray-200 w-[100px] rounded-sm py-1 active:scale-95 font-Poppins"
