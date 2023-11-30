@@ -77,13 +77,13 @@ const PostDetails = () => {
           {isAuthUser && post.user.id === idOfUser && postEdit && (
             <PostEdit setPostEdit={setPostEdit} post={post} />
           )}
-          <div className="w-full xs:w-[400px] sm:w-[450px] rounded-t-[5px] bg-gray-800 rounded-[10px] relative">
+          <div className="w-full xs:w-[400px] sm:w-[450px] rounded-t-[5px] bg-grayNine rounded-[10px] relative">
             <div className="pt-10 xxs:pt-0">
               <button
                 className="absolute top-1 cursor-pointer right-1 active:scale-95"
                 onClick={() => navigator(-1)}
               >
-                <XMarkIcon className=" w-[30px] text-gray-300 bg-gray-900 rounded-full hover:opacity-80" />
+                <XMarkIcon className=" w-[30px] text-gray-300 bg-gray-800 rounded-full hover:opacity-80" />
               </button>
               {isAuthUser && post.user.id === idOfUser && (
                 <>
@@ -101,13 +101,13 @@ const PostDetails = () => {
                 <div className=" absolute flex flex-col items-center gap-3 bg-gray-500 py-2 px-5 rounded-md sm:right-[-9rem] sm:top-[3rem] right-0 top-20">
                   {/* if click delete alert box will display and aks confirm delete and cancel (auth user only can make this ) */}
                   <button
-                    className="bg-gray-900 text-gray-200 w-[100px] rounded-sm py-1 active:scale-95 font-Poppins"
+                    className="bg-grayNine text-gray-200 w-[100px] rounded-sm py-1 active:scale-95 font-Poppins"
                     onClick={() => setPostDelete((prev) => !prev)}
                   >
                     Delete
                   </button>
                   <button
-                    className="bg-gray-900 text-gray-200 w-[100px] rounded-sm py-1 active:scale-95 font-Poppins"
+                    className="bg-grayNine text-gray-200 w-[100px] rounded-sm py-1 active:scale-95 font-Poppins"
                     onClick={() => setPostEdit((prev) => !prev)}
                   >
                     Edit
@@ -134,10 +134,12 @@ const PostDetails = () => {
               <p className="text-gray-300 font-Poppins">{post.content}</p>
             </div>
             {post.post_url && (
-              <img
-                src={post.post_url}
-                className="w-full h-[350px] object-cover"
-              />
+              <a href={post.post_url} target="_blank">
+                <img
+                  src={post.post_url}
+                  className="w-full h-[300px] sm:h-[320px] md:h-[350px] object-cover"
+                />
+              </a>
             )}
             <div className=" py-6 px-5">
               <Comments comments={post.comments} post={post} />

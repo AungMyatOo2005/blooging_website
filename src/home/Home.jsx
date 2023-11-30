@@ -1,13 +1,14 @@
 //Home page
 
 //React
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 //Axios
 import axios from "axios";
 //Post Components
 import PostsComponents from "./PostsComponents";
 //Loading page for use-friendly
 import Loading from "../loading/Loading";
+import { ConditionContext } from "../context/ConditionContext";
 const Home = () => {
   //Post
   const [posts, setPosts] = useState([]);
@@ -15,7 +16,7 @@ const Home = () => {
   const [isLoading, setIsLoading] = useState(true);
   //Error State
   const [error, setError] = useState(null);
-
+  const {isDarkMode}=useContext(ConditionContext)
   //fetch post from json-server
   useEffect(() => {
     const getPosts = async () => {
@@ -41,7 +42,7 @@ const Home = () => {
     };
   }, []);
   return (
-    <div className={`py-16 pt-32`}>
+    <div className={`py-16 pt-32 ${isDarkMode?"bg-primary":"bg-lightPrimary"}`}>
       {isLoading && !error && <Loading style={"flex-row flex-wrap"} />}
       {error && !isLoading && (
         <h1 className="text-[32px] text-secondary font-semibold font-Poppins w-full  text-center">

@@ -14,7 +14,7 @@ const UserProfile = () => {
   const [isLoading, setIsLoading] = useState(true);
   const navigator = useNavigate();
   const [uploadBox, setUploadBox] = useState(false);
-  const { error, setError } = useContext(ConditionContext);
+  const { error, setError,isDarkMode } = useContext(ConditionContext);
   useEffect(() => {
     const getUserData = async (id) => {
       try {
@@ -74,18 +74,35 @@ const UserProfile = () => {
           {!isLoading && !error && (
             <div className="flex flex-col items-center justify-center px-4 w-full">
               <div
-                className={`py-5 ss:py-10 px-4 ss:px-8 sm:px-10 md:px-16 bg-gray-900 rounded-lg flex items-center justify-around gap-6 ss:gap-10 sm:gap-16 w-full`}
+                className={`py-5 ss:py-10 px-4 ss:px-8 sm:px-10 md:px-16 ${
+                  isDarkMode ? "bg-grayNine" : "bg-purpleLight"
+                } rounded-lg flex items-center justify-around gap-6 ss:gap-10 sm:gap-16 w-full`}
               >
                 <img
                   src={userData.profileUrl}
                   className="w-[80px]  ss:w-[120px] sm:w-[150px] md:w-[200px] rounded-full"
                 />
                 <div>
-                  <h1 className="text-white text-[18px] sm:text-[26px] md:text-[32px] font-Poppins font-semibold">
+                  <h1
+                    className={`${
+                      isDarkMode ? "text-white" : "text-grayNine"
+                    } text-[18px] sm:text-[26px] md:text-[32px] font-Poppins font-semibold`}
+                  >
                     {userData.username}
                   </h1>
-                  <p className="text-gray-300 font-Poppins py-2 text-[10px] xxs:text-[13px] xs:text-[18px]">
+                  <p
+                    className={`${
+                      isDarkMode ? "text-gray-300" : "text-graySeven"
+                    } font-Poppins pt-1 text-[10px] xxs:text-[13px] xs:text-[18px]`}
+                  >
                     {userData.email}
+                  </p>
+                  <p
+                    className={`${
+                      isDarkMode ? "text-gray-300" : "text-graySeven"
+                    } font-Poppins pb-1 text-[10px] xxs:text-[13px] xs:text-[16px]`}
+                  >
+                    {userData.phone}
                   </p>
                   {userData.bio && (
                     <p className="text-gray-300 mt-5 text-[16px] ss:text-[18px] sm:text-[20px]">
@@ -107,10 +124,10 @@ const UserProfile = () => {
                 <PostUpload id={userData.id} setUploadBox={setUploadBox} />
               )}
               <div
-                className="flex items-center bg-gray-900 mt-5 rounded-r-lg select-none cursor-pointer"
+                className="flex items-center bg-grayNine mt-5 rounded-r-lg select-none cursor-pointer"
                 onClick={() => setUploadBox(true)}
               >
-                <div className=" bg-gray-700 rounded-l-lg px-5">
+                <div className=" bg-graySeven rounded-l-lg px-5">
                   <PlusIcon className="w-[60px] ss:w-[80px] sm:w-[100px] " />
                 </div>
                 <h2 className="text-[18px] sm:text-[22px] text-white font-semibold font-Poppins px-6 sm:px-10">
@@ -137,7 +154,7 @@ const UserProfile = () => {
           )}
         </div>
       ) : (
-        <div className="py-6 px-10 bg-gray-900 rounded-lg flex flex-col items-end gap-10">
+        <div className="py-6 px-10 bg-grayNine rounded-lg flex flex-col items-end gap-10">
           <h1 className="text-[32px] font-Poppins font-bold text-secondary">
             You are not logging
           </h1>

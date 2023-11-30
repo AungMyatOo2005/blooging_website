@@ -19,15 +19,15 @@ const SideBar = () => {
   return (
     <>
       {sideBar && (
-        <div className="min-h-[calc(100vh-55px)] bg-gray-700 sidebar">
+        <div className="min-h-[calc(100vh-55px)] bg-graySeven sidebar">
           <ul className="min-w-[250px]">
             <li
-              className="border-b border-gray-900 cursor-pointer hover:bg-gray-600 py-2 px-3"
+              className="border-b border-grayNine cursor-pointer hover:bg-gray-600 py-2 px-3"
               onClick={() => setSideBar((prev) => !prev)}
             >
               <ArrowLeftIcon className="w-[20px]" />
             </li>
-            <li className="border-b border-gray-900 cursor-pointer hover:bg-gray-900">
+            <li className="border-b border-grayNine cursor-pointer hover:bg-grayNine">
               <ProfileBox
                 onClick={() => {
                   navigator("/userProfile");
@@ -36,7 +36,7 @@ const SideBar = () => {
               />
             </li>
             <li
-              className="flex items-center justify-start px-3 border-b border-gray-900 cursor-pointer hover:bg-gray-900 py-3 gap-2 hover:text-white transition-colors"
+              className="flex items-center justify-start px-3 border-b border-grayNine cursor-pointer hover:bg-grayNine py-3 gap-2 hover:text-white transition-colors"
               onClick={() => {
                 navigator("/personal");
                 setSideBar((prev) => !prev);
@@ -46,7 +46,7 @@ const SideBar = () => {
               <PencilIcon className="w-[20px]" />
             </li>
             <li
-              className="flex items-center justify-start px-3 border-b border-gray-900 cursor-pointer hover:bg-gray-900 py-3 gap-2 hover:text-white transition-colors"
+              className="flex items-center justify-start px-3 border-b border-grayNine cursor-pointer hover:bg-grayNine py-3 gap-2 hover:text-white transition-colors"
               onClick={() => {
                 setLogoutBox((prev) => !prev);
                 setSideBar((prev) => !prev);

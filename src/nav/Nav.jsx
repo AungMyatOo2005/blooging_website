@@ -5,11 +5,12 @@ import ProfileBox from "../home/ProfileBox";
 import { Bars3BottomRightIcon, XMarkIcon } from "@heroicons/react/24/solid";
 import { ConditionContext } from "../context/ConditionContext";
 import SideBar from "../sidebar/Sidebar";
+import ToggleSwitch from "./ToggleSwitch";
 const Nav = () => {
   //for responsive side bar
   const [toggle, setToggle] = useState(false);
   //is auth user can't see login and register button
-  const { isAuthUser, setSideBar } = useContext(ConditionContext);
+  const { isAuthUser, setSideBar,isDarkMode } = useContext(ConditionContext);
   //using navigate for login and registration
   const handleClick = () => {
     setToggle(false);
@@ -20,7 +21,7 @@ const Nav = () => {
     <>
       <div className="fixed w-full z-[5] top-0">
         <nav
-          className={`py-2 px-6 ${styles.flexCenter} justify-between bg-gray-900 w-full relative`}
+          className={`py-2 px-6 ${styles.flexCenter} justify-between ${isDarkMode?"bg-grayNine ":"bg-gray-600"} w-full relative`}
         >
           {/* page title  */}
           <h1 className="text-white font-semibold text-[18px] sm:text-[26px] md:text-[32px] font-Poppins">
@@ -37,16 +38,18 @@ const Nav = () => {
             </NavLink>
           </ul>
           {isAuthUser ? (
-            <div className="md:flex hidden">
+            <div className="md:flex items-center gap-5 hidden">
               {/* profile box for auth user  */}
+              <ToggleSwitch />
               <ProfileBox
                 style={"w-fit bg-dimBlue"}
                 onClick={() => setSideBar((prev) => !prev)}
               />
             </div>
           ) : (
-            <div className="md:flex hidden gap-2 button-box">
+            <div className="md:flex hidden gap-2 button-box items-center">
               {/* login and registration button for unauthorized user  */}
+              <ToggleSwitch />
               <NavLink to={"/login"}>
                 <button className=" cursor-pointer bg-gray-600 p-2 w-[100px] text-gray-200 font-Poppins rounded-sm active:scale-95">
                   <div></div>
@@ -75,7 +78,7 @@ const Nav = () => {
             )}
           </button>
           {toggle && (
-            <div className=" flex-col items-center absolute right-3 top-20 bg-gray-900 py-10 px-6 rounded-lg navbar md:hidden flex min-w-[250px]">
+            <div className=" flex-col items-center absolute right-3 top-20 bg-gray-800 py-10 px-6 rounded-lg navbar md:hidden flex min-w-[250px]">
               <ul className="text-white items-center gap-6 md:text-[16px] font-Poppins flex flex-col">
                 <NavLink to={"/"} onClick={handleClick}>
                   Home
@@ -85,7 +88,8 @@ const Nav = () => {
                 </NavLink>
               </ul>
               {isAuthUser ? (
-                <div className="cursor-pointer mt-5">
+                <div className="cursor-pointer mt-5 flex flex-col items-center gap-3">
+                  <ToggleSwitch />
                   <ProfileBox
                     style={"w-fit bg-dimBlue"}
                     onClick={() => {
@@ -106,6 +110,7 @@ const Nav = () => {
                       <span>Register</span>
                     </button>
                   </NavLink>
+                  <ToggleSwitch />
                 </div>
               )}
             </div>

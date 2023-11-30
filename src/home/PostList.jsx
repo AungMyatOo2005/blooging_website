@@ -1,13 +1,20 @@
 //import style from self-template style
+import { useContext } from "react";
 import styles from "../styles";
 //use navigate
 import { useNavigate } from "react-router-dom";
+import { ConditionContext } from "../context/ConditionContext";
 const PostList = ({ post }) => {
   //use navigate to reach detail what user click post
   const navigator = useNavigate();
+  const {isDarkMode}=useContext(ConditionContext)
   return (
     <div
-      className={`${styles.flexStart} flex-col w-full xxs:w-[300px] md:w-[250px] bg-gray-800 rounded-[5px] `}
+      className={`${
+        styles.flexStart
+      } flex-col w-full xxs:w-[300px] md:w-[250px] ${
+        isDarkMode ? "bg-grayNine" : "bg-purpleLight"
+      } rounded-[5px] shadow-[4.0px_8.0px_8.0px_rgba(0,0,0,0.38)]`}
       onClick={() => navigator(`/postDetail/${post.id}`)}
     >
       {post.post_url && (
@@ -18,18 +25,30 @@ const PostList = ({ post }) => {
       )}
 
       <div className="p-2">
-        <h4 className="text-gray-300 font-Poppins text-[22px]">{post.title}</h4>
-        <p className="text-gray-300">{post.content}</p>
+        <h4
+          className={`${
+            isDarkMode ? "text-gray-300" : "text-graySeven"
+          } font-Poppins text-[22px]`}
+        >
+          {post.title}
+        </h4>
+        <p
+          className={`${
+            isDarkMode ? "text-gray-300" : "text-black"
+          } font-Poppins mt-2`}
+        >
+          {post.content}
+        </p>
         <div className={`mt-3 flex items-center justify-start gap-4`}>
           <img
             src={post.user.profileUrl}
             className="w-[50px] h-[50px] object-cover rounded-full"
           />
           <div>
-            <h5 className="text-white font-semibold font-Poppins">
+            <h5 className={`${isDarkMode?"text-white":"text-grayNine"} font-semibold font-Poppins `}>
               {post.user.username}
             </h5>
-            <p className="text-gray-400 text-[12px] font-semibold">
+            <p className={`${isDarkMode?"text-gray-400":"text-graySeven"} text-[12px] font-semibold`}>
               {post.create_at}
             </p>
           </div>

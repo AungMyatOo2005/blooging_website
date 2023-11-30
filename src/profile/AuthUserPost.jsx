@@ -32,7 +32,7 @@ const AuthUserPost = ({ userData, post }) => {
       {post.post_url && (
         <img
           src={post.post_url}
-          className="w-full max-h-[500px] rounded-b-lg object-cover"
+          className="w-full h-[280px] ss:h-[300px] sm:h-[400px] md:h-[450px]  rounded-b-lg object-cover"
         />
       )}
     </div>

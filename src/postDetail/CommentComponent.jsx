@@ -55,7 +55,7 @@ const CommentsComponent = ({ id, userId, post }) => {
           )}
 
           <div
-            className=" rounded-[10px] p-5 bg-gray-700 relative"
+            className=" rounded-[10px] p-5 bg-graySeven relative"
             onMouseEnter={() => setIsHover(true)}
             onMouseLeave={() => setIsHover(false)}
           >
@@ -74,14 +74,14 @@ const CommentsComponent = ({ id, userId, post }) => {
               <div className=" absolute flex flex-col items-center gap-3 bg-gray-500 py-2 px-5 rounded-md sm:right-[-9rem] sm:top-[3rem] right-0 top-10">
                 {/* if click delete alert box will display and aks confirm delete and cancel (auth user only can make this ) */}
                 <button
-                  className="bg-gray-900 text-gray-200 w-[100px] rounded-sm py-1 active:scale-95 font-Poppins"
+                  className="bg-grayNine text-gray-200 w-[100px] rounded-sm py-1 active:scale-95 font-Poppins"
                   onClick={() => setCommentDelete((prev) => !prev)}
                 >
                   Delete
                 </button>
                 {userId === comment.userId && (
                   <button
-                    className="bg-gray-900 text-gray-200 w-[100px] rounded-sm py-1 active:scale-95 font-Poppins"
+                    className="bg-grayNine text-gray-200 w-[100px] rounded-sm py-1 active:scale-95 font-Poppins"
                     onClick={() => setCommentEdit((prev) => !prev)}
                   >
                     Edit

@@ -119,11 +119,11 @@ const Register = () => {
         </h1>
       ) : (
         <form
-          className="bg-gray-900 py-10 px-6 ss:px-10 sm:px-16 rounded-lg shadow-[2px_2px_20px_0px_rgba(158,157,153,0.3)] flex flex-col gap-5 w-full ss:w-[400px] sm:w-[500px]"
+          className="bg-grayNine py-10 px-6 ss:px-10 sm:px-16 rounded-lg shadow-[2px_2px_20px_0px_rgba(158,157,153,0.3)] flex flex-col gap-5 w-full ss:w-[400px] sm:w-[500px]"
           onSubmit={onSubmit}
         >
           <h1
-            className={`text-[26px] font-semibold font-Poppins text-blue-500`}
+            className={`text-[26px] font-semibold font-Poppins text-secondary`}
           >
             Registration Form
           </h1>
@@ -141,7 +141,7 @@ const Register = () => {
           )}
           <button
             type="submit"
-            className="bg-blue-500 py-1 rounded-sm text-white font-Poppins cursor-pointer active:scale-[0.97] mt-3"
+            className="bg-secondary py-1 rounded-sm font-semibold font-Poppins cursor-pointer active:scale-[0.97] mt-3"
           >
             Register
           </button>

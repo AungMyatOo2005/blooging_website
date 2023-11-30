@@ -7,6 +7,7 @@ const ConditionProvider = ({ children }) => {
   const [isAuthUser, setIsAuthUser] = useState(false); //auth user?
   const [userDataLs, setUserDataLs] = useState(false);
   const [error, setError] = useState(null);
+  const [isDarkMode, setIsDarkMode] = useState(true);
 
   useEffect(() => {
     const user = JSON.parse(
@@ -27,6 +28,8 @@ const ConditionProvider = ({ children }) => {
         userDataLs,
         error,
         setError,
+        isDarkMode,
+        setIsDarkMode,
       }}
     >
       {children}

@@ -45,14 +45,15 @@ const PostUpload = ({ id, setUploadBox }) => {
   return (
     <div className="bg-opacity h-screen fixed top-0 z-[10] flex items-center justify-center px-10 w-full">
       <form
-        className="bg-gray-900 py-24 px-16 rounded-lg relative w-full ss:w-[500px] mx-auto"
+        className="bg-grayNine py-24 px-16 rounded-lg relative w-full ss:w-[500px] mx-auto"
         onSubmit={handleSubmit}
       >
         <button
           className="absolute top-1 cursor-pointer right-1 active:scale-95"
           onClick={() => setUploadBox((prev) => !prev)}
+          type="button"
         >
-          <XMarkIcon className=" w-[30px] text-gray-900 bg-gray-300 rounded-full hover:opacity-80" />
+          <XMarkIcon className=" w-[30px] text-grayNine bg-gray-300 rounded-full hover:opacity-80" />
         </button>
         <h1 className="text-secondary font-semibold font-Poppins text-[28px]">
           Upload Post
@@ -83,7 +84,7 @@ const PostUpload = ({ id, setUploadBox }) => {
             value={postValue.post_url}
           />
         </div>
-        <button className="w-full mt-5 bg-secondary py-1 rounded-sm cursor-pointer active:scale-95 text-black font-semibold font-Poppins">
+        <button className="w-full mt-5 bg-secondary py-1 rounded-sm cursor-pointer active:scale-95 text-black font-semibold font-Poppins" type="submit">
           Post
         </button>
       </form>

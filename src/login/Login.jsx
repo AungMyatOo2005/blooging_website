@@ -55,11 +55,11 @@ const Login = () => {
         </h1>
       ) : (
         <form
-          className="bg-gray-900 py-10 px-6 ss:px-10 sm:px-16 rounded-lg shadow-[2px_2px_20px_0px_rgba(158,157,153,0.3)] flex flex-col gap-5 w-full ss:w-[400px] sm:w-[500px]"
+          className="bg-grayNine py-10 px-6 ss:px-10 sm:px-16 rounded-lg shadow-[2px_2px_20px_0px_rgba(158,157,153,0.3)] flex flex-col gap-5 w-full ss:w-[400px] sm:w-[500px]"
           onSubmit={handleSubmit}
         >
           <h1
-            className={`text-[26px] font-semibold font-Poppins text-blue-500 mb-5`}
+            className={`text-[26px] font-semibold font-Poppins text-secondary mb-5`}
           >
             Log in
           </h1>
@@ -96,7 +96,7 @@ const Login = () => {
           )}
           <button
             type="submit"
-            className="bg-blue-500 py-1 rounded-sm text-white font-Poppins cursor-pointer active:scale-[0.97] mt-4 w-full"
+            className="bg-secondary py-1 rounded-sm font-semibold font-Poppins cursor-pointer active:scale-[0.97] mt-4 w-full"
           >
             Login
           </button>

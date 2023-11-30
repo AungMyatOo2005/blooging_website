@@ -28,7 +28,7 @@ const PostsComponents = ({ posts }) => {
         ))}
       </div>
       {!isAuthUser && (
-        <div className="bg-gray-900 max-w-fit mx-auto mt-6 py-6 px-6 rounded-md">
+        <div className="bg-grayNine max-w-fit mx-auto mt-6 py-6 px-6 rounded-md">
           <h1 className="text-[22px] text-gray-200 font-Poppins font-semibold">
             Please login to see all post
           </h1>

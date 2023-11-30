@@ -22,7 +22,7 @@ const CommentEdit = ({ setCommentEditBox, commentId }) => {
   return (
     <div className="min-h-screen fixed flex items-center justify-center z-[5] w-full bg-opacity top-0 left-0 px-10 ">
       <form
-        className="bg-gray-900 py-16 px-10 ss:px-16 rounded-md pt-10 flex flex-col relative w-full ss:w-[500px]"
+        className="bg-grayNine py-16 px-10 ss:px-16 rounded-md pt-10 flex flex-col relative w-full ss:w-[450px]"
         onSubmit={onSubmit}
       >
         <button className="absolute right-1 top-1" type="button">

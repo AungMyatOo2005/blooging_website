@@ -32,10 +32,10 @@ const PersonalDetails = () => {
       )}
       {isUser && !error && (
         <div
-          className={` min-h-screen px-16 w-screen  sm:w-[700px] flex justify-center items-center pb-16`}
+          className={` min-h-screen px-16 w-screen  sm:w-[700px] flex justify-center items-center pb-16 pt-24`}
         >
           <div
-            className={` py-14 md:py-16 bg-gray-900 rounded-lg px-6 sm:px-10 relative w-full`}
+            className={` py-14 md:py-16 bg-grayNine rounded-lg px-6 sm:px-10 relative w-full`}
           >
             <ul className="absolute py-4 hidden md:flex flex-col top-5 right-[101%] rounded-lg">
               <NavLink

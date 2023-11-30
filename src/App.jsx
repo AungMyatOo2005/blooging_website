@@ -31,7 +31,12 @@ import EmailChange from "./personalDetailEdit/EmailChange";
 import PhoneChange from "./personalDetailEdit/PhoneChange";
 import ProfileChange from "./personalDetailEdit/ProfileChange";
 import SuccessPersonalDetailEdit from "./success/SuccessPersonalDetailEdit";
+import { useEffect } from "react";
 const App = () => {
+  useEffect(() => {
+    document.title="assignment six"
+  }, [])
+  
   // create browser router for router
   const router = createBrowserRouter(
     // create router for element
@@ -68,7 +73,7 @@ const App = () => {
   );
   return (
     <div
-      className={`${styles.boxWidth} bg-primary min-h-screen ${styles.flexCenter}`}
+      className={`${styles.boxWidth} min-h-screen ${styles.flexCenter}`}
     >
       {/* use context */}
       <ConditionProvider>

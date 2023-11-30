@@ -253,10 +253,10 @@
     },
     {
       "userId": 14,
-      "title": "cat cat",
-      "content": "this is my beauty cat",
-      "post_url": "https://www.wfla.com/wp-content/uploads/sites/71/2023/05/GettyImages-1389862392.jpg?w=876&h=493&crop=1",
-      "create_at": "2023-11-28T18:56:29+06:30",
+      "title": "normal",
+      "content": "normal day in normal girl",
+      "post_url": "https://i.pinimg.com/236x/52/a7/aa/52a7aaa441a5cace27b15821726a5db9.jpg",
+      "create_at": "2023-11-30T16:46:56+06:30",
       "id": 18
     }
   ],
@@ -351,13 +351,6 @@
       "text": "haww",
       "create_at": "2023-11-28T11:36:16+06:30",
       "id": 13
-    },
-    {
-      "userId": 14,
-      "postId": 18,
-      "text": "lovely ",
-      "create_at": "2023-11-28T18:56:37+06:30",
-      "id": 14
     },
     {
       "userId": 14,

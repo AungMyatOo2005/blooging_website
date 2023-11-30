@@ -5,9 +5,14 @@ export default {
     extend: {
       colors: {
         primary: "#00040f",
+        lightPrimary: "#fdfdfd",
         secondary: "#00f6ff",
-        dimWhite: "rgba(225, 225, 225,0.7)",
+        grayNine: "#111827",
+        purpleLight: "#cabbe9",
+        graySeven: "#374151",
+        pinkLight: "#ffcef3",
         dimBlue: "rgba(9, 151, 124, 0.1)",
+        dimWhite: "rgba(225, 225, 225,0.7)",
         opacity: "rgba(225,225,225,0.5)",
       },
       fontFamily: {
