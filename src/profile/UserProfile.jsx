@@ -12,9 +12,9 @@ const UserProfile = () => {
   const { isAuthUser } = useContext(ConditionContext);
   const [userData, setUserData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState("");
   const navigator = useNavigate();
   const [uploadBox, setUploadBox] = useState(false);
+  const { error, setError } = useContext(ConditionContext);
   useEffect(() => {
     const getUserData = async (id) => {
       try {
@@ -23,8 +23,8 @@ const UserProfile = () => {
         );
         setUserData(await resp.data);
       } catch (err) {
-        console.error("Error fetching user data:", error);
-        setError("Error fetching user data");
+        console.error("Error fetching data:", error);
+        setError("An error occurred while fetching data.");
       } finally {
         setIsLoading(false);
       }
@@ -72,19 +72,19 @@ const UserProfile = () => {
           )}
           {/* profile  and post*/}
           {!isLoading && !error && (
-            <div className="flex flex-col items-center justify-center">
+            <div className="flex flex-col items-center justify-center px-4 w-full">
               <div
-                className={`py-5 ss:py-10 px-4 ss:px-8 sm:px-10 md:px-16 bg-gray-900 rounded-lg ${styles.flexCenter} gap-8 sm:gap-10 md:gap-16 w-[340px] xs:w-[400px] ss:w-[480px] sm:w-[550px] md:w-[650px]`}
+                className={`py-5 ss:py-10 px-4 ss:px-8 sm:px-10 md:px-16 bg-gray-900 rounded-lg flex items-center justify-around gap-6 ss:gap-10 sm:gap-16 w-full`}
               >
                 <img
                   src={userData.profileUrl}
-                  className="w-[70px] ss:w-[120px] sm:w-[150px] md:w-[200px] rounded-full"
+                  className="w-[80px]  ss:w-[120px] sm:w-[150px] md:w-[200px] rounded-full"
                 />
                 <div>
                   <h1 className="text-white text-[18px] sm:text-[26px] md:text-[32px] font-Poppins font-semibold">
                     {userData.username}
                   </h1>
-                  <p className="text-gray-300 font-Poppins py-2 text-[14px] xs:text-[18px]">
+                  <p className="text-gray-300 font-Poppins py-2 text-[10px] xxs:text-[13px] xs:text-[18px]">
                     {userData.email}
                   </p>
                   {userData.bio && (
@@ -97,7 +97,7 @@ const UserProfile = () => {
                     onClick={() => navigator("/personal")}
                   >
                     <PencilIcon className=" w-[18px] sm:w-[20px] md:w-[25px]" />
-                    <span className="text-[12px] sm:text-[18px]">
+                    <span className="text-[10px] xxs:text-[14px] ss:text-[18px]">
                       Edit Personal Detail
                     </span>
                   </button>

@@ -77,8 +77,8 @@ const PostDetails = () => {
           {isAuthUser && post.user.id === idOfUser && postEdit && (
             <PostEdit setPostEdit={setPostEdit} post={post} />
           )}
-          <div className="w-[320px] ss:w-[370px] md:w-[400px] rounded-t-[5px] bg-gray-800 rounded-[10px] relative">
-            <div>
+          <div className="w-full xs:w-[400px] sm:w-[450px] rounded-t-[5px] bg-gray-800 rounded-[10px] relative">
+            <div className="pt-10 xxs:pt-0">
               <button
                 className="absolute top-1 cursor-pointer right-1 active:scale-95"
                 onClick={() => navigator(-1)}

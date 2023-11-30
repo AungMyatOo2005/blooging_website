@@ -43,9 +43,9 @@ const PostUpload = ({ id, setUploadBox }) => {
   };
 
   return (
-    <div className="bg-opacity h-screen w-screen fixed top-0 z-[10] flex items-center justify-center">
+    <div className="bg-opacity h-screen fixed top-0 z-[10] flex items-center justify-center px-10 w-full">
       <form
-        className="bg-gray-900 py-24 px-16 rounded-lg relative"
+        className="bg-gray-900 py-24 px-16 rounded-lg relative w-full ss:w-[500px] mx-auto"
         onSubmit={handleSubmit}
       >
         <button

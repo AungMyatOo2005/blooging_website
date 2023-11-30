@@ -98,8 +98,8 @@ const PasswordChange = () => {
     }
   };
   return (
-    <form className="min-w-fit" onSubmit={onSubmit}>
-      <h1 className="text-secondary text-[26px] font-semibold font-Poppins mb-8">
+    <form className="w-full" onSubmit={onSubmit}>
+      <h1 className="text-secondary text-[20px] sm:text-[26px] font-semibold font-Poppins mb-8">
         Change New Password
       </h1>
       {inputArrays.map((inputArr) => (
@@ -114,7 +114,7 @@ const PasswordChange = () => {
         {passwordErr && passwordErr}
       </p>
       <button
-        className="bg-secondary w-[400px] cursor-pointer rounded-sm active:scale-95 py-1 font-Poppins font-semibold"
+        className="bg-secondary w-full cursor-pointer rounded-sm active:scale-95 py-1 font-Poppins font-semibold"
         type="submit"
       >
         Change Password

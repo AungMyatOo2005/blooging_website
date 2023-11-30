@@ -49,8 +49,8 @@ const ProfileChange = ({}) => {
     handleProfileUrlChange();
   };
   return (
-    <form className="w-fit" onSubmit={onSubmit}>
-      <h1 className="text-secondary text-[26px] font-semibold font-Poppins mb-8">
+    <form className="w-full" onSubmit={onSubmit}>
+      <h1 className="text-secondary text-[20px] sm:text-[26px] font-semibold font-Poppins mb-8">
         Profile Change
       </h1>
 
@@ -61,7 +61,7 @@ const ProfileChange = ({}) => {
         onChange={onChange}
       />
       <button
-        className="bg-secondary w-[400px] cursor-pointer rounded-sm active:scale-95 py-1 font-Poppins font-semibold"
+        className="bg-secondary w-full cursor-pointer rounded-sm active:scale-95 py-1 font-Poppins font-semibold"
         type="submit"
       >
         Change Profile

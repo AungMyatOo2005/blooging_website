@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { ArrowLongRightIcon } from "@heroicons/react/20/solid";
 const Register = () => {
   const navigator = useNavigate();
-  const [error, setError] = useState(null);
+  const [error, setError] = useState("");
   const [values, setValues] = useState({
     username: "",
     email: "",
@@ -25,8 +25,10 @@ const Register = () => {
     try {
       await axios.post(`${import.meta.env.VITE_API_URL}/users`, updateUserData);
       setError(null); // Reset error state if registration is successful
+      successRegister();
     } catch (error) {
-      setError("Registration failed. Please check your input and try again.");
+      console.error("Error fetching user data:", error);
+      setError("Error fetching user data");
     }
   };
   const onSubmit = async (e) => {
@@ -40,6 +42,8 @@ const Register = () => {
       password: "",
       confirmPassword: "",
     });
+  };
+  const successRegister = () => {
     navigator("/successRegister");
   };
   const inputArrays = [
@@ -107,44 +111,52 @@ const Register = () => {
   };
   return (
     <div
-      className={`flex items-center justify-center min-h-screen pt-20 pb-10`}
+      className={`flex items-center justify-center min-h-screen pt-20 pb-10 px-10`}
     >
-      <form
-        className="bg-gray-900 py-10 px-6 ss:px-10 sm:px-16 rounded-lg shadow-[2px_2px_20px_0px_rgba(158,157,153,0.3)] flex flex-col gap-5"
-        onSubmit={onSubmit}
-      >
-        <h1 className={`text-[26px] font-semibold font-Poppins text-blue-500`}>
-          Registration Form
+      {error ? (
+        <h1 className="text-secondary text-[32px] w-full text-center font-Poppins font-semibold">
+          {error}
         </h1>
-        {inputArrays.map((inputArr) => (
-          <FormInput
-            key={inputArr.id}
-            {...inputArr}
-            value={values[inputArr.name]}
-            errorMessage={inputArr.errorMessage}
-            onChange={onChange}
-          />
-        ))}
-        {error && (
-          <p className="text-red-500 text-center w-full mt-2 mb-4">{error}</p>
-        )}
-        <button
-          type="submit"
-          className="bg-blue-500 py-1 rounded-sm text-white font-Poppins cursor-pointer active:scale-[0.97] mt-3"
+      ) : (
+        <form
+          className="bg-gray-900 py-10 px-6 ss:px-10 sm:px-16 rounded-lg shadow-[2px_2px_20px_0px_rgba(158,157,153,0.3)] flex flex-col gap-5 w-full ss:w-[400px] sm:w-[500px]"
+          onSubmit={onSubmit}
         >
-          Register
-        </button>
-        <div className="flex items-center gap-3">
-          <span className="text-gray-200">you have already account</span>
-          <button
-            className="flex items-center gap-1 hover:translate-y-[-2px] transition-transform ease-in-out hover:scale-105"
-            onClick={() => navigator("/login")}
+          <h1
+            className={`text-[26px] font-semibold font-Poppins text-blue-500`}
           >
-            <span className="text-secondary capitalize">login </span>
-            <ArrowLongRightIcon className="w-[30px] text-secondary" />
+            Registration Form
+          </h1>
+          {inputArrays.map((inputArr) => (
+            <FormInput
+              key={inputArr.id}
+              {...inputArr}
+              value={values[inputArr.name]}
+              errorMessage={inputArr.errorMessage}
+              onChange={onChange}
+            />
+          ))}
+          {error && (
+            <p className="text-red-500 text-center w-full mt-2 mb-4">{error}</p>
+          )}
+          <button
+            type="submit"
+            className="bg-blue-500 py-1 rounded-sm text-white font-Poppins cursor-pointer active:scale-[0.97] mt-3"
+          >
+            Register
           </button>
-        </div>
-      </form>
+          <div className="flex items-center gap-3">
+            <span className="text-gray-200">you have already account</span>
+            <button
+              className="flex items-center gap-1 hover:translate-y-[-2px] transition-transform ease-in-out hover:scale-105"
+              onClick={() => navigator("/login")}
+            >
+              <span className="text-secondary capitalize">login </span>
+              <ArrowLongRightIcon className="w-[30px] text-secondary" />
+            </button>
+          </div>
+        </form>
+      )}
     </div>
   );
 };

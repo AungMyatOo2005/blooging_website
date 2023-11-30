@@ -7,7 +7,7 @@ const PostList = ({ post }) => {
   const navigator = useNavigate();
   return (
     <div
-      className={`${styles.flexStart} flex-col w-[300px] sm:w-[250px] md:w-[250px] bg-gray-800 rounded-[5px] `}
+      className={`${styles.flexStart} flex-col w-full xxs:w-[300px] md:w-[250px] bg-gray-800 rounded-[5px] `}
       onClick={() => navigator(`/postDetail/${post.id}`)}
     >
       {post.post_url && (

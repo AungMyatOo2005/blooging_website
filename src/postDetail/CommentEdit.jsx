@@ -20,9 +20,9 @@ const CommentEdit = ({ setCommentEditBox, commentId }) => {
     );
   };
   return (
-    <div className="min-h-screen fixed flex items-center justify-center z-[5] w-full bg-opacity top-0 left-0">
+    <div className="min-h-screen fixed flex items-center justify-center z-[5] w-full bg-opacity top-0 left-0 px-10 ">
       <form
-        className="bg-gray-900 py-16 px-10 ss:px-16 rounded-md pt-10 flex flex-col relative"
+        className="bg-gray-900 py-16 px-10 ss:px-16 rounded-md pt-10 flex flex-col relative w-full ss:w-[500px]"
         onSubmit={onSubmit}
       >
         <button className="absolute right-1 top-1" type="button">
@@ -31,7 +31,7 @@ const CommentEdit = ({ setCommentEditBox, commentId }) => {
             onClick={() => setCommentEditBox(false)}
           />
         </button>
-        <h2 className="text-secondary text-[24px] font-semibold font-Poppins mb-5">
+        <h2 className="text-secondary text-[18px] ss:text-[24px] font-semibold font-Poppins mb-5">
           Edit Comment
         </h2>
         <input
