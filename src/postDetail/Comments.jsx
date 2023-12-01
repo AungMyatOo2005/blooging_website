@@ -1,15 +1,17 @@
 //to get comment and comment creator
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import CommentComponent from "./CommentComponent";
 //use hero icon
 import { ArrowRightCircleIcon } from "@heroicons/react/20/solid";
 import axios from "axios";
 import moment from "moment/moment";
 import LoginAlert from "./LoginAlert";
+import { ConditionContext } from "../context/ConditionContext";
 const Comments = ({ comments, post }) => {
   const [comment, setComment] = useState("");
   const [userId, setUserId] = useState(null);
   const [loginAlert, setLoginAlert] = useState(false);
+  const { isDarkMode } = useContext(ConditionContext);
   useEffect(() => {
     const authUserData = JSON.parse(
       localStorage.getItem("REACT-FRONTEND-FINAL-PROJECT")
@@ -60,14 +62,24 @@ const Comments = ({ comments, post }) => {
       ))}
       <form className="flex items-center gap-5" onSubmit={handleSubmit}>
         <input
-          className="outline-none rounded-sm py-1 px-3 bg-gray-300 placeholder:text-gray-600 text-[18px] w-full"
+          className={`outline-none rounded-sm py-1 px-3 ${
+            isDarkMode
+              ? "bg-gray-300 placeholder:text-gray-600"
+              : "bg-gray-700 placeholder:text-gray-300"
+          } text-[18px] w-full`}
           placeholder="Enter Your Comment..."
           name="comment"
           value={comment}
           onChange={onChange}
         />
         <button type="submit">
-          <ArrowRightCircleIcon className="w-[50px] text-gray-300 active:scale-[0.97] hover:text-gray-400" />
+          <ArrowRightCircleIcon
+            className={`w-[50px] ${
+              isDarkMode
+                ? "text-gray-300 hover:text-gray-400"
+                : "text-gray-700 hover:text-gray-600"
+            } active:scale-[0.97] `}
+          />
         </button>
       </form>
     </div>

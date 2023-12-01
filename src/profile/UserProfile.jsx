@@ -9,12 +9,12 @@ import { useNavigate } from "react-router-dom";
 import AuthUserPost from "./AuthUserPost";
 import PostUpload from "./PostUpload";
 const UserProfile = () => {
-  const { isAuthUser } = useContext(ConditionContext);
   const [userData, setUserData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const navigator = useNavigate();
   const [uploadBox, setUploadBox] = useState(false);
-  const { error, setError,isDarkMode } = useContext(ConditionContext);
+  const { error, setError, isDarkMode, isAuthUser } =
+    useContext(ConditionContext);
   useEffect(() => {
     const getUserData = async (id) => {
       try {
@@ -48,9 +48,13 @@ const UserProfile = () => {
   };
   const posts = sortingPost();
   return (
-    <>
+    <div
+      className={`${
+        isDarkMode ? "bg-primary" : "bg-lightPrimary"
+      }  pt-32 py-16 w-screen min-h-screen flex items-center justify-center px-2`}
+    >
       {isAuthUser ? (
-        <div className="pt-32 py-16">
+        <div className="w-screen">
           {/* loading state  */}
           {isLoading && !error && (
             <ContentLoader viewBox="0 0 260 160" height={300} width={600}>
@@ -72,11 +76,11 @@ const UserProfile = () => {
           )}
           {/* profile  and post*/}
           {!isLoading && !error && (
-            <div className="flex flex-col items-center justify-center px-4 w-full">
+            <div className="flex flex-col items-center justify-center px-4">
               <div
                 className={`py-5 ss:py-10 px-4 ss:px-8 sm:px-10 md:px-16 ${
-                  isDarkMode ? "bg-grayNine" : "bg-purpleLight"
-                } rounded-lg flex items-center justify-around gap-6 ss:gap-10 sm:gap-16 w-full`}
+                  isDarkMode ? "bg-gray-900" : "bg-slate-400"
+                } rounded-lg flex items-center justify-around gap-6 ss:gap-10 sm:gap-16 w-full xs:w-[400px] ss:w-[500px] sm:w-[600px]`}
               >
                 <img
                   src={userData.profileUrl}
@@ -85,32 +89,38 @@ const UserProfile = () => {
                 <div>
                   <h1
                     className={`${
-                      isDarkMode ? "text-white" : "text-grayNine"
+                      isDarkMode ? "text-white" : "text-gray-900"
                     } text-[18px] sm:text-[26px] md:text-[32px] font-Poppins font-semibold`}
                   >
                     {userData.username}
                   </h1>
                   <p
                     className={`${
-                      isDarkMode ? "text-gray-300" : "text-graySeven"
+                      isDarkMode ? "text-gray-300" : "text-700"
                     } font-Poppins pt-1 text-[10px] xxs:text-[13px] xs:text-[18px]`}
                   >
                     {userData.email}
                   </p>
                   <p
                     className={`${
-                      isDarkMode ? "text-gray-300" : "text-graySeven"
+                      isDarkMode ? "text-gray-300" : "text-700"
                     } font-Poppins pb-1 text-[10px] xxs:text-[13px] xs:text-[16px]`}
                   >
                     {userData.phone}
                   </p>
                   {userData.bio && (
-                    <p className="text-gray-300 mt-5 text-[16px] ss:text-[18px] sm:text-[20px]">
+                    <p
+                      className={`${
+                        isDarkMode ? "text-gray-300" : "text-black"
+                      }  mt-5 text-[16px] ss:text-[18px] sm:text-[20px]`}
+                    >
                       bio: {userData.bio}
                     </p>
                   )}
                   <button
-                    className="bg-secondary mt-5 text-black font-Poppins font-semibold cursor-pointer rounded-sm active:scale-95 py-2 px-4 flex items-center gap-2"
+                    className={`${
+                      isDarkMode ? "bg-secondary" : "bg-white"
+                    } mt-5 text-black font-Poppins font-semibold cursor-pointer rounded-sm active:scale-95 py-2 px-4 flex items-center gap-2`}
                     onClick={() => navigator("/personal")}
                   >
                     <PencilIcon className=" w-[18px] sm:w-[20px] md:w-[25px]" />
@@ -124,13 +134,25 @@ const UserProfile = () => {
                 <PostUpload id={userData.id} setUploadBox={setUploadBox} />
               )}
               <div
-                className="flex items-center bg-grayNine mt-5 rounded-r-lg select-none cursor-pointer"
+                className={`flex items-center ${
+                  isDarkMode
+                    ? "bg-gray-900 shadow-[0px_0px_15px_5px_rgba(225,225,225,0.2)]"
+                    : "bg-gray-300 shadow-[4.0px_8.0px_8.0px_rgba(0,0,0,0.38)]"
+                } mt-5 rounded-lg select-none cursor-pointer active:scale-95`}
                 onClick={() => setUploadBox(true)}
               >
-                <div className=" bg-graySeven rounded-l-lg px-5">
+                <div
+                  className={`${
+                    isDarkMode ? "bg-gray-700" : "bg-slate-400"
+                  } rounded-l-lg px-5`}
+                >
                   <PlusIcon className="w-[60px] ss:w-[80px] sm:w-[100px] " />
                 </div>
-                <h2 className="text-[18px] sm:text-[22px] text-white font-semibold font-Poppins px-6 sm:px-10">
+                <h2
+                  className={`text-[18px] sm:text-[22px] ${
+                    isDarkMode ? "text-white" : "text-grayNine"
+                  } font-semibold font-Poppins px-6 sm:px-10`}
+                >
                   Add Post
                 </h2>
               </div>
@@ -154,8 +176,12 @@ const UserProfile = () => {
           )}
         </div>
       ) : (
-        <div className="py-6 px-10 bg-grayNine rounded-lg flex flex-col items-end gap-10">
-          <h1 className="text-[32px] font-Poppins font-bold text-secondary">
+        <div
+          className={`py-6 px-10 ${
+            isDarkMode ? "bg-gray-900" : "bg-slate-500"
+          } rounded-lg flex flex-col items-end gap-10 max-h-[200px]`}
+        >
+          <h1 className="text-[18px] ss:text-[24px] sm:text-[32px] font-Poppins font-bold text-secondary">
             You are not logging
           </h1>
           <button
@@ -167,7 +193,7 @@ const UserProfile = () => {
           </button>
         </div>
       )}
-    </>
+    </div>
   );
 };
 

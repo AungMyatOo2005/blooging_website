@@ -34,9 +34,9 @@ import SuccessPersonalDetailEdit from "./success/SuccessPersonalDetailEdit";
 import { useEffect } from "react";
 const App = () => {
   useEffect(() => {
-    document.title="assignment six"
-  }, [])
-  
+    document.title = "assignment six";
+  }, []);
+
   // create browser router for router
   const router = createBrowserRouter(
     // create router for element
@@ -72,9 +72,7 @@ const App = () => {
     )
   );
   return (
-    <div
-      className={`${styles.boxWidth} min-h-screen ${styles.flexCenter}`}
-    >
+    <div className={`${styles.boxWidth} min-h-screen ${styles.flexCenter}`}>
       {/* use context */}
       <ConditionProvider>
         {/* react-router-dom */}

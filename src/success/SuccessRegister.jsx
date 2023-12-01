@@ -1,14 +1,27 @@
+import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
+import { ConditionContext } from "../context/ConditionContext";
 
 const SuccessRegister = () => {
   const navigator = useNavigate();
+  const { isDarkMode } = useContext(ConditionContext);
   return (
-    <div className="min-h-screen flex items-center justify-center flex-col">
-      <h1 className="text-[42px] text-secondary font-semibold font-Poppins">
+    <div
+      className={`min-h-screen flex items-center justify-center flex-col w-screen px-6 ${
+        isDarkMode ? "bg-primary" : "bg-lightPrimary"
+      }`}
+    >
+      <h1
+        className={`text-[24px] text-center sm:text-[32px] ${
+          isDarkMode ? "text-secondary" : "text-blue-950"
+        } font-semibold font-Poppins`}
+      >
         Your register is success
       </h1>
       <button
-        className="bg-dimBlue text-white font-Poppins font-semibold text-[24px] w-full py-1 mt-4 cursor-pointer active:scale-95"
+        className={`${
+          isDarkMode ? "bg-dimBlue" : "bg-blue-950"
+        } text-white font-Poppins font-semibold text-[24px] py-1 mt-4 cursor-pointer active:scale-95 w-[250px] sm:w-[300px]`}
         onClick={() => navigator("/")}
       >
         Back

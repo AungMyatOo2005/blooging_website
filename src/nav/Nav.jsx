@@ -10,7 +10,7 @@ const Nav = () => {
   //for responsive side bar
   const [toggle, setToggle] = useState(false);
   //is auth user can't see login and register button
-  const { isAuthUser, setSideBar,isDarkMode } = useContext(ConditionContext);
+  const { isAuthUser, setSideBar, isDarkMode } = useContext(ConditionContext);
   //using navigate for login and registration
   const handleClick = () => {
     setToggle(false);
@@ -19,9 +19,11 @@ const Nav = () => {
 
   return (
     <>
-      <div className="fixed w-full z-[5] top-0">
+      <div className="fixed w-full z-[10] top-0">
         <nav
-          className={`py-2 px-6 ${styles.flexCenter} justify-between ${isDarkMode?"bg-grayNine ":"bg-gray-600"} w-full relative`}
+          className={`py-2 px-6 ${styles.flexCenter} justify-between ${
+            isDarkMode ? "bg-gray-900 " : "bg-gray-600"
+          } w-full relative`}
         >
           {/* page title  */}
           <h1 className="text-white font-semibold text-[18px] sm:text-[26px] md:text-[32px] font-Poppins">
@@ -51,13 +53,21 @@ const Nav = () => {
               {/* login and registration button for unauthorized user  */}
               <ToggleSwitch />
               <NavLink to={"/login"}>
-                <button className=" cursor-pointer bg-gray-600 p-2 w-[100px] text-gray-200 font-Poppins rounded-sm active:scale-95">
+                <button
+                  className={`cursor-pointer ${
+                    isDarkMode ? "bg-gray-600" : "bg-slate-800"
+                  } p-2 w-[100px] text-gray-200 font-Poppins rounded-sm active:scale-95`}
+                >
                   <div></div>
                   <span>Login</span>
                 </button>
               </NavLink>
               <NavLink to={"/registration"}>
-                <button className=" cursor-pointer bg-gray-600 p-2 w-[100px] text-gray-200 font-Poppins rounded-sm active:scale-95">
+                <button
+                  className={`cursor-pointer ${
+                    isDarkMode ? "bg-gray-600" : "bg-slate-800"
+                  } p-2 w-[100px] text-gray-200 font-Poppins rounded-sm active:scale-95`}
+                >
                   <span>Register</span>
                 </button>
               </NavLink>
@@ -78,7 +88,11 @@ const Nav = () => {
             )}
           </button>
           {toggle && (
-            <div className=" flex-col items-center absolute right-3 top-20 bg-gray-800 py-10 px-6 rounded-lg navbar md:hidden flex min-w-[250px]">
+            <div
+              className={`flex-col items-center absolute right-3 top-20  py-10 px-6 rounded-lg navbar md:hidden flex min-w-[250px] ${
+                isDarkMode ? "bg-gray-800" : "bg-slate-700"
+              }`}
+            >
               <ul className="text-white items-center gap-6 md:text-[16px] font-Poppins flex flex-col">
                 <NavLink to={"/"} onClick={handleClick}>
                   Home
@@ -117,7 +131,7 @@ const Nav = () => {
           )}
         </nav>
       </div>
-      <div className="fixed top-[48px] ss:top-[45px] sm:top-[55px] md:top-[65px] z-[10] left-0">
+      <div className="fixed top-[48px] ss:top-[45px] sm:top-[55px] md:top-[65px] z-[2] left-0">
         {/* side bar */}
         <SideBar />
       </div>

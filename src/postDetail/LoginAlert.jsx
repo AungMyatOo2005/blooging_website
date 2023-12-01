@@ -1,11 +1,11 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { ArrowLongRightIcon} from "@heroicons/react/24/solid";
+import { ArrowLongRightIcon } from "@heroicons/react/24/solid";
 const LoginAlert = ({ setLoginAlert }) => {
   const navigator = useNavigate();
   return (
     <div className="min-h-screen fixed flex items-center justify-center z-[5] w-full bg-opacity top-0 left-0">
-      <div className="bg-grayNine py-16 px-16 rounded-lg relative">
+      <div className="bg-gray-900 py-16 px-16 rounded-lg relative">
         <h1 className="text-[24px] font-semibold text-gray-200 font-Poppins">
           Your are not authentication user!
           <br />

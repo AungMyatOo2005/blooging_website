@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { ConditionContext } from "../context/ConditionContext";
 const Login = () => {
-  const { setIsAuthUser } = useContext(ConditionContext);
+  const { setIsAuthUser, isDarkMode } = useContext(ConditionContext);
   const navigator = useNavigate();
   const [data, setData] = useState({
     emailOrPhone: "",
@@ -48,14 +48,22 @@ const Login = () => {
   };
 
   return (
-    <div className="flex items-center justify-self-center min-h-screen pt-20 pb-10 px-8">
+    <div
+      className={`flex items-center justify-center min-h-screen w-screen pt-20 pb-10 px-8 ${
+        isDarkMode ? "bg-primary" : "bg-lightPrimary"
+      }`}
+    >
       {error ? (
         <h1 className="text-secondary text-[32px] w-full text-center font-Poppins font-semibold">
           {error}
         </h1>
       ) : (
         <form
-          className="bg-grayNine py-10 px-6 ss:px-10 sm:px-16 rounded-lg shadow-[2px_2px_20px_0px_rgba(158,157,153,0.3)] flex flex-col gap-5 w-full ss:w-[400px] sm:w-[500px]"
+          className={` py-10 px-6 ss:px-10 sm:px-16 rounded-lg ${
+            isDarkMode
+              ? "shadow-[2px_2px_20px_0px_rgba(158,157,153,0.3)] bg-gray-900"
+              : "shadow-[2px_2px_20px_0px_rgba(0,0,0,0.7)] bg-slate-600"
+          } flex flex-col gap-5 w-full ss:w-[400px] sm:w-[500px]`}
           onSubmit={handleSubmit}
         >
           <h1
@@ -69,7 +77,11 @@ const Login = () => {
             </label>
             <input
               placeholder="Enter email or phone"
-              className="bg-transparent border-b border-gray-200 w-full mt-3 outline-none py-1 text-gray-200 placeholder:text-gray-600 px-2"
+              className={`${
+                isDarkMode
+                  ? "placeholder:text-gray-600"
+                  : "placeholder:text-gray-400"
+              } bg-transparent border-b border-gray-200 w-full mt-3 outline-none py-1 text-gray-200  px-2`}
               name="emailOrPhone"
               value={data.emailOrPhone}
               onChange={handleChange}
@@ -82,7 +94,11 @@ const Login = () => {
             </label>
             <input
               placeholder="Enter Password"
-              className="bg-transparent border-b border-gray-200 w-full mt-3 outline-none py-1 text-gray-200 placeholder:text-gray-600 px-2"
+              className={`${
+                isDarkMode
+                  ? "placeholder:text-gray-600"
+                  : "placeholder:text-gray-400"
+              } bg-transparent border-b border-gray-200 w-full mt-3 outline-none py-1 text-gray-200  px-2`}
               name="password"
               value={data.password}
               onChange={handleChange}

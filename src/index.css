@@ -4,6 +4,7 @@
 @tailwind components;
 @tailwind utilities;
 body {
+  overflow-x: hidden;
   background-color: #00040f;
   display: flex;
   align-items: center;
@@ -25,7 +26,7 @@ nav ul > a::after {
   left: 0;
   right: 0;
   margin: 0 auto;
-  bottom: -1px;
+  bottom: -2px;
   background: #00f6ff;
   transition: width 0.3s ease-in-out;
 }

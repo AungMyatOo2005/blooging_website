@@ -1,8 +1,10 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import axios from "axios";
 import moment from "moment/moment";
 import { XMarkIcon } from "@heroicons/react/24/solid";
+import { ConditionContext } from "../context/ConditionContext";
 const PostUpload = ({ id, setUploadBox }) => {
+  const { isDarkMode } = useContext(ConditionContext);
   const [postValue, setPostValue] = useState({
     content: "",
     title: "",
@@ -45,7 +47,9 @@ const PostUpload = ({ id, setUploadBox }) => {
   return (
     <div className="bg-opacity h-screen fixed top-0 z-[10] flex items-center justify-center px-10 w-full">
       <form
-        className="bg-grayNine py-24 px-16 rounded-lg relative w-full ss:w-[500px] mx-auto"
+        className={`${
+          isDarkMode ? "bg-gray-900" : "bg-slate-600"
+        } py-24 px-16 rounded-lg relative w-full ss:w-[500px] mx-auto`}
         onSubmit={handleSubmit}
       >
         <button
@@ -84,7 +88,10 @@ const PostUpload = ({ id, setUploadBox }) => {
             value={postValue.post_url}
           />
         </div>
-        <button className="w-full mt-5 bg-secondary py-1 rounded-sm cursor-pointer active:scale-95 text-black font-semibold font-Poppins" type="submit">
+        <button
+          className="w-full mt-5 bg-secondary py-1 rounded-sm cursor-pointer active:scale-95 text-black font-semibold font-Poppins"
+          type="submit"
+        >
           Post
         </button>
       </form>

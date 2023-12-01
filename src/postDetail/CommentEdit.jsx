@@ -1,8 +1,10 @@
 import axios from "axios";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { XMarkIcon } from "@heroicons/react/24/solid";
+import { ConditionContext } from "../context/ConditionContext";
 const CommentEdit = ({ setCommentEditBox, commentId }) => {
   const [updateComment, setUpdateComment] = useState("");
+  const { isDarkMode } = useContext(ConditionContext);
   const updateData = {
     text: updateComment,
   };
@@ -22,7 +24,9 @@ const CommentEdit = ({ setCommentEditBox, commentId }) => {
   return (
     <div className="min-h-screen fixed flex items-center justify-center z-[5] w-full bg-opacity top-0 left-0 px-10 ">
       <form
-        className="bg-grayNine py-16 px-10 ss:px-16 rounded-md pt-10 flex flex-col relative w-full ss:w-[450px]"
+        className={`${
+          isDarkMode ? "bg-gray-900" : "bg-slate-600"
+        } py-16 px-10 ss:px-16 rounded-md pt-10 flex flex-col relative w-full ss:w-[450px]`}
         onSubmit={onSubmit}
       >
         <button className="absolute right-1 top-1" type="button">

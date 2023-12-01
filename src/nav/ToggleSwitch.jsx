@@ -3,13 +3,13 @@ import { MoonIcon, SunIcon } from "@heroicons/react/24/solid";
 import { ConditionContext } from "../context/ConditionContext";
 
 const ToggleSwitch = () => {
-  const {isDarkMode, setIsDarkMode} = useContext(ConditionContext);
+  const { isDarkMode, setIsDarkMode } = useContext(ConditionContext);
   const toggleDarkMode = () => {
     setIsDarkMode((prevMode) => !prevMode);
   };
   return (
     <button
-      className="py-4 px-1 bg-gray-400 rounded-[20px] flex items-center relative min-w-[80px]"
+      className="py-[17px] bg-gray-400 rounded-[20px] flex items-center relative min-w-[80px] outline-none"
       onClick={toggleDarkMode}
     >
       <div

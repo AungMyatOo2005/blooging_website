@@ -24,7 +24,7 @@ const PostDetails = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [err, setErr] = useState("");
   const { id } = useParams(); //get id by useParams
-  const { isAuthUser } = useContext(ConditionContext);
+  const { isAuthUser, isDarkMode } = useContext(ConditionContext);
   const [isActive, setIsActive] = useState(false);
   const [postDelete, setPostDelete] = useState(false);
   const [postEdit, setPostEdit] = useState(false);
@@ -49,7 +49,9 @@ const PostDetails = () => {
   const idOfUser = user && user.id;
   return (
     <div
-      className={` pt-32 ${styles.flexCenter} px-5 sm:${styles.paddingX} pb-24`}
+      className={` pt-32 ${styles.flexCenter} px-5 sm:${
+        styles.paddingX
+      } pb-24 ${isDarkMode ? "bg-primary" : "bg-lightPrimary"} w-screen`}
     >
       {isLoading && !err && (
         <ContentLoader
@@ -77,7 +79,11 @@ const PostDetails = () => {
           {isAuthUser && post.user.id === idOfUser && postEdit && (
             <PostEdit setPostEdit={setPostEdit} post={post} />
           )}
-          <div className="w-full xs:w-[400px] sm:w-[450px] rounded-t-[5px] bg-grayNine rounded-[10px] relative">
+          <div
+            className={`${
+              isDarkMode ? "bg-gray-900" : "bg-slate-400"
+            } w-full xs:w-[400px] sm:w-[450px] rounded-t-[5px]  rounded-[10px] relative`}
+          >
             <div className="pt-10 xxs:pt-0">
               <button
                 className="absolute top-1 cursor-pointer right-1 active:scale-95"
@@ -93,7 +99,11 @@ const PostDetails = () => {
                       setIsActive((prev) => !prev);
                     }}
                   >
-                    <EllipsisHorizontalIcon className=" w-[35px] text-gray-300 hover:text-gray-500" />
+                    <EllipsisHorizontalIcon
+                      className={`w-[35px]  hover:text-gray-500 ${
+                        isDarkMode ? "text-gray-300" : "text-gray-700"
+                      }`}
+                    />
                   </button>
                 </>
               )}
@@ -101,13 +111,21 @@ const PostDetails = () => {
                 <div className=" absolute flex flex-col items-center gap-3 bg-gray-500 py-2 px-5 rounded-md sm:right-[-9rem] sm:top-[3rem] right-0 top-20">
                   {/* if click delete alert box will display and aks confirm delete and cancel (auth user only can make this ) */}
                   <button
-                    className="bg-grayNine text-gray-200 w-[100px] rounded-sm py-1 active:scale-95 font-Poppins"
+                    className={`${
+                      isDarkMode
+                        ? "bg-gray-900 text-gray-200"
+                        : "bg-slate-400 text-black font-Poppins"
+                    }  w-[100px] rounded-sm py-1 active:scale-95 font-Poppins`}
                     onClick={() => setPostDelete((prev) => !prev)}
                   >
                     Delete
                   </button>
                   <button
-                    className="bg-grayNine text-gray-200 w-[100px] rounded-sm py-1 active:scale-95 font-Poppins"
+                    className={`${
+                      isDarkMode
+                        ? "bg-gray-900 text-gray-200"
+                        : "bg-slate-400 text-black font-Poppins"
+                    }  w-[100px] rounded-sm py-1 active:scale-95 font-Poppins`}
                     onClick={() => setPostEdit((prev) => !prev)}
                   >
                     Edit
@@ -121,17 +139,37 @@ const PostDetails = () => {
                 className="w-[50px] rounded-full "
               />
               <div>
-                <p className="text-white text-[18px] font-Poppins">
+                <p
+                  className={`${
+                    isDarkMode ? "text-white" : "text-gray-900 font-semibold"
+                  } text-[18px] font-Poppins`}
+                >
                   {post.user.username}
                 </p>
-                <p className="text-gray-400 text-[14px]">{post.create_at}</p>
+                <p
+                  className={`${
+                    isDarkMode ? "text-gray-400" : "text-gray-900"
+                  } text-[14px]`}
+                >
+                  {post.create_at}
+                </p>
               </div>
             </div>
             <div className="px-4 pb-4">
-              <h4 className="text-[22px] text-gray-400 font-semibold font-Poppins mb-2">
+              <h4
+                className={`text-[22px] ${
+                  isDarkMode ? "text-gray-400" : "text-gray-700"
+                } font-Poppins mb-2`}
+              >
                 {post.title}
               </h4>
-              <p className="text-gray-300 font-Poppins">{post.content}</p>
+              <p
+                className={`${
+                  isDarkMode ? "text-gray-300" : "text-gray-900"
+                } font-Poppins`}
+              >
+                {post.content}
+              </p>
             </div>
             {post.post_url && (
               <a href={post.post_url} target="_blank">

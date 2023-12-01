@@ -1,9 +1,11 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import FormInput from "./FormInput";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { ArrowLongRightIcon } from "@heroicons/react/20/solid";
+import { ConditionContext } from "../context/ConditionContext";
 const Register = () => {
+  const { isDarkMode } = useContext(ConditionContext);
   const navigator = useNavigate();
   const [error, setError] = useState("");
   const [values, setValues] = useState({
@@ -111,15 +113,19 @@ const Register = () => {
   };
   return (
     <div
-      className={`flex items-center justify-center min-h-screen pt-20 pb-10 px-10`}
+      className={`flex items-center justify-center min-h-screen pt-20 pb-10 px-10  w-screen ${
+        isDarkMode ? "bg-primary" : "bg-lightPrimary"
+      }`}
     >
       {error ? (
-        <h1 className="text-secondary text-[32px] w-full text-center font-Poppins font-semibold">
+        <h1 className="text-secondary text-[18px] ss:text-[22px] sm:text-[32px] w-full text-center font-Poppins font-semibold">
           {error}
         </h1>
       ) : (
         <form
-          className="bg-grayNine py-10 px-6 ss:px-10 sm:px-16 rounded-lg shadow-[2px_2px_20px_0px_rgba(158,157,153,0.3)] flex flex-col gap-5 w-full ss:w-[400px] sm:w-[500px]"
+          className={`${
+            isDarkMode ? "bg-gray-900" : "bg-slate-600"
+          } py-10 px-6 ss:px-10 sm:px-16 rounded-lg shadow-[2px_2px_20px_0px_rgba(158,157,153,0.3)] flex flex-col gap-5 w-full ss:w-[400px] sm:w-[500px]`}
           onSubmit={onSubmit}
         >
           <h1

@@ -1,5 +1,5 @@
 //useEffect and useState
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 //use axios to fetch data from json
 import axios from "axios";
 //to show loading state
@@ -7,6 +7,7 @@ import Loading from "../loading/Loading";
 import { EllipsisHorizontalIcon } from "@heroicons/react/24/solid";
 import CommentDelete from "./CommentDelete";
 import CommentEdit from "./CommentEdit";
+import { ConditionContext } from "../context/ConditionContext";
 //comment creator array data
 const CommentsComponent = ({ id, userId, post }) => {
   const [comment, setComment] = useState([]);
@@ -18,6 +19,7 @@ const CommentsComponent = ({ id, userId, post }) => {
   const [isActiveCmt, setIsActiveCmt] = useState(false);
   const [commentDelete, setCommentDelete] = useState(false);
   const [commentEdit, setCommentEdit] = useState(false);
+  const { isDarkMode } = useContext(ConditionContext);
   useEffect(() => {
     const getCommentsList = async () => {
       try {
@@ -55,7 +57,9 @@ const CommentsComponent = ({ id, userId, post }) => {
           )}
 
           <div
-            className=" rounded-[10px] p-5 bg-graySeven relative"
+            className={`${
+              isDarkMode ? "bg-gray-700" : "bg-gray-300"
+            } rounded-[10px] p-5  relative`}
             onMouseEnter={() => setIsHover(true)}
             onMouseLeave={() => setIsHover(false)}
           >
@@ -67,21 +71,33 @@ const CommentsComponent = ({ id, userId, post }) => {
                     setIsActiveCmt((prev) => !prev);
                   }}
                 >
-                  <EllipsisHorizontalIcon className="w-[40px] text-gray-300" />
+                  <EllipsisHorizontalIcon
+                    className={`w-[40px] ${
+                      isDarkMode ? "text-gray-300" : "text-gray-700"
+                    }`}
+                  />
                 </button>
               )}
             {isActiveCmt && (
               <div className=" absolute flex flex-col items-center gap-3 bg-gray-500 py-2 px-5 rounded-md sm:right-[-9rem] sm:top-[3rem] right-0 top-10">
                 {/* if click delete alert box will display and aks confirm delete and cancel (auth user only can make this ) */}
                 <button
-                  className="bg-grayNine text-gray-200 w-[100px] rounded-sm py-1 active:scale-95 font-Poppins"
+                  className={`${
+                    isDarkMode
+                      ? "bg-gray-900 text-gray-200"
+                      : "bg-slate-400 text-black font-Poppins"
+                  }  w-[100px] rounded-sm py-1 active:scale-95 font-Poppins`}
                   onClick={() => setCommentDelete((prev) => !prev)}
                 >
                   Delete
                 </button>
                 {userId === comment.userId && (
                   <button
-                    className="bg-grayNine text-gray-200 w-[100px] rounded-sm py-1 active:scale-95 font-Poppins"
+                    className={`${
+                      isDarkMode
+                        ? "bg-gray-900 text-gray-200"
+                        : "bg-slate-400 text-black font-Poppins"
+                    }  w-[100px] rounded-sm py-1 active:scale-95 font-Poppins`}
                     onClick={() => setCommentEdit((prev) => !prev)}
                   >
                     Edit
@@ -89,20 +105,32 @@ const CommentsComponent = ({ id, userId, post }) => {
                 )}
               </div>
             )}
-            <div className="flex items-center gap-5">
+            <div className="flex items-center gap-3">
               <img
                 src={comment.user.profileUrl}
                 className="w-[50px] rounded-full"
               />
-              <h4 className="text-gray-300 font-semibold font-Poppins">
+              <h4
+                className={`${
+                  isDarkMode ? "text-gray-300" : "text-gray-700"
+                } font-semibold font-Poppins`}
+              >
                 {comment.user.username}
               </h4>
             </div>
             <div className="py-2">
-              <p className="text-gray-200 font-Poppins text-[16px]">
+              <p
+                className={`${
+                  isDarkMode ? "text-gray-200" : "text-gray-9900"
+                } font-Poppins text-[16px]`}
+              >
                 {comment.text}
               </p>
-              <p className="text-[14px] leading-[32px] text-gray-400">
+              <p
+                className={`text-[14px] leading-[32px] ${
+                  isDarkMode ? "text-gray-400" : "text-gray-500"
+                }`}
+              >
                 {comment.create_at}
               </p>
             </div>

@@ -1,7 +1,9 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { XMarkIcon } from "@heroicons/react/24/solid";
 import axios from "axios";
+import { ConditionContext } from "../context/ConditionContext";
 const PostEdit = ({ setPostEdit, post }) => {
+  const { isDarkMode } = useContext(ConditionContext);
   const [postData, setPostData] = useState({
     content: "",
     title: "",
@@ -41,7 +43,9 @@ const PostEdit = ({ setPostEdit, post }) => {
   return (
     <div className="min-h-screen fixed flex items-center justify-center z-[5] w-full bg-opacity top-0 left-0 px-6">
       <form
-        className="bg-grayNine py-16 px-10 ss:px-16 rounded-md pt-10 flex flex-col relative w-full xs:w-[400px] sm:w-[500px]"
+        className={`${
+          isDarkMode ? "bg-gray-900" : "bg-slate-600"
+        } py-16 px-10 ss:px-16 rounded-md pt-10 flex flex-col relative w-full xs:w-[400px] sm:w-[500px]`}
         onSubmit={handleSubmit}
       >
         <button

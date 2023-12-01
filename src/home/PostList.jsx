@@ -1,60 +1,51 @@
-//import style from self-template style
-import { useContext } from "react";
+//post list components
+import PostComponents from "./PostComponents";
+//import styles from self-template
 import styles from "../styles";
-//use navigate
-import { useNavigate } from "react-router-dom";
+import { useContext } from "react";
 import { ConditionContext } from "../context/ConditionContext";
-const PostList = ({ post }) => {
-  //use navigate to reach detail what user click post
+import { useNavigate } from "react-router-dom";
+import { ArrowLongRightIcon } from "@heroicons/react/24/solid";
+const PostList = ({ posts }) => {
   const navigator = useNavigate();
-  const {isDarkMode}=useContext(ConditionContext)
+  // sorting for last post
+  const { isAuthUser, isDarkMode } = useContext(ConditionContext);
+  const sortingPost = () => {
+    const sortPost = posts.sort(
+      (a, b) => new Date(b.create_at) - new Date(a.create_at)
+    );
+    return sortPost; //return last five post
+  };
+  // unauthorized user can see only 10 post
+  const last8Posts = sortingPost().slice(0, 8);
   return (
-    <div
-      className={`${
-        styles.flexStart
-      } flex-col w-full xxs:w-[300px] md:w-[250px] ${
-        isDarkMode ? "bg-grayNine" : "bg-purpleLight"
-      } rounded-[5px] shadow-[4.0px_8.0px_8.0px_rgba(0,0,0,0.38)]`}
-      onClick={() => navigator(`/postDetail/${post.id}`)}
-    >
-      {post.post_url && (
-        <img
-          src={post.post_url}
-          className="w-full h-[250px] object-cover rounded-t-[5px]"
-        />
-      )}
-
-      <div className="p-2">
-        <h4
-          className={`${
-            isDarkMode ? "text-gray-300" : "text-graySeven"
-          } font-Poppins text-[22px]`}
-        >
-          {post.title}
-        </h4>
-        <p
-          className={`${
-            isDarkMode ? "text-gray-300" : "text-black"
-          } font-Poppins mt-2`}
-        >
-          {post.content}
-        </p>
-        <div className={`mt-3 flex items-center justify-start gap-4`}>
-          <img
-            src={post.user.profileUrl}
-            className="w-[50px] h-[50px] object-cover rounded-full"
-          />
-          <div>
-            <h5 className={`${isDarkMode?"text-white":"text-grayNine"} font-semibold font-Poppins `}>
-              {post.user.username}
-            </h5>
-            <p className={`${isDarkMode?"text-gray-400":"text-graySeven"} text-[12px] font-semibold`}>
-              {post.create_at}
-            </p>
-          </div>
-        </div>
+    <>
+      <div
+        className={`flex flex-wrap justify-evenly gap-[30px] ${styles.paddingX} items-end `}
+      >
+        {(isAuthUser ? posts : last8Posts).map((post) => (
+          <PostComponents post={post} key={post.id} />
+        ))}
       </div>
-    </div>
+      {!isAuthUser && (
+        <div
+          className={`${
+            isDarkMode ? "bg-gray-900" : "bg-slate-500"
+          } max-w-fit mx-auto mt-6 py-6 px-6 rounded-md`}
+        >
+          <h1 className="text-[22px] text-gray-200 font-Poppins font-semibold">
+            Please login to see all post
+          </h1>
+          <button
+            className="flex items-center gap-1 hover:translate-y-[-2px] transition-transform ease-in-out hover:scale-105 mt-3 ml-auto"
+            onClick={() => navigator("/login")}
+          >
+            <span className="text-secondary capitalize">login</span>
+            <ArrowLongRightIcon className="w-[30px] text-secondary" />
+          </button>
+        </div>
+      )}
+    </>
   );
 };
 
