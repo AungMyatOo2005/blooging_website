@@ -94,7 +94,7 @@ const UserProfile = () => {
               >
                 <img
                   src={userData.profileUrl}
-                  className="w-[80px]  ss:w-[120px] sm:w-[150px] md:w-[200px] rounded-full"
+                  className="w-[80px] aspect-square object-cover  ss:w-[120px] sm:w-[150px] md:w-[200px] rounded-full"
                 />
                 <div>
                   <h1

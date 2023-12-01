@@ -155,7 +155,7 @@ const Register = () => {
           >
             Register
           </button>
-          <div className="flex items-center gap-3">
+          <div className="flex xs:items-center gap-3 xs:flex-row flex-col items-start">
             <span className="text-gray-200">you have already account</span>
             <button
               className="flex items-center gap-1 hover:translate-y-[-2px] transition-transform ease-in-out hover:scale-105"

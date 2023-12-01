@@ -44,7 +44,7 @@ const Nav = () => {
               {/* profile box for auth user  */}
               <ToggleSwitch />
               <ProfileBox
-                style={"w-fit bg-dimBlue"}
+                style={`w-fit ${isDarkMode ? "bg-dimBlue" : "bg-slate-800"}`}
                 onClick={() => setSideBar((prev) => !prev)}
               />
             </div>

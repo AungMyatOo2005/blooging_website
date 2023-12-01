@@ -46,7 +46,11 @@ const ProfileChange = ({}) => {
   };
   const onSubmit = (e) => {
     e.preventDefault();
-    handleProfileUrlChange();
+    {
+      profileUrl.trim() !== ""
+        ? handleProfileUrlChange()
+        : alert("please fill something");
+    }
   };
   return (
     <form className="w-full" onSubmit={onSubmit}>

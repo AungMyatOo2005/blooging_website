@@ -136,7 +136,7 @@ const PostDetails = () => {
             <div className={`p-4 flex items-center gap-3 justify-start`}>
               <img
                 src={post.user.profileUrl}
-                className="w-[50px] rounded-full "
+                className="w-[60px] aspect-square object-cover rounded-full "
               />
               <div>
                 <p

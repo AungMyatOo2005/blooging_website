@@ -15,7 +15,7 @@ const AuthUserPost = ({ userData, post }) => {
       <div className="flex items-center gap-3 pt-6 pb-2 px-2 sm:px-5">
         <img
           src={userData.profileUrl}
-          className="w-[50px] xs:w-[70px] rounded-full"
+          className="w-[50px] xs:w-[70px] rounded-full aspect-square object-cover"
         />
         <div className="flex flex-col items-start gap-1">
           <h2

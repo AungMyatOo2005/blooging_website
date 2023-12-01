@@ -14,7 +14,6 @@ const ProfileBox = ({ style, onClick }) => {
       setUserData(user);
     }
   }, []);
-  console.log(userData)
   return (
     <>
       <div
@@ -22,7 +21,10 @@ const ProfileBox = ({ style, onClick }) => {
         // if user click side bar will display
         onClick={onClick}
       >
-        <img src={userData.profileUrl} className="w-[35px] rounded-full" />
+        <img
+          src={userData.profileUrl}
+          className="w-[40px] aspect-square object-cover rounded-full"
+        />
         <h1 className={`${styles.profileName}`}>{userData.username}</h1>
       </div>
     </>
