@@ -45,11 +45,11 @@ const Home = () => {
     <div
       className={`py-16 pt-32 ${
         isDarkMode ? "bg-primary" : "bg-lightPrimary"
-      } `}
+      } w-screen min-h-screen flex items-center justify-center`}
     >
       {isLoading && !error && <Loading style={"flex-row flex-wrap"} />}
       {error && !isLoading && (
-        <h1 className="text-[32px] text-secondary font-semibold font-Poppins w-full  text-center">
+        <h1 className={`text-[22px] text-center sm:text-[32px] ${isDarkMode?"text-secondary":"text-blue-950"} font-semibold font-Poppins w-full  text-center`}>
           Error: {error}
         </h1>
       )}

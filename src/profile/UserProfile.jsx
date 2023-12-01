@@ -54,10 +54,16 @@ const UserProfile = () => {
       }  pt-32 py-16 w-screen min-h-screen flex items-center justify-center px-2`}
     >
       {isAuthUser ? (
-        <div className="w-screen">
+        <div>
           {/* loading state  */}
           {isLoading && !error && (
-            <ContentLoader viewBox="0 0 260 160" height={300} width={600}>
+            <ContentLoader
+              viewBox="0 0 260 160"
+              height={300}
+              width={600}
+              backgroundColor="#4c4c4d"
+              foregroundColor="#dedede"
+            >
               <circle cx="50" cy="30" r="30" />
               <rect x="10" y="70" rx="3" ry="3" width="40" height="10" />
               <rect x="60" y="70" rx="3" ry="3" width="70" height="10" />
@@ -70,8 +76,12 @@ const UserProfile = () => {
           )}
           {/* error state  */}
           {!isLoading && error && (
-            <h1 className="text-[32px] font-semibold text-secondary font-Poppins">
-              {error}
+            <h1
+              className={`text-[22px] text-center sm:text-[32px] ${
+                isDarkMode ? "text-secondary" : "text-blue-950"
+              } font-semibold font-Poppins w-full  text-center`}
+            >
+              Error: {error}
             </h1>
           )}
           {/* profile  and post*/}

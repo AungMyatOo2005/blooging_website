@@ -118,8 +118,12 @@ const Register = () => {
       }`}
     >
       {error ? (
-        <h1 className="text-secondary text-[18px] ss:text-[22px] sm:text-[32px] w-full text-center font-Poppins font-semibold">
-          {error}
+        <h1
+          className={`text-[22px] text-center sm:text-[32px] ${
+            isDarkMode ? "text-secondary" : "text-blue-950"
+          } font-semibold font-Poppins w-full  text-center`}
+        >
+          Error: {error}
         </h1>
       ) : (
         <form
