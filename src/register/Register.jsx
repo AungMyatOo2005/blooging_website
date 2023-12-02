@@ -30,7 +30,9 @@ const Register = () => {
     username: values.username,
     email: values.email,
     phone: values.phoneNumber,
-    profileUrl: values.profileUrl,
+    profileUrl: values.profileUrl
+      ? values.profileUrl
+      : "https://i.pinimg.com/236x/16/3e/39/163e39beaa36d1f9a061b0f0c5669750.jpg",
     password: values.confirmPassword,
   };
 
