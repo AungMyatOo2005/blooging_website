@@ -71,21 +71,21 @@ const PostUpload = ({ id, setUploadBox }) => {
           Upload Post
         </h1>
         <div className="flex flex-col gap-1 mt-8">
-          <label className="text-white font-Poppins">Content</label>
-          <input
-            className="rounded-sm outline-none text-[18px] py-1 px-4 font-Poppins font-semibold"
-            placeholder="what do you think..."
-            onChange={onChange}
-            name="content"
-            value={postValue.content}
-          />
-          <label className="text-white font-Poppins mt-5">Title</label>
+          <label className="text-white font-Poppins">Title</label>
           <input
             className="rounded-sm outline-none text-[18px] py-1 px-4 font-Poppins font-semibold"
             placeholder="title..."
             onChange={onChange}
             name="title"
             value={postValue.title}
+          />
+          <label className="text-white font-Poppins  mt-5">Content</label>
+          <input
+            className="rounded-sm outline-none text-[18px] py-1 px-4 font-Poppins font-semibold"
+            placeholder="what do you think..."
+            onChange={onChange}
+            name="content"
+            value={postValue.content}
           />
           <label className="text-white font-Poppins mt-5">Post Url</label>
           <input

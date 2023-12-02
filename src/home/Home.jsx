@@ -47,7 +47,7 @@ const Home = () => {
     <div
       className={`py-16 pt-32 ${
         isDarkMode ? "bg-primary" : "bg-lightPrimary"
-      } w-screen min-h-screen`}
+      } w-screen min-h-screen flex items-center`}
     >
       {isLoading && !error && <Loading style={"flex-row flex-wrap"} />}
       {error && !isLoading && (

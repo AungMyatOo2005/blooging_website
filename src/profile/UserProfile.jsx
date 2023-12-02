@@ -23,8 +23,8 @@ const UserProfile = () => {
   const [isLoading, setIsLoading] = useState(true);
   const navigator = useNavigate();
   const [uploadBox, setUploadBox] = useState(false);
-  const { error, setError, isDarkMode, isAuthUser } =
-    useContext(ConditionContext);
+  const [error, setError] = useState(null);
+  const { isDarkMode, isAuthUser } = useContext(ConditionContext);
 
   useEffect(() => {
     const getUserData = async (id) => {
@@ -36,6 +36,7 @@ const UserProfile = () => {
       } catch (err) {
         console.error("Error fetching data:", error);
         setError("An error occurred while fetching data.");
+        setIsLoading(false);
       } finally {
         setIsLoading(false);
       }
@@ -102,7 +103,7 @@ const UserProfile = () => {
               <div
                 className={`py-5 ss:py-10 px-4 ss:px-8 sm:px-10 md:px-16 ${
                   isDarkMode ? "bg-gray-900" : "bg-slate-400"
-                } rounded-lg flex items-center justify-around gap-6 ss:gap-10 sm:gap-16 w-full xs:w-[400px] ss:w-[500px] sm:w-[600px]`}
+                } rounded-lg flex items-center justify-around gap-6 ss:gap-10 sm:gap-16 w-full xs:w-[400px] ss:w-[500px] sm:w-[650px]`}
               >
                 <img
                   src={userData.profileUrl}
@@ -146,7 +147,7 @@ const UserProfile = () => {
                     onClick={() => navigator("/personal")}
                   >
                     <PencilIcon className=" w-[18px] sm:w-[20px] md:w-[25px]" />
-                    <span className="text-[10px] xxs:text-[14px] ss:text-[18px]">
+                    <span className="text-[10px] xxs:text-[14px] ss:text-[18px] text-start">
                       Edit Personal Detail
                     </span>
                   </button>

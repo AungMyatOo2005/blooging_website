@@ -7,11 +7,16 @@ import { NavLink, Outlet, useNavigate } from "react-router-dom";
 import { ChevronUpIcon, ChevronDownIcon } from "@heroicons/react/20/solid";
 //context api
 import { ConditionContext } from "../context/ConditionContext";
+//content loader
+import ContentLoader from 'react-content-loader'
+import axios from "axios";
 const PersonalDetails = () => {
   const [isUser, setIsUser] = useState(false);
   const [toggle, setToggle] = useState(false);
-  //error state and dark mode light mode
-  const { error, isDarkMode } = useContext(ConditionContext);
+  const [error, setError] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
+  // dark mode light mode
+  const { isDarkMode } = useContext(ConditionContext);
   const activeStyle = ({ isActive }) => {
     return {
       backgroundColor: isActive ? "#9ca3af" : "",
@@ -19,30 +24,64 @@ const PersonalDetails = () => {
   };
   const navigator = useNavigate();
   useEffect(() => {
-    const user = localStorage.getItem("REACT-FRONTEND-FINAL-PROJECT");
+    const getUser = async (id) => {
+      try {
+        await axios.get(`${import.meta.env.VITE_API_URL}/users/${id}`);
+      } catch (error) {
+        //catch error
+        console.error("Error fetching data:", error);
+        setError("An error occurred while fetching data.");
+        setIsLoading(false);
+      } finally {
+        //finally set loading is false
+        setIsLoading(false);
+      }
+    };
+
+    const user = JSON.parse(
+      localStorage.getItem("REACT-FRONTEND-FINAL-PROJECT")
+    );
     if (!user) {
-      navigator("/");
-    }
-    if (user) {
+      navigator("/login");
+    } else {
+      getUser(user.id);
       setIsUser(true);
     }
-    // window.location.reload()
   }, [navigator]);
   return (
     <div
       className={`${
         isDarkMode ? "bg-primary" : "bg-lightPrimary"
-      } w-screen flex justify-center`}
+      } w-screen min-h-screen flex justify-center items-center`}
     >
-      {error && (
-        <h1 className="text-[32px] font-semibold text-secondary font-Poppins">
+      {!error && isLoading && (
+        <ContentLoader
+          speed={2}
+          width={400}
+          height={160}
+          viewBox="0 0 400 160"
+          backgroundColor="#7d7d7d"
+          foregroundColor="#dedede"
+        >
+          <rect x="50" y="6" rx="4" ry="4" width="343" height="38" />
+          <rect x="8" y="6" rx="4" ry="4" width="35" height="38" />
+          <rect x="50" y="55" rx="4" ry="4" width="343" height="38" />
+          <rect x="8" y="55" rx="4" ry="4" width="35" height="38" />
+          <rect x="50" y="104" rx="4" ry="4" width="343" height="38" />
+          <rect x="8" y="104" rx="4" ry="4" width="35" height="38" />
+        </ContentLoader>
+      )}
+      {error && !isLoading && (
+        <h1
+          className={`text-[22px] sm:text-[32px] font-semibold ${
+            isDarkMode ? "text-secondary" : "text-blue-950"
+          } font-Poppins`}
+        >
           {error}
         </h1>
       )}
-      {isUser && !error && (
-        <div
-          className={` min-h-screen px-6 ss:px-16  w-full sm:w-[700px] flex justify-center items-center pb-16 pt-24`}
-        >
+      {isUser && !error && !isLoading && (
+        <div className={`  px-6 ss:px-16  w-full sm:w-[700px]  pb-16 pt-24`}>
           <div
             className={` py-14 md:py-16 ${
               isDarkMode ? "bg-gray-900" : "bg-slate-600"

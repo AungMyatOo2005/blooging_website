@@ -23,9 +23,9 @@ const PostList = ({ posts }) => {
   // unauthorized user can see only 10 post
   const last8Posts = sortingPost().slice(0, 8);
   return (
-    <>
+    <div className="flex flex-col items-center justify-center">
       <div
-        className={`flex flex-wrap justify-evenly gap-[30px] ${styles.paddingX} items-end `}
+        className={`flex flex-wrap justify-evenly gap-[30px] ${styles.paddingX} items-end`}
       >
         {(isAuthUser ? posts : last8Posts).map((post) => (
           <PostComponents post={post} key={post.id} />
@@ -50,7 +50,7 @@ const PostList = ({ posts }) => {
           </button>
         </div>
       )}
-    </>
+    </div>
   );
 };
 
