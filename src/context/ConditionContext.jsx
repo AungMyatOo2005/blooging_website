@@ -6,7 +6,6 @@ const ConditionProvider = ({ children }) => {
   const [sideBar, setSideBar] = useState(false); //for sidebar
   const [isAuthUser, setIsAuthUser] = useState(false); //auth user?
   const [userDataLs, setUserDataLs] = useState(false);
-  const [error, setError] = useState(null);
   const [isDarkMode, setIsDarkMode] = useState(false);
 
   useEffect(() => {
@@ -26,8 +25,6 @@ const ConditionProvider = ({ children }) => {
         isAuthUser,
         setIsAuthUser,
         userDataLs,
-        error,
-        setError,
         isDarkMode,
         setIsDarkMode,
       }}

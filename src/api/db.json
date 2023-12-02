@@ -120,6 +120,14 @@
       "profileUrl": "https://i.pinimg.com/564x/1d/39/49/1d3949590bd5f7f40cfa0ea30ad6eebc.jpg",
       "password": "kyawgyikwa",
       "id": 15
+    },
+    {
+      "username": "asta",
+      "email": "asta@gmail.com",
+      "phone": "0934343434",
+      "profileUrl": "https://i.pinimg.com/236x/91/9b/5c/919b5c2121d08bc7e7f5a38cb4582f3a.jpg",
+      "password": "asta never fail",
+      "id": 16
     }
   ],
   "posts": [
@@ -258,6 +266,14 @@
       "post_url": "https://i.pinimg.com/236x/52/a7/aa/52a7aaa441a5cace27b15821726a5db9.jpg",
       "create_at": "2023-11-30T16:46:56+06:30",
       "id": 18
+    },
+    {
+      "userId": 16,
+      "title": "sad",
+      "content": "nobody love me",
+      "post_url": "https://i.pinimg.com/236x/77/2f/2f/772f2f4cfa03ef34a6136f7dee75666d.jpg",
+      "create_at": "2023-12-02T16:18:53+06:30",
+      "id": 19
     }
   ],
   "comments": [
@@ -393,6 +409,34 @@
       "text": "cute",
       "create_at": "2023-11-29T16:45:33+06:30",
       "id": 20
+    },
+    {
+      "userId": 16,
+      "postId": 19,
+      "text": "lol",
+      "create_at": "2023-12-02T16:19:00+06:30",
+      "id": 21
+    },
+    {
+      "userId": 1,
+      "postId": 19,
+      "text": "don't worry baby I love you",
+      "create_at": "2023-12-02T16:25:04+06:30",
+      "id": 22
+    },
+    {
+      "userId": 14,
+      "postId": 19,
+      "text": "i love you ko ko",
+      "create_at": "2023-12-02T16:26:26+06:30",
+      "id": 23
+    },
+    {
+      "userId": 16,
+      "postId": 19,
+      "text": "yayyy",
+      "create_at": "2023-12-02T16:26:49+06:30",
+      "id": 24
     }
   ]
 }

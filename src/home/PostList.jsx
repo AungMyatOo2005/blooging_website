@@ -16,9 +16,9 @@ const PostList = ({ posts }) => {
   const { isAuthUser, isDarkMode } = useContext(ConditionContext);
 
   return (
-    <>
+    <div className="flex flex-col items-center justify-center">
       <div
-        className={`flex flex-wrap justify-evenly gap-[30px] ${styles.paddingX} items-end `}
+        className={`flex flex-wrap justify-evenly gap-[30px] ${styles.paddingX} items-end`}
       >
         {posts.map((post) => (
           <PostComponents post={post} key={post.id} />
@@ -43,7 +43,7 @@ const PostList = ({ posts }) => {
           </button>
         </div>
       )}
-    </>
+    </div>
   );
 };
 

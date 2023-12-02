@@ -72,8 +72,8 @@ const Comments = ({ comments, post }) => {
         <input
           className={`outline-none rounded-sm py-1 px-3 ${
             isDarkMode
-              ? "bg-gray-300 placeholder:text-gray-600"
-              : "bg-gray-700 placeholder:text-gray-300"
+              ? "bg-gray-300 placeholder:text-gray-600 text-black"
+              : "bg-gray-700 placeholder:text-gray-400 text-white"
           } text-[18px] w-full`}
           placeholder="Enter Your Comment..."
           name="comment"
