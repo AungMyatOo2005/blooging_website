@@ -21,7 +21,7 @@ const Home = () => {
   //current page number
   const [currentPage, setCurrentPage] = useState(1);
   //per post of page
-  const [postPerPage] = useState(6);
+  const [postPerPage] = useState(8);
   //dark mode and light mode for user friendly
   const { isDarkMode, isAuthUser } = useContext(ConditionContext);
 
@@ -71,7 +71,7 @@ const Home = () => {
         </h1>
       )}
       {!isLoading && !error && (
-        <div className="flex flex-col items-center">
+        <div className="flex flex-col items-center h-screen w-screen">
           {isAuthUser && (
             <Pagination
               totalPosts={posts.length}
