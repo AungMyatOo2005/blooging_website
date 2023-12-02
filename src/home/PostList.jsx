@@ -14,20 +14,13 @@ const PostList = ({ posts }) => {
   const navigator = useNavigate();
   // sorting for last post
   const { isAuthUser, isDarkMode } = useContext(ConditionContext);
-  const sortingPost = () => {
-    const sortPost = posts.sort(
-      (a, b) => new Date(b.create_at) - new Date(a.create_at)
-    );
-    return sortPost; //return last five post
-  };
-  // unauthorized user can see only 10 post
-  const last8Posts = sortingPost().slice(0, 8);
+
   return (
     <>
       <div
         className={`flex flex-wrap justify-evenly gap-[30px] ${styles.paddingX} items-end `}
       >
-        {(isAuthUser ? posts : last8Posts).map((post) => (
+        {posts.map((post) => (
           <PostComponents post={post} key={post.id} />
         ))}
       </div>

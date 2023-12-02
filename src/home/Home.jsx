@@ -10,6 +10,7 @@ import PostList from "./PostList";
 import Loading from "../loading/Loading";
 //context api
 import { ConditionContext } from "../context/ConditionContext";
+import Pagination from "./Pagination";
 const Home = () => {
   //Post
   const [posts, setPosts] = useState([]);
@@ -17,15 +18,25 @@ const Home = () => {
   const [isLoading, setIsLoading] = useState(true);
   //Error State
   const [error, setError] = useState(null);
+  //current page number
+  const [currentPage, setCurrentPage] = useState(1);
+  //per post of page
+  const [postPerPage] = useState(8);
   //dark mode and light mode for user friendly
-  const { isDarkMode } = useContext(ConditionContext);
+  const { isDarkMode, isAuthUser } = useContext(ConditionContext);
+
+  const lastPostIndex = currentPage * postPerPage;
+  const firstPostIndex = lastPostIndex - postPerPage;
+  const currentPost = posts.slice(firstPostIndex, lastPostIndex);
   //fetch post from json-server
   useEffect(() => {
     const getPosts = async () => {
       // try state
       try {
         const resp = await axios.get(
-          `${import.meta.env.VITE_API_URL}/posts?_expand=user`
+          `${
+            import.meta.env.VITE_API_URL
+          }/posts?_sort=create_at&_order=desc&_expand=user`
         );
         setPosts(await resp.data);
       } catch (error) {
@@ -59,7 +70,19 @@ const Home = () => {
           Error: {error}
         </h1>
       )}
-      {!isLoading && !error && <PostList posts={posts} />}
+      {!isLoading && !error && (
+        <div className="flex flex-col items-center">
+          {isAuthUser && (
+            <Pagination
+              totalPosts={posts.length}
+              currentPage={currentPage}
+              setCurrentPage={setCurrentPage}
+              postPerPage={postPerPage}
+            />
+          )}
+          <PostList posts={currentPost} />
+        </div>
+      )}
     </div>
   );
 };
