@@ -21,7 +21,7 @@ const Home = () => {
   //current page number
   const [currentPage, setCurrentPage] = useState(1);
   //per post of page
-  const [postPerPage] = useState(8);
+  const [postPerPage] = useState(6);
   //dark mode and light mode for user friendly
   const { isDarkMode, isAuthUser } = useContext(ConditionContext);
 
