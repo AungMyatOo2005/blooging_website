@@ -1,9 +1,13 @@
+//nav bar
+
 import React, { useContext, useState } from "react";
 import styles from "../styles";
 import { NavLink } from "react-router-dom";
 import ProfileBox from "../home/ProfileBox";
+//hero icon
 import { Bars3BottomRightIcon, XMarkIcon } from "@heroicons/react/24/solid";
 import { ConditionContext } from "../context/ConditionContext";
+//side bar
 import SideBar from "../sidebar/Sidebar";
 import ToggleSwitch from "./ToggleSwitch";
 const Nav = () => {

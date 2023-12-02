@@ -1,9 +1,18 @@
+//name change
+
+//use state and use effect
 import React, { useEffect, useState } from "react";
-import FormInput from "../register/FormInput";
+//form input EL
+import FormInput from "../formInput/FormInput";
+//use axios to fetch data
 import axios from "axios";
+//use navigate
 import { useNavigate } from "react-router-dom";
-const NameChange = ({}) => {
+
+const NameChange = () => {
   const [userDataLs, setUserDataLs] = useState({});
+  const [name, setName] = useState("");
+
   useEffect(() => {
     const user = JSON.parse(
       localStorage.getItem("REACT-FRONTEND-FINAL-PROJECT")
@@ -12,7 +21,7 @@ const NameChange = ({}) => {
       setUserDataLs(user);
     }
   }, []);
-  const [name, setName] = useState("");
+
   const onChange = (e) => {
     setName(e.target.value);
   };

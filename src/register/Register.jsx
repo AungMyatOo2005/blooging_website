@@ -1,13 +1,22 @@
-import { useContext, useEffect, useState } from "react";
-import FormInput from "./FormInput";
+//Register form
+
+//use context and use state
+import { useContext, useState } from "react";
+//form input el
+import FormInput from "../formInput/FormInput";
+// use axios to fetch data
 import axios from "axios";
+//use navigate
 import { useNavigate } from "react-router-dom";
+//use hero icon
 import { ArrowLongRightIcon } from "@heroicons/react/20/solid";
+//context api
 import { ConditionContext } from "../context/ConditionContext";
 const Register = () => {
   const { isDarkMode } = useContext(ConditionContext);
   const navigator = useNavigate();
   const [error, setError] = useState("");
+
   const [values, setValues] = useState({
     username: "",
     email: "",
@@ -16,6 +25,7 @@ const Register = () => {
     password: "",
     confirmPassword: "",
   });
+
   const updateUserData = {
     username: values.username,
     email: values.email,
@@ -23,6 +33,7 @@ const Register = () => {
     profileUrl: values.profileUrl,
     password: values.confirmPassword,
   };
+
   const handleRegister = async () => {
     try {
       await axios.post(`${import.meta.env.VITE_API_URL}/users`, updateUserData);
@@ -33,6 +44,7 @@ const Register = () => {
       setError("Error fetching user data");
     }
   };
+
   const onSubmit = async (e) => {
     e.preventDefault();
     await handleRegister();
@@ -45,9 +57,11 @@ const Register = () => {
       confirmPassword: "",
     });
   };
+
   const successRegister = () => {
     navigator("/successRegister");
   };
+
   const inputArrays = [
     {
       id: 1,

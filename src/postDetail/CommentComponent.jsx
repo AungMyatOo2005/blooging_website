@@ -1,12 +1,18 @@
+// each comments component
+
 //useEffect and useState
 import React, { useContext, useEffect, useState } from "react";
 //use axios to fetch data from json
 import axios from "axios";
 //to show loading state
 import Loading from "../loading/Loading";
+//use hero icon
 import { EllipsisHorizontalIcon } from "@heroicons/react/24/solid";
+//comment delete alert
 import CommentDelete from "./CommentDelete";
+//comment edit alert
 import CommentEdit from "./CommentEdit";
+//context api
 import { ConditionContext } from "../context/ConditionContext";
 //comment creator array data
 const CommentsComponent = ({ id, userId, post }) => {

@@ -1,11 +1,16 @@
+//personal detail edit
+
 import { useContext, useEffect, useState } from "react";
-import styles from "../styles";
+//use react touter dom
 import { NavLink, Outlet, useNavigate } from "react-router-dom";
+//hero icon
 import { ChevronUpIcon, ChevronDownIcon } from "@heroicons/react/20/solid";
+//context api
 import { ConditionContext } from "../context/ConditionContext";
 const PersonalDetails = () => {
   const [isUser, setIsUser] = useState(false);
   const [toggle, setToggle] = useState(false);
+  //error state and dark mode light mode
   const { error, isDarkMode } = useContext(ConditionContext);
   const activeStyle = ({ isActive }) => {
     return {
@@ -100,6 +105,7 @@ const PersonalDetails = () => {
                 Change Password
               </NavLink>
             </ul>
+            {/* for responsive  */}
             {toggle && (
               <ul className="absolute py-4 flex md:hidden flex-col right-3 top-10 rounded-lg navbar ">
                 <NavLink

@@ -8,6 +8,7 @@ import axios from "axios";
 import PostList from "./PostList";
 //Loading page for use-friendly
 import Loading from "../loading/Loading";
+//context api
 import { ConditionContext } from "../context/ConditionContext";
 const Home = () => {
   //Post
@@ -16,6 +17,7 @@ const Home = () => {
   const [isLoading, setIsLoading] = useState(true);
   //Error State
   const [error, setError] = useState(null);
+  //dark mode and light mode for user friendly
   const { isDarkMode } = useContext(ConditionContext);
   //fetch post from json-server
   useEffect(() => {
@@ -45,11 +47,15 @@ const Home = () => {
     <div
       className={`py-16 pt-32 ${
         isDarkMode ? "bg-primary" : "bg-lightPrimary"
-      } w-screen min-h-screen flex items-center justify-center`}
+      } w-screen min-h-screen`}
     >
       {isLoading && !error && <Loading style={"flex-row flex-wrap"} />}
       {error && !isLoading && (
-        <h1 className={`text-[22px] text-center sm:text-[32px] ${isDarkMode?"text-secondary":"text-blue-950"} font-semibold font-Poppins w-full  text-center`}>
+        <h1
+          className={`text-[22px] text-center sm:text-[32px] ${
+            isDarkMode ? "text-secondary" : "text-blue-950"
+          } font-semibold font-Poppins w-full  text-center`}
+        >
           Error: {error}
         </h1>
       )}

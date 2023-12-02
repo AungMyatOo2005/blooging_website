@@ -1,12 +1,22 @@
+//user profile
+
+//use context ,use effect and use state
 import React, { useContext, useEffect, useState } from "react";
-import styles from "../styles";
+//hero icon
 import { PencilIcon } from "@heroicons/react/24/solid";
+//use axios to fetch data
 import axios from "axios";
+//use content loader to show loading state
 import ContentLoader from "react-content-loader";
+//context api
 import { ConditionContext } from "../context/ConditionContext";
+//hero icon
 import { ArrowLongRightIcon, PlusIcon } from "@heroicons/react/24/solid";
+//use navigate
 import { useNavigate } from "react-router-dom";
+//user post
 import AuthUserPost from "./AuthUserPost";
+//upload form box
 import PostUpload from "./PostUpload";
 const UserProfile = () => {
   const [userData, setUserData] = useState([]);
@@ -15,6 +25,7 @@ const UserProfile = () => {
   const [uploadBox, setUploadBox] = useState(false);
   const { error, setError, isDarkMode, isAuthUser } =
     useContext(ConditionContext);
+
   useEffect(() => {
     const getUserData = async (id) => {
       try {
@@ -37,6 +48,7 @@ const UserProfile = () => {
     }
   }, []);
 
+  // sorting last post by time
   const sortingPost = () => {
     if (userData.posts && userData.posts.length > 0) {
       return userData.posts.sort(

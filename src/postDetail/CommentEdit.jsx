@@ -1,6 +1,12 @@
-import axios from "axios";
+// comment edit alert
+
+//use context and use state
 import React, { useContext, useState } from "react";
+//use axios to fetch data
+import axios from "axios";
+//hero icon
 import { XMarkIcon } from "@heroicons/react/24/solid";
+// context api
 import { ConditionContext } from "../context/ConditionContext";
 const CommentEdit = ({ setCommentEditBox, commentId }) => {
   const [updateComment, setUpdateComment] = useState("");

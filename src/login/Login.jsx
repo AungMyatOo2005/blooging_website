@@ -1,23 +1,39 @@
-import { useContext, useEffect, useState } from "react";
+// login page
+
+//use context and use state
+import { useContext, useState } from "react";
+//use hero icon
 import { ArrowLongRightIcon } from "@heroicons/react/20/solid";
+//use navigate
 import { useNavigate } from "react-router-dom";
+//use axios to fetch data
 import axios from "axios";
+//context api
 import { ConditionContext } from "../context/ConditionContext";
 const Login = () => {
+  //dark mode and light mode for user friendly and is authorized or unauthorized user
   const { setIsAuthUser, isDarkMode } = useContext(ConditionContext);
+  //use navigate
   const navigator = useNavigate();
+  //accept data from user
   const [data, setData] = useState({
     emailOrPhone: "",
     password: "",
   });
 
+  // for invalid user data
   const [invalid, setInvalid] = useState(false);
+  //error state
   const [error, setError] = useState("");
+  //on change for input
   const handleChange = (e) => {
     const { name, value } = e.target;
     setData({ ...data, [name]: value });
   };
-  const handleLogin = async () => {
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    //try method
     try {
       const resp = await axios.get(`${import.meta.env.VITE_API_URL}/users`);
       const respData = await resp.data;
@@ -32,14 +48,11 @@ const Login = () => {
       } else {
         setInvalid(true);
       }
+      // cath method
     } catch (err) {
       console.error("Error fetching user data:", error);
       setError("Error fetching user data");
     }
-  };
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    handleLogin();
   };
   const login = (user) => {
     localStorage.setItem("REACT-FRONTEND-FINAL-PROJECT", JSON.stringify(user));

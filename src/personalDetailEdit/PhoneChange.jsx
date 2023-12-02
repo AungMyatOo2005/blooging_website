@@ -1,9 +1,18 @@
+//phone number change
+
+//use effect and use state
 import React, { useEffect, useState } from "react";
-import FormInput from "../register/FormInput";
+//form input El
+import FormInput from "../formInput/FormInput";
+//use navigate
 import { useNavigate } from "react-router-dom";
+//use axios to fetch data
 import axios from "axios";
+
 const PhoneChange = () => {
   const [userDataLs, setUserDataLs] = useState({});
+  const [phone, setPhone] = useState("");
+
   useEffect(() => {
     const user = JSON.parse(
       localStorage.getItem("REACT-FRONTEND-FINAL-PROJECT")
@@ -12,7 +21,7 @@ const PhoneChange = () => {
       setUserDataLs(user);
     }
   }, []);
-  const [phone, setPhone] = useState("");
+
   const onChange = (e) => {
     setPhone(e.target.value);
   };

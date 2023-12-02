@@ -1,9 +1,16 @@
+//email change
+
+//use state and use effect
 import React, { useState, useEffect } from "react";
-import FormInput from "../register/FormInput";
+//form input El
+import FormInput from "../formInput/FormInput";
+// use axios to fetch data
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 const EmailChange = () => {
+  const [email, setEmail] = useState("");
   const [userDataLs, setUserDataLs] = useState({});
+
   useEffect(() => {
     const user = JSON.parse(
       localStorage.getItem("REACT-FRONTEND-FINAL-PROJECT")
@@ -12,7 +19,6 @@ const EmailChange = () => {
       setUserDataLs(user);
     }
   }, []);
-  const [email, setEmail] = useState("");
   const onChange = (e) => {
     setEmail(e.target.value);
   };

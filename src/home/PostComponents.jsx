@@ -1,12 +1,15 @@
-//import style from self-template style
+// use context
 import { useContext } from "react";
+//import style from self-template style
 import styles from "../styles";
 //use navigate
 import { useNavigate } from "react-router-dom";
+//api context
 import { ConditionContext } from "../context/ConditionContext";
 const PostComponents = ({ post }) => {
-  //use navigate to reach detail what user click post
+  //use navigate to reach detail page when user click post
   const navigator = useNavigate();
+  //dark mode and light mode for user friendly
   const { isDarkMode } = useContext(ConditionContext);
   return (
     <div
@@ -15,6 +18,7 @@ const PostComponents = ({ post }) => {
       } flex-col w-full xxs:w-[300px] md:w-[250px] ${
         isDarkMode ? "bg-gray-900" : "bg-slate-400"
       } rounded-[5px]`}
+      // when user click post user will reach to details page
       onClick={() => navigator(`/postDetail/${post.id}`)}
     >
       {post.post_url && (

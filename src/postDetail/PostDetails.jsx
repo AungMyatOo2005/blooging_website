@@ -1,3 +1,5 @@
+//post details page
+
 //axios
 import axios from "axios";
 //use context ,use effect and use state

@@ -4,18 +4,22 @@ import React, { useContext, useState } from "react";
 import { ConditionContext } from "../context/ConditionContext";
 //use hero icon
 import { ArrowLeftIcon } from "@heroicons/react/24/solid";
-import styles from "../styles";
+//profile small box
 import ProfileBox from "../home/ProfileBox";
+//use navigate
 import { useNavigate } from "react-router-dom";
+//use hero icon
 import {
   PencilIcon,
   ArrowRightOnRectangleIcon,
 } from "@heroicons/react/20/solid";
+// logout alert
 import Logout from "../logout/Logout";
 const SideBar = () => {
   const { sideBar, setSideBar, isDarkMode } = useContext(ConditionContext);
   const navigator = useNavigate();
   const [logoutBox, setLogoutBox] = useState(false);
+
   return (
     <>
       {sideBar && (

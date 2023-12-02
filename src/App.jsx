@@ -20,17 +20,29 @@ import UserProfile from "./profile/UserProfile";
 import Login from "./login/Login";
 //Context provider
 import ConditionProvider from "./context/ConditionContext";
+//register page
 import Register from "./register/Register";
+//register success page
 import SuccessRegister from "./success/SuccessRegister";
+//page not found (404 page)
 import NotFoundPage from "./errorpage/NotFoundPage";
+//protected route for login page
 import ProtectedRoute from "./login/ProtectedRoute";
+//personal detail edit page
 import PersonalDetails from "./personalDetailEdit/PersonalDetails";
+//password change 
 import PasswordChange from "./personalDetailEdit/PasswordChange";
+//name change
 import NameChange from "./personalDetailEdit/NameChange";
+//email change
 import EmailChange from "./personalDetailEdit/EmailChange";
+//phone change
 import PhoneChange from "./personalDetailEdit/PhoneChange";
+//profile change
 import ProfileChange from "./personalDetailEdit/ProfileChange";
+//success personal detail edit page
 import SuccessPersonalDetailEdit from "./success/SuccessPersonalDetailEdit";
+//use effect
 import { useEffect } from "react";
 const App = () => {
   useEffect(() => {

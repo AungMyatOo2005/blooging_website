@@ -1,9 +1,13 @@
-import React, { useEffect, useState } from "react";
-import FormInput from "../register/FormInput";
-import axios from "axios";
-import { useNavigate } from "react-router-dom";
+//password change
 
-// ... (your import statements)
+//use effect and use state
+import React, { useEffect, useState } from "react";
+//form input EL
+import FormInput from "../formInput/FormInput";
+//use axios to fetch data
+import axios from "axios";
+//use navigate
+import { useNavigate } from "react-router-dom";
 
 const PasswordChange = () => {
   const navigator = useNavigate();

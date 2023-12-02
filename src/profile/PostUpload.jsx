@@ -1,8 +1,16 @@
+//post upload alert form
+
+//use context and use state
 import React, { useContext, useState } from "react";
+//use axios to fetch data
 import axios from "axios";
+//use moment js to show post upload time
 import moment from "moment/moment";
+//hero icon
 import { XMarkIcon } from "@heroicons/react/24/solid";
+//api context
 import { ConditionContext } from "../context/ConditionContext";
+
 const PostUpload = ({ id, setUploadBox }) => {
   const { isDarkMode } = useContext(ConditionContext);
   const [postValue, setPostValue] = useState({
@@ -27,10 +35,6 @@ const PostUpload = ({ id, setUploadBox }) => {
     create_at: moment().format(),
   };
 
-  const handlePost = async () => {
-    await axios.post(`${import.meta.env.VITE_API_URL}/posts`, postData);
-  };
-
   const handleSubmit = async () => {
     const { content, title, post_url } = postValue;
     if (
@@ -42,6 +46,10 @@ const PostUpload = ({ id, setUploadBox }) => {
     } else {
       alert("Please fill something");
     }
+  };
+
+  const handlePost = async () => {
+    await axios.post(`${import.meta.env.VITE_API_URL}/posts`, postData);
   };
 
   return (

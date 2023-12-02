@@ -1,9 +1,9 @@
-//use context for side bar active
-import { useContext, useState, useEffect } from "react";
+// small user profile box
+
+//use state and use effect
+import { useState, useEffect } from "react";
 ///import style from self-template
 import styles from "../styles";
-//condition context consumer
-import axios from "axios";
 const ProfileBox = ({ style, onClick }) => {
   const [userData, setUserData] = useState([]);
   useEffect(() => {

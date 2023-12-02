@@ -1,9 +1,13 @@
+//use context and use state
 import React, { useContext, useState } from "react";
+//context api
 import { ConditionContext } from "../context/ConditionContext";
+//form input data
 const FormInput = ({ label, value, onChange, errorMessage, ...input }) => {
   const [isBlur, setIsBlur] = useState("false");
   const onfocus = () => [input.name === "confirmPassword" && setIsBlur(true)];
   const { isDarkMode } = useContext(ConditionContext);
+
   return (
     <div className={`flex flex-col items-start mb-10`}>
       <label className="text-gray-200 font-semibold font-Poppins">

@@ -1,5 +1,10 @@
+//login user post
+
+// use context
 import { useContext } from "react";
+//use navigate
 import { useNavigate } from "react-router-dom";
+//api context
 import { ConditionContext } from "../context/ConditionContext";
 
 const AuthUserPost = ({ userData, post }) => {
