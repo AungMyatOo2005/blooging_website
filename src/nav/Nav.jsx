@@ -31,8 +31,8 @@ const Nav = () => {
         >
           {/* page title  */}
           <h1 className="text-white font-semibold text-[18px] sm:text-[26px] md:text-[32px] font-Poppins">
-            <span className=" text-secondary">A</span>ssignment
-            <span className="text-secondary"> S</span>ix
+            <span className=" text-secondary">D</span>aily
+            <span className="text-secondary"> B</span>log
           </h1>
           {/* page nav link  */}
           <ul className="text-white items-center gap-6 text-[16px] md:flex hidden font-Poppins">

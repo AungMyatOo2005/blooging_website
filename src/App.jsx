@@ -46,7 +46,7 @@ import SuccessPersonalDetailEdit from "./success/SuccessPersonalDetailEdit";
 import { useEffect } from "react";
 const App = () => {
   useEffect(() => {
-    document.title = "assignment six";
+    document.title = "Blog Website";
   }, []);
 
   // create browser router for router
