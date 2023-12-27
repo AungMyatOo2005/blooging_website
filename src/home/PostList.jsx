@@ -29,7 +29,7 @@ const PostList = ({ posts }) => {
         <div
           className={`${
             isDarkMode ? "bg-gray-900" : "bg-slate-500"
-          } max-w-fit mx-auto mt-6 py-6 px-6 rounded-md`}
+          } max-w-fit mx-auto mt-6 py-6 px-6 rounded-md mb-6`}
         >
           <h1 className="text-[22px] text-gray-200 font-Poppins font-semibold">
             Please login to see all post
