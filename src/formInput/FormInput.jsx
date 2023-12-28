@@ -5,7 +5,9 @@ import { ConditionContext } from "../context/ConditionContext";
 //form input data
 const FormInput = ({ label, value, onChange, errorMessage, ...input }) => {
   const [isBlur, setIsBlur] = useState("false");
-  const onfocus = () => [input.name === "confirmPassword" && setIsBlur(true)];
+  const onfocus = () => {
+    input.name === "confirmPassword" && setIsBlur(true);
+  };
   const { isDarkMode } = useContext(ConditionContext);
 
   return (
