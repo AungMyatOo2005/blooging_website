@@ -16,7 +16,7 @@ const PostList = ({ posts }) => {
   const { isAuthUser, isDarkMode } = useContext(ConditionContext);
 
   return (
-    <div className="flex flex-col items-center justify-center">
+    <div className={`flex flex-col items-center justify-center ${isDarkMode?"bg-primary":"bg-lightPrimary"}`}>
       <div
         className={`flex flex-wrap justify-evenly gap-[30px] ${styles.paddingX} items-end`}
       >
