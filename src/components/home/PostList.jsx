@@ -1,18 +1,11 @@
-//import styles from self-template
 import styles from "../styles";
-//use context
 import { useContext } from "react";
-//post post components
 import PostComponents from "./PostComponents";
-//api context
 import { ConditionContext } from "../context/ConditionContext";
-//use navigate
 import { useNavigate } from "react-router-dom";
-//hero icon
 import { ArrowLongRightIcon } from "@heroicons/react/24/solid";
 const PostList = ({ posts }) => {
   const navigator = useNavigate();
-  // sorting for last post
   const { isAuthUser, isDarkMode } = useContext(ConditionContext);
 
   return (

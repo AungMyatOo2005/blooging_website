@@ -1,10 +1,5 @@
-//login alert for un authUser when user try to comment
-
-//React
 import React from "react";
-//use navigate
 import { useNavigate } from "react-router-dom";
-//hero icon
 import { ArrowLongRightIcon } from "@heroicons/react/24/solid";
 const LoginAlert = ({ setLoginAlert }) => {
   const navigator = useNavigate();

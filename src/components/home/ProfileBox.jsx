@@ -1,8 +1,4 @@
-// small user profile box
-
-//use state and use effect
 import { useState, useEffect } from "react";
-///import style from self-template
 import styles from "../../styles";
 const ProfileBox = ({ style, onClick }) => {
   const [userData, setUserData] = useState([]);
@@ -18,7 +14,6 @@ const ProfileBox = ({ style, onClick }) => {
     <>
       <div
         className={` flex ${styles.flexCenter} py-2 px-4 gap-3 rounded-lg hover:opacity-90 ${style} select-none`}
-        // if user click side bar will display
         onClick={onClick}
       >
         <img

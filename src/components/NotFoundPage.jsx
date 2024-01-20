@@ -1,6 +1,5 @@
 //404 page
 
-//use react router dom
 import { Link } from "react-router-dom";
 
 const NotFoundPage = () => {

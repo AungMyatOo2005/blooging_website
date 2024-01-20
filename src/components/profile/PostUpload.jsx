@@ -1,14 +1,7 @@
-//post upload alert form
-
-//use context and use state
 import React, { useContext, useState } from "react";
-//use axios to fetch data
 import axios from "axios";
-//use moment js to show post upload time
 import moment from "moment/moment";
-//hero icon
 import { XMarkIcon } from "@heroicons/react/24/solid";
-//api context
 import { ConditionContext } from "../../context/ConditionContext";
 
 const PostUpload = ({ id, setUploadBox }) => {

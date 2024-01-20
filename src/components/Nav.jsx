@@ -1,21 +1,14 @@
-//nav bar
-
 import React, { useContext, useState } from "react";
-import styles from "../../styles";
+import styles from "../styles";
 import { NavLink } from "react-router-dom";
-import ProfileBox from "../home/ProfileBox";
-//hero icon
+import ProfileBox from "./home/ProfileBox";
 import { Bars3BottomRightIcon, XMarkIcon } from "@heroicons/react/24/solid";
-import { ConditionContext } from "../../context/ConditionContext";
-//side bar
-import SideBar from "../sidebar/Sidebar";
+import { ConditionContext } from "../context/ConditionContext";
+import SideBar from "./Sidebar";
 import ToggleSwitch from "./ToggleSwitch";
 const Nav = () => {
-  //for responsive side bar
   const [toggle, setToggle] = useState(false);
-  //is auth user can't see login and register button
   const { isAuthUser, setSideBar, isDarkMode } = useContext(ConditionContext);
-  //using navigate for login and registration
   const handleClick = () => {
     setToggle(false);
     setSideBar(false);
@@ -29,12 +22,10 @@ const Nav = () => {
             isDarkMode ? "bg-gray-900 " : "bg-gray-600"
           } w-full relative`}
         >
-          {/* page title  */}
           <h1 className="text-white font-semibold text-[18px] sm:text-[26px] md:text-[32px] font-Poppins">
             <span className=" text-secondary">D</span>aily
             <span className="text-secondary"> B</span>log
           </h1>
-          {/* page nav link  */}
           <ul className="text-white items-center gap-6 text-[16px] md:flex hidden font-Poppins">
             <NavLink to={"/"} onClick={handleClick}>
               Home
@@ -45,7 +36,6 @@ const Nav = () => {
           </ul>
           {isAuthUser ? (
             <div className="md:flex items-center gap-5 hidden">
-              {/* profile box for auth user  */}
               <ToggleSwitch />
               <ProfileBox
                 style={`w-fit ${isDarkMode ? "bg-dimBlue" : "bg-slate-800"}`}
@@ -54,7 +44,6 @@ const Nav = () => {
             </div>
           ) : (
             <div className="md:flex hidden gap-2 button-box items-center">
-              {/* login and registration button for unauthorized user  */}
               <ToggleSwitch />
               <NavLink to={"/login"}>
                 <button
@@ -77,7 +66,6 @@ const Nav = () => {
               </NavLink>
             </div>
           )}
-          {/* for responsive design  */}
           <button
             className="md:hidden flex"
             onClick={() => {

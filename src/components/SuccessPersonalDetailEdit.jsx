@@ -1,10 +1,5 @@
-//success personal detail will show when changes are success
-
-//use context
 import { useContext } from "react";
-//use navigate
 import { useNavigate } from "react-router-dom";
-//context api
 import { ConditionContext } from "../context/ConditionContext";
 
 const SuccessPersonalDetailEdit = () => {

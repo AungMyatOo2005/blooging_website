@@ -1,16 +1,8 @@
-//Register form
-
-//use context and use state
 import { useContext, useState } from "react";
-//form input el
 import FormInput from "../FormInput";
-// use axios to fetch data
 import axios from "axios";
-//use navigate
 import { useNavigate } from "react-router-dom";
-//use hero icon
 import { ArrowLongRightIcon } from "@heroicons/react/20/solid";
-//context api
 import { ConditionContext } from "../../context/ConditionContext";
 const Register = () => {
   const { isDarkMode } = useContext(ConditionContext);
@@ -39,7 +31,7 @@ const Register = () => {
   const handleRegister = async () => {
     try {
       await axios.post(`${import.meta.env.VITE_API_URL}/users`, updateUserData);
-      setError(null); // Reset error state if registration is successful
+      setError(null);
       successRegister();
     } catch (error) {
       console.error("Error fetching user data:", error);

@@ -1,12 +1,6 @@
-//phone number change
-
-//use effect and use state
 import React, { useEffect, useState } from "react";
-//form input El
 import FormInput from "../formInput/FormInput";
-//use navigate
 import { useNavigate } from "react-router-dom";
-//use axios to fetch data
 import axios from "axios";
 
 const PhoneChange = () => {

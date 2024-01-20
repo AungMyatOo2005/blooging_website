@@ -1,10 +1,5 @@
-// comment delete alert
-
-//use context
 import React, { useContext } from "react";
-//use axios to fetch data
 import axios from "axios";
-//context api
 import { ConditionContext } from "../context/ConditionContext";
 
 const CommentDelete = ({ setCommentDelete, commentId }) => {

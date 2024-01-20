@@ -1,8 +1,5 @@
-//use context and use state
 import React, { useContext, useState } from "react";
-//context api
 import { ConditionContext } from "../context/ConditionContext";
-//form input data
 const FormInput = ({ label, value, onChange, errorMessage, ...input }) => {
   const [isBlur, setIsBlur] = useState("false");
   const onfocus = () => {

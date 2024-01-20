@@ -1,10 +1,5 @@
-//email change
-
-//use state and use effect
 import React, { useState, useEffect } from "react";
-//form input El
 import FormInput from "../formInput/FormInput";
-// use axios to fetch data
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 const EmailChange = () => {

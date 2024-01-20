@@ -1,16 +1,8 @@
-//comment in details page
-
-//to get comment and comment creator
 import { useContext, useEffect, useState } from "react";
-//comment components
 import CommentComponent from "./CommentComponent";
-//use hero icon
 import { ArrowRightCircleIcon } from "@heroicons/react/20/solid";
-//use axios to fetch data
 import axios from "axios";
-//use moment js to comment take time
 import moment from "moment/moment";
-//login alert for un authUser when user try to comment
 import LoginAlert from "./LoginAlert";
 import { ConditionContext } from "../context/ConditionContext";
 const Comments = ({ comments, post }) => {
@@ -49,7 +41,6 @@ const Comments = ({ comments, post }) => {
       : setLoginAlert(true);
   };
 
-  //sorting last comment by time
   const sortingComment = () => {
     if (comments && comments.length > 0) {
       return comments.sort(

@@ -1,12 +1,6 @@
-//post edit alert form
-
-//use context and use state
 import React, { useContext, useState } from "react";
-//hero icon
 import { XMarkIcon } from "@heroicons/react/24/solid";
-//use axios for fetch
 import axios from "axios";
-//context api
 import { ConditionContext } from "../../context/ConditionContext";
 const PostEdit = ({ setPostEdit, post }) => {
   const { isDarkMode } = useContext(ConditionContext);

@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { MoonIcon, SunIcon } from "@heroicons/react/24/solid";
-import { ConditionContext } from "../../context/ConditionContext";
+import { ConditionContext } from "../context/ConditionContext";
 
 const ToggleSwitch = () => {
   const { isDarkMode, setIsDarkMode } = useContext(ConditionContext);

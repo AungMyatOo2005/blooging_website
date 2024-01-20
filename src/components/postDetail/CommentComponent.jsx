@@ -1,25 +1,13 @@
-// each comments component
-
-//useEffect and useState
 import React, { useContext, useEffect, useState } from "react";
-//use axios to fetch data from json
 import axios from "axios";
-//to show loading state
 import Loading from "../loading/Loading";
-//use hero icon
 import { EllipsisHorizontalIcon } from "@heroicons/react/24/solid";
-//comment delete alert
 import CommentDelete from "./CommentDelete";
-//comment edit alert
 import CommentEdit from "./CommentEdit";
-//context api
 import { ConditionContext } from "../context/ConditionContext";
-//comment creator array data
 const CommentsComponent = ({ id, userId, post }) => {
   const [comment, setComment] = useState([]);
-  //loading state
   const [isLoading, setIsLoading] = useState(true);
-  //error state
   const [err, setErr] = useState("");
   const [isHover, setIsHover] = useState(false);
   const [isActiveCmt, setIsActiveCmt] = useState(false);
@@ -29,12 +17,9 @@ const CommentsComponent = ({ id, userId, post }) => {
   useEffect(() => {
     const getCommentsList = async () => {
       try {
-        const resp = await axios.get(
-          `${import.meta.env.VITE_API_URL}/comments/${id}?_expand=user` //fetch data what post user click
-        );
+        const resp = await axios.get();
         setComment(await resp.data);
       } catch (err) {
-        setErr(`Error Fetching Data:${err.message}`); //error state
       } finally {
         setIsLoading(false);
       }

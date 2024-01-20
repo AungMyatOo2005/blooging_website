@@ -1,23 +1,11 @@
-//post details page
-
-//axios
 import axios from "axios";
-//use context ,use effect and use state
 import React, { useContext, useEffect, useState } from "react";
-//use params to get user click post id and use navigate to back
 import { useNavigate, useParams } from "react-router-dom";
-// import styles from self-template
 import styles from "../styles";
-//use react loader to show loading state
 import ContentLoader from "react-content-loader";
-//comments
 import Comments from "./Comments";
-//use hero icons
 import { XMarkIcon, EllipsisHorizontalIcon } from "@heroicons/react/20/solid";
-//context
 import { ConditionContext } from "../context/ConditionContext";
-//edit and delete alert box
-//delete sure box
 import PostDelete from "./PostDelete";
 import PostEdit from "./PostEdit";
 const PostDetails = () => {
@@ -25,7 +13,7 @@ const PostDetails = () => {
   const [post, setPost] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [err, setErr] = useState("");
-  const { id } = useParams(); //get id by useParams
+  const { id } = useParams();
   const { isAuthUser, isDarkMode } = useContext(ConditionContext);
   const [isActive, setIsActive] = useState(false);
   const [postDelete, setPostDelete] = useState(false);
@@ -36,11 +24,11 @@ const PostDetails = () => {
         const resp = await axios.get(
           `${
             import.meta.env.VITE_API_URL
-          }/posts/${id}?_embed=comments&_expand=user` //fetch data what post user click
+          }/posts/${id}?_embed=comments&_expand=user`
         );
         setPost(await resp.data);
       } catch (err) {
-        setErr(`Error Fetching Data:${err.message}`); //error state
+        setErr(`Error Fetching Data:${err.message}`);
       } finally {
         setIsLoading(false);
       }
@@ -111,7 +99,6 @@ const PostDetails = () => {
               )}
               {isActive && (
                 <div className=" absolute flex flex-col items-center gap-3 bg-gray-500 py-2 px-5 rounded-md sm:right-[-9rem] sm:top-[3rem] right-0 top-20">
-                  {/* if click delete alert box will display and aks confirm delete and cancel (auth user only can make this ) */}
                   <button
                     className={`${
                       isDarkMode

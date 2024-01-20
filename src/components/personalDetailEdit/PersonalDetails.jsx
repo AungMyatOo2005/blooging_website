@@ -1,21 +1,14 @@
-//personal detail edit
-
 import { useContext, useEffect, useState } from "react";
-//use react touter dom
 import { NavLink, Outlet, useNavigate } from "react-router-dom";
-//hero icon
 import { ChevronUpIcon, ChevronDownIcon } from "@heroicons/react/20/solid";
-//context api
 import { ConditionContext } from "../context/ConditionContext";
-//content loader
-import ContentLoader from 'react-content-loader'
+import ContentLoader from "react-content-loader";
 import axios from "axios";
 const PersonalDetails = () => {
   const [isUser, setIsUser] = useState(false);
   const [toggle, setToggle] = useState(false);
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
-  // dark mode light mode
   const { isDarkMode } = useContext(ConditionContext);
   const activeStyle = ({ isActive }) => {
     return {
@@ -28,12 +21,10 @@ const PersonalDetails = () => {
       try {
         await axios.get(`${import.meta.env.VITE_API_URL}/users/${id}`);
       } catch (error) {
-        //catch error
         console.error("Error fetching data:", error);
         setError("An error occurred while fetching data.");
         setIsLoading(false);
       } finally {
-        //finally set loading is false
         setIsLoading(false);
       }
     };
