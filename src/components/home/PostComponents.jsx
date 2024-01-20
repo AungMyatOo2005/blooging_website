@@ -1,11 +1,11 @@
 // use context
 import { useContext } from "react";
 //import style from self-template style
-import styles from "../styles";
+import styles from "../../styles";
 //use navigate
 import { useNavigate } from "react-router-dom";
 //api context
-import { ConditionContext } from "../context/ConditionContext";
+import { ConditionContext } from "../../context/ConditionContext";
 const PostComponents = ({ post }) => {
   //use navigate to reach detail page when user click post
   const navigator = useNavigate();

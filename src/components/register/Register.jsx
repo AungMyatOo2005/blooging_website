@@ -3,7 +3,7 @@
 //use context and use state
 import { useContext, useState } from "react";
 //form input el
-import FormInput from "../formInput/FormInput";
+import FormInput from "../FormInput";
 // use axios to fetch data
 import axios from "axios";
 //use navigate
@@ -11,7 +11,7 @@ import { useNavigate } from "react-router-dom";
 //use hero icon
 import { ArrowLongRightIcon } from "@heroicons/react/20/solid";
 //context api
-import { ConditionContext } from "../context/ConditionContext";
+import { ConditionContext } from "../../context/ConditionContext";
 const Register = () => {
   const { isDarkMode } = useContext(ConditionContext);
   const navigator = useNavigate();

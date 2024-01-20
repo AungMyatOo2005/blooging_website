@@ -1,7 +1,7 @@
 //use context
 import React, { useContext, useState } from "react";
 //context
-import { ConditionContext } from "../context/ConditionContext";
+import { ConditionContext } from "../../context/ConditionContext";
 //use hero icon
 import { ArrowLeftIcon } from "@heroicons/react/24/solid";
 //profile small box

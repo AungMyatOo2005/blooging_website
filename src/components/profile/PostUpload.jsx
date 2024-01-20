@@ -9,7 +9,7 @@ import moment from "moment/moment";
 //hero icon
 import { XMarkIcon } from "@heroicons/react/24/solid";
 //api context
-import { ConditionContext } from "../context/ConditionContext";
+import { ConditionContext } from "../../context/ConditionContext";
 
 const PostUpload = ({ id, setUploadBox }) => {
   const { isDarkMode } = useContext(ConditionContext);

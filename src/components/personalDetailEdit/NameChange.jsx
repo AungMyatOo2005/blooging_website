@@ -3,7 +3,7 @@
 //use state and use effect
 import React, { useEffect, useState } from "react";
 //form input EL
-import FormInput from "../formInput/FormInput";
+import FormInput from "../FormInput";
 //use axios to fetch data
 import axios from "axios";
 //use navigate

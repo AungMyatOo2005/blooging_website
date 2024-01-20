@@ -1,7 +1,7 @@
 //use react content load for loading
 import ContentLoader from "react-content-loader";
 //import style from self-template
-import styles from "../styles";
+import styles from "../../styles";
 const Loading = ({ style }) => {
   //using array method to show 8 loading box
   const loaderItems = Array.from({ length: 8 }, (_, index) => (

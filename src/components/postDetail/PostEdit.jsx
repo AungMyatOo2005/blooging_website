@@ -7,7 +7,7 @@ import { XMarkIcon } from "@heroicons/react/24/solid";
 //use axios for fetch
 import axios from "axios";
 //context api
-import { ConditionContext } from "../context/ConditionContext";
+import { ConditionContext } from "../../context/ConditionContext";
 const PostEdit = ({ setPostEdit, post }) => {
   const { isDarkMode } = useContext(ConditionContext);
   const [postData, setPostData] = useState({

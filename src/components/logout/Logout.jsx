@@ -5,7 +5,7 @@ import React, { useContext } from "react";
 //use navigate
 import { useNavigate } from "react-router-dom";
 //context api
-import { ConditionContext } from "../context/ConditionContext";
+import { ConditionContext } from "../../context/ConditionContext";
 
 const Logout = ({ setLogoutBox }) => {
   const handleDeleteUserData = () => {

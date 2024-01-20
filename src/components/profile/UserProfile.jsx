@@ -9,7 +9,7 @@ import axios from "axios";
 //use content loader to show loading state
 import ContentLoader from "react-content-loader";
 //context api
-import { ConditionContext } from "../context/ConditionContext";
+import { ConditionContext } from "../../context/ConditionContext";
 //hero icon
 import { ArrowLongRightIcon, PlusIcon } from "@heroicons/react/24/solid";
 //use navigate

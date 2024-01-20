@@ -3,7 +3,7 @@
 //use state and use effect
 import { useState, useEffect } from "react";
 ///import style from self-template
-import styles from "../styles";
+import styles from "../../styles";
 const ProfileBox = ({ style, onClick }) => {
   const [userData, setUserData] = useState([]);
   useEffect(() => {
