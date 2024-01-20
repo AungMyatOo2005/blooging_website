@@ -16,9 +16,13 @@ const PostList = ({ posts }) => {
   const { isAuthUser, isDarkMode } = useContext(ConditionContext);
 
   return (
-    <div className="flex flex-col items-center justify-center">
+    <div
+      className={`flex flex-col items-center justify-center ${
+        isDarkMode ? "bg-primary" : "bg-lightPrimary"
+      }`}
+    >
       <div
-        className={`flex flex-wrap justify-evenly gap-[30px] ${styles.paddingX} items-end`}
+        className={` grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-[30px] ${styles.paddingX}`}
       >
         {posts.map((post) => (
           <PostComponents post={post} key={post.id} />
