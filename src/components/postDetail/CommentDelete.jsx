@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import axios from "axios";
-import { ConditionContext } from "../context/ConditionContext";
+import { ConditionContext } from "../../context/ConditionContext";
 
 const CommentDelete = ({ setCommentDelete, commentId }) => {
   const { isDarkMode } = useContext(ConditionContext);

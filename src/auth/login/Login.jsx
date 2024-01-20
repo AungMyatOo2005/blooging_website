@@ -2,7 +2,7 @@ import { useContext, useState } from "react";
 import { ArrowLongRightIcon } from "@heroicons/react/20/solid";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import { ConditionContext } from "../context/ConditionContext";
+import { ConditionContext } from "../../context/ConditionContext";
 const Login = () => {
   const { setIsAuthUser, isDarkMode } = useContext(ConditionContext);
   const navigator = useNavigate();

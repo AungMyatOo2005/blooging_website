@@ -1,9 +1,9 @@
 import { useContext, useEffect, useState } from "react";
 import { NavLink, Outlet, useNavigate } from "react-router-dom";
 import { ChevronUpIcon, ChevronDownIcon } from "@heroicons/react/20/solid";
-import { ConditionContext } from "../context/ConditionContext";
 import ContentLoader from "react-content-loader";
 import axios from "axios";
+import { ConditionContext } from "../../context/ConditionContext";
 const PersonalDetails = () => {
   const [isUser, setIsUser] = useState(false);
   const [toggle, setToggle] = useState(false);

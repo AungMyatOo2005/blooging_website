@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import { ConditionContext } from "../context/ConditionContext";
+import { ConditionContext } from "../../context/ConditionContext";
 
 const PostDelete = ({ setPostDelete, postId }) => {
   const navigator = useNavigate();

@@ -1,10 +1,10 @@
 import { useContext, useEffect, useState } from "react";
-import CommentComponent from "./CommentComponent";
+import Comment from "./Comment";
 import { ArrowRightCircleIcon } from "@heroicons/react/20/solid";
 import axios from "axios";
 import moment from "moment/moment";
 import LoginAlert from "./LoginAlert";
-import { ConditionContext } from "../context/ConditionContext";
+import { ConditionContext } from "../../context/ConditionContext";
 const Comments = ({ comments, post }) => {
   const [comment, setComment] = useState("");
   const [userId, setUserId] = useState(null);
@@ -56,7 +56,7 @@ const Comments = ({ comments, post }) => {
       {loginAlert && <LoginAlert setLoginAlert={setLoginAlert} />}
       {sortCommentValue.map((comment) => (
         <div className="" key={comment.id}>
-          <CommentComponent id={comment.id} userId={userId} post={post} />
+          <Comment id={comment.id} userId={userId} post={post} />
         </div>
       ))}
       <form className="flex items-center gap-5" onSubmit={handleSubmit}>

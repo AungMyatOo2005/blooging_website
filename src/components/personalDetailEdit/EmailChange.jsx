@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import FormInput from "../formInput/FormInput";
+import FormInput from "../FormInput";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 const EmailChange = () => {

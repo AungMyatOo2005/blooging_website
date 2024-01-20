@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import axios from "axios";
 import { XMarkIcon } from "@heroicons/react/24/solid";
-import { ConditionContext } from "../context/ConditionContext";
+import { ConditionContext } from "../../context/ConditionContext";
 const CommentEdit = ({ setCommentEditBox, commentId }) => {
   const [updateComment, setUpdateComment] = useState("");
   const { isDarkMode } = useContext(ConditionContext);

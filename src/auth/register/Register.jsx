@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import FormInput from "../FormInput";
+import FormInput from "../../components/FormInput";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { ArrowLongRightIcon } from "@heroicons/react/20/solid";

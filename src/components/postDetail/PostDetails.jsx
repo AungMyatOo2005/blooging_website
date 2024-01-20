@@ -1,11 +1,11 @@
 import axios from "axios";
 import React, { useContext, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import styles from "../styles";
+import styles from "../../styles";
 import ContentLoader from "react-content-loader";
 import Comments from "./Comments";
 import { XMarkIcon, EllipsisHorizontalIcon } from "@heroicons/react/20/solid";
-import { ConditionContext } from "../context/ConditionContext";
+import { ConditionContext } from "../../context/ConditionContext";
 import PostDelete from "./PostDelete";
 import PostEdit from "./PostEdit";
 const PostDetails = () => {

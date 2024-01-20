@@ -1,11 +1,11 @@
 import React, { useContext, useEffect, useState } from "react";
 import axios from "axios";
-import Loading from "../loading/Loading";
+import Loading from "../Loading";
 import { EllipsisHorizontalIcon } from "@heroicons/react/24/solid";
 import CommentDelete from "./CommentDelete";
 import CommentEdit from "./CommentEdit";
-import { ConditionContext } from "../context/ConditionContext";
-const CommentsComponent = ({ id, userId, post }) => {
+import { ConditionContext } from "../../context/ConditionContext";
+const Comments = ({ id, userId, post }) => {
   const [comment, setComment] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [err, setErr] = useState("");
@@ -71,7 +71,6 @@ const CommentsComponent = ({ id, userId, post }) => {
               )}
             {isActiveCmt && (
               <div className=" absolute flex flex-col items-center gap-3 bg-gray-500 py-2 px-5 rounded-md sm:right-[-9rem] sm:top-[3rem] right-0 top-10">
-                {/* if click delete alert box will display and aks confirm delete and cancel (auth user only can make this ) */}
                 <button
                   className={`${
                     isDarkMode
@@ -132,4 +131,4 @@ const CommentsComponent = ({ id, userId, post }) => {
   );
 };
 
-export default CommentsComponent;
+export default Comments;

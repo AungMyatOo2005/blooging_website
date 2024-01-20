@@ -1,8 +1,8 @@
 import React, { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import PostList from "./PostList";
-import Loading from "../loading/Loading";
-import { ConditionContext } from "../context/ConditionContext";
+import Loading from "../Loading";
+import { ConditionContext } from "../../context/ConditionContext";
 import Pagination from "./Pagination";
 const Home = () => {
   const [posts, setPosts] = useState([]);

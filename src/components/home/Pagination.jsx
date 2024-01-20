@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { ConditionContext } from "../context/ConditionContext";
+import { ConditionContext } from "../../context/ConditionContext";
 
 const Pagination = ({
   totalPosts,

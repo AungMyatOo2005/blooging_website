@@ -1,7 +1,7 @@
-import styles from "../styles";
+import styles from "../../styles";
 import { useContext } from "react";
 import PostComponents from "./PostComponents";
-import { ConditionContext } from "../context/ConditionContext";
+import { ConditionContext } from "../../context/ConditionContext";
 import { useNavigate } from "react-router-dom";
 import { ArrowLongRightIcon } from "@heroicons/react/24/solid";
 const PostList = ({ posts }) => {

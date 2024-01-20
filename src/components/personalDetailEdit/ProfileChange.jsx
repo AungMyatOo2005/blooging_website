@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import FormInput from "../formInput/FormInput";
+import FormInput from "../FormInput";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 const ProfileChange = ({}) => {

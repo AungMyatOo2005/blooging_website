@@ -6,22 +6,22 @@ import {
   createRoutesFromElements,
 } from "react-router-dom";
 import Layout from "./layout/Layout";
-import Home from "./home/Home";
-import PostDetails from "./postDetail/PostDetails";
-import UserProfile from "./profile/UserProfile";
-import Login from "./login/Login";
+import Home from "./components/home/Home";
+import PostDetails from "./components/postDetail/PostDetails";
+import UserProfile from "./components/profile/UserProfile";
+import Login from "./auth/login/Login";
 import ConditionProvider from "./context/ConditionContext";
-import Register from "./register/Register";
-import SuccessRegister from "./success/SuccessRegister";
-import NotFoundPage from "./errorpage/NotFoundPage";
-import ProtectedRoute from "./login/ProtectedRoute";
-import PersonalDetails from "./personalDetailEdit/PersonalDetails";
-import PasswordChange from "./personalDetailEdit/PasswordChange";
-import NameChange from "./personalDetailEdit/NameChange";
-import EmailChange from "./personalDetailEdit/EmailChange";
-import PhoneChange from "./personalDetailEdit/PhoneChange";
-import ProfileChange from "./personalDetailEdit/ProfileChange";
-import SuccessPersonalDetailEdit from "./success/SuccessPersonalDetailEdit";
+import Register from "./auth/register/Register";
+import SuccessRegister from "./components/SuccessRegister";
+import NotFoundPage from "./components/NotFoundPage";
+import ProtectedRoute from "./auth/login/ProtectedRoute";
+import PersonalDetails from "./components/personalDetailEdit/PersonalDetails";
+import PasswordChange from "./components/personalDetailEdit/PasswordChange";
+import NameChange from "./components/personalDetailEdit/NameChange";
+import EmailChange from "./components/personalDetailEdit/EmailChange";
+import PhoneChange from "./components/personalDetailEdit/PhoneChange";
+import ProfileChange from "./components/personalDetailEdit/ProfileChange";
+import SuccessPersonalDetailEdit from "./components/SuccessPersonalDetailEdit";
 import { useEffect } from "react";
 const App = () => {
   useEffect(() => {
