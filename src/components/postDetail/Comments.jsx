@@ -18,7 +18,6 @@ const Comments = ({ comments, post }) => {
       setUserId(authUserData.id);
     }
   }, []);
-
   const commentData = {
     userId: userId,
     postId: post.id,
@@ -55,7 +54,7 @@ const Comments = ({ comments, post }) => {
     <div className="flex flex-col gap-5">
       {loginAlert && <LoginAlert setLoginAlert={setLoginAlert} />}
       {sortCommentValue.map((comment) => (
-        <div className="" key={comment.id}>
+        <div key={comment.id}>
           <Comment id={comment.id} userId={userId} post={post} />
         </div>
       ))}

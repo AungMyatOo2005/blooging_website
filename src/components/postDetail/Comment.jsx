@@ -17,7 +17,9 @@ const Comments = ({ id, userId, post }) => {
   useEffect(() => {
     const getCommentsList = async () => {
       try {
-        const resp = await axios.get();
+        const resp = await axios.get(
+          `${import.meta.env.VITE_API_URL}/comments/${id}?_expand=user`
+        );
         setComment(await resp.data);
       } catch (err) {
       } finally {
@@ -26,6 +28,7 @@ const Comments = ({ id, userId, post }) => {
     };
     getCommentsList();
   }, []);
+  console.log(comment);
   return (
     <div className="w-full">
       {isLoading && <Loading style={"flex-col"} />}
@@ -97,15 +100,15 @@ const Comments = ({ id, userId, post }) => {
             )}
             <div className="flex items-center gap-3">
               <img
-                src={comment.user.profileUrl}
-                className="w-[50px] rounded-full"
+                src={comment.user?.profileUrl}
+                className="w-[50px] h-[50px] object-cover rounded-full"
               />
               <h4
                 className={`${
                   isDarkMode ? "text-gray-300" : "text-gray-700"
                 } font-semibold font-Poppins`}
               >
-                {comment.user.username}
+                {comment.user?.username}
               </h4>
             </div>
             <div className="py-2">

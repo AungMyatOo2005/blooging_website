@@ -18,6 +18,7 @@ const PostDetails = () => {
   const [isActive, setIsActive] = useState(false);
   const [postDelete, setPostDelete] = useState(false);
   const [postEdit, setPostEdit] = useState(false);
+
   useEffect(() => {
     const getPost = async () => {
       try {
